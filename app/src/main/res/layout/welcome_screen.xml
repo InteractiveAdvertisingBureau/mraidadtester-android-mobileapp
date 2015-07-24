@@ -40,26 +40,7 @@
 
   
 
-        <Button
-            android:id="@+id/button_start"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/welcome_bottom_text"
-            
-			android:paddingTop="@dimen/default_running_text_size_small_very_very"
-			android:paddingBottom="@dimen/default_running_text_size_small_very_very"
-            android:paddingLeft="@dimen/default_running_text_size_large"
-            android:paddingRight="@dimen/default_running_text_size_large"
-           
-            android:layout_gravity="center"
-            android:textColor="@android:color/white" 
-			android:background="@color/red"
-			android:textStyle="bold"
-            android:textSize="@dimen/default_text_size_small_very" 
-            
-            android:layout_alignParentBottom="true"
-        	android:layout_alignParentLeft="true"
-            />
+
         
         
         
@@ -73,7 +54,7 @@
             android:gravity="center_vertical"
             android:orientation="vertical"
             
-            android:layout_marginTop="@dimen/default_margin_from_top_large"
+            android:layout_marginTop="@dimen/default_margin_from_top_large_very"
             android:paddingLeft="@dimen/default_running_text_size_large" >
 
             <TextView
@@ -83,7 +64,7 @@
                 android:layout_centerVertical="true"
                 
                 android:text="@string/welcome_center_heading"
-                android:textAllCaps="true"
+
                 android:textColor="@color/red"
                 android:textSize="@dimen/default_running_text_size_large"
                 android:textStyle="bold" />
@@ -103,7 +84,7 @@
             android:layout_below="@id/app_heading"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            android:layout_marginTop="@dimen/default_running_text_size_large"
+            android:layout_marginTop="@dimen/default_margin_from_top_large_very_very"
             android:paddingLeft="@dimen/default_running_text_size_large" >
 
             
@@ -149,6 +130,28 @@
              android:text=""
              android:textAllCaps="false"
              android:textColor="@android:color/black"
-             android:textSize="@dimen/default_text_size_small_very" />
-        
+             android:textSize="@dimen/default_running_text_size_small" />
+
+
+
+    <Button
+        android:id="@+id/button_start"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/bottom_navigation_menu_height"
+        android:text="@string/welcome_bottom_text"
+
+        android:gravity="center_horizontal|center_vertical"
+
+        android:textColor="@android:color/white"
+        android:background="@color/red"
+        android:textStyle="bold"
+        android:textSize="@dimen/default_running_text_size_small"
+
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        />
+
+
+
+
 </RelativeLayout>

@@ -14,18 +14,22 @@
                  
                 <dimen name="default_slider_width">280px</dimen>
 
-	<dimen name="nav_drawer_width">380px</dimen>
+	<dimen name="nav_drawer_width">320px</dimen>
 	<dimen name="center_content_area_height">600px</dimen>
     
-    <!-- Header text size -->
-    
+
+	<!-- Header text size -->
     	<dimen name="default_header_text_size">20px</dimen>
     		<dimen name="default_header_height">50px</dimen>
 				<dimen name="default_header_padding_small_very_very">10px</dimen>
 
 
-    	
-               
+    <!-- Bottom Button height -->
+		<dimen name="default_bottom_button_height">50px</dimen>
+
+	<!-- Bottom Button height -->
+	<dimen name="deafult_banner_height">50px</dimen>
+
                
     	<!-- splash screen -->
     	
@@ -36,6 +40,8 @@
     	<!-- welcome screen -->
     	
     	<dimen name="default_running_text_size_large">40px</dimen>
+
+		<dimen name="default_running_text_size_medium">30px</dimen>
     		<dimen name="default_running_text_size_small">26px</dimen>
     			<dimen name="default_running_text_size_small_very">16px</dimen>
     			<dimen name="default_running_text_size_small_very_very">12px</dimen>
@@ -46,11 +52,21 @@
 
 
 		<!-- login screen -->
-		<dimen name="login_box_conatainer_size_large">350px</dimen>
+		<dimen name="login_box_container_size_large">350px</dimen>
+
+
+		<!-- Navigation drwawer width -->
+		<dimen name="navigation_drawer_width">400px</dimen>
 
 		<!-- home screen -->
 		<dimen name="home_navigation_menu_height">50px</dimen>
 
 		<dimen name="bottom_navigation_menu_height">75px</dimen>
-    
+
+
+	<!-- add Tag Fragment -->
+
+	<dimen name="add_tag_edittext_height">240px</dimen>
+
+
 </resources>

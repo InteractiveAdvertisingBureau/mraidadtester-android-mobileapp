@@ -35,7 +35,7 @@
                 android:text="Edit"
                 android:textColor="@color/white"
                 android:padding="@dimen/default_running_text_size_small_very_very"
-                android:textSize="@dimen/default_text_size_small_very"/>
+                android:textSize="@dimen/default_running_text_size_medium"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -46,7 +46,7 @@
                 android:textColor="@color/white"
                 android:drawableEnd="@drawable/next_arrow"
                 android:drawableRight="@drawable/settings_icon"
-                android:textSize="@dimen/default_text_size_small_very"/>
+                android:textSize="@dimen/default_running_text_size_medium"/>
 
         </LinearLayout>
 

@@ -10,32 +10,21 @@
     <RelativeLayout
         android:id="@+id/top_header"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/default_header_height"
-        android:gravity="center"
+        android:layout_height="@dimen/bottom_navigation_menu_height"
+        android:gravity="center_vertical"
         android:layout_alignParentTop="true"
         android:background="#ffffff" >
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/default_header_height"
-            
-            android:layout_alignParentLeft="true"
-            android:gravity="center"
-            android:orientation="horizontal" >
+
 
             <LinearLayout
                 android:id="@+id/back_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center" 
-                
+                android:gravity="center"
+                android:layout_alignParentLeft="true"
                >
 
- 			<ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:src="@drawable/back_arrow" />
  			
  			 <TextView
             	android:id="@+id/iab_title"
@@ -44,12 +33,15 @@
             	android:layout_centerHorizontal="true"
             	android:layout_centerVertical="true"
             	android:text="@string/header_back"
+                android:drawableStart="@drawable/back_arrow"
+
+                android:drawableLeft="@drawable/back_arrow"
             	android:textColor="@color/red"
-            	android:textSize="@dimen/default_header_text_size" />
-            
-		</LinearLayout>
-		
+                android:textStyle="bold"
+            	android:textSize="@dimen/default_running_text_size_medium" />
+
         </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/ll_done"
@@ -67,26 +59,29 @@
     </RelativeLayout>
     
      <LinearLayout
+         android:id="@+id/center_heading_llayout"
        	android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" 
-       	android:layout_above="@+id/center_box_container"
-       	android:layout_marginBottom="@dimen/default_margin_from_top_large"
-        android:paddingLeft="@dimen/default_running_text_size_large"
+       	android:layout_below="@+id/top_header"
+
+        android:layout_marginTop="@dimen/default_running_text_size_large"
         android:gravity="center">
 
         <TextView
             android:id="@+id/center_heading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="left"
+            android:gravity="center"
             android:text="@string/welcome_bottom_text"
             
             android:textAllCaps="true"
             android:textColor="@color/red"
             android:textStyle="bold"
-            android:textSize="@dimen/default_running_text_size_large" />
+            android:textSize="@dimen/default_running_text_size_medium" />
     </LinearLayout>
+
+
 
     <LinearLayout
         android:id="@+id/center_box_container"
@@ -94,10 +89,9 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" 
         android:layout_centerVertical="true"
-        android:padding="@dimen/default_running_text_size_large"
+        android:padding="@dimen/default_running_text_size_small"
         android:gravity="center">
 
-        
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -110,8 +104,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Name                "
-                android:textSize="@dimen/default_running_text_size_small_very" />
+                android:text="Name            "
+                android:textSize="@dimen/default_running_text_size_small"
+                android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/user_name_editText"
@@ -121,17 +116,18 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:maxLength="20"
+                android:hint="@string/hint_username"
                  >
             </EditText>
 
         </LinearLayout>
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="2px"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/default_text_size_small_very_extra"
-            android:background="@color/grey"></LinearLayout>
+            android:background="@color/grey"/>
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -146,8 +142,9 @@
         		    android:layout_width="wrap_content"
         		    android:layout_height="wrap_content"
         		    android:gravity="left"
-        		    android:text="Company         "
-        		    android:textSize="@dimen/default_running_text_size_small_very" />
+        		    android:text="Company     "
+        		    android:textSize="@dimen/default_running_text_size_small"
+                    android:textStyle="bold"/>
 		     
 		        <EditText
 	        	    android:id="@+id/company_name_editText"
@@ -157,17 +154,18 @@
 
 	        	    android:maxLength="20"
 	        	    android:background="@android:color/white"
-	        	    android:inputType="text" >
+	        	    android:inputType="text"
+                    android:hint="@string/hint_company_name">
 				</EditText>
 		        
 		   	</LinearLayout>
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="2px"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/default_text_size_small_very_extra"
-            android:background="@color/grey"></LinearLayout>
+            android:background="@color/grey"/>
         	
         	
         	<LinearLayout
@@ -184,8 +182,9 @@
         		    android:layout_height="wrap_content"
         		    android:gravity="left"
         		    
-        		    android:textSize="@dimen/default_running_text_size_small_very"
-        		    android:text="Email               " />
+        		    android:textSize="@dimen/default_running_text_size_small"
+        		    android:text="Email             "
+                    android:textStyle="bold"/>
 		     
 		        <EditText
 	        	    android:id="@+id/user_email_editText"
@@ -196,18 +195,19 @@
 	        	    android:paddingRight="@dimen/default_text_size_small_very_extra"
 	        	    android:maxLength="20"
 	        	    android:background="@android:color/white"
-	        	    android:inputType="textEmailAddress" >
+	        	    android:inputType="textEmailAddress"
+                    android:hint="@string/hint_email">
                 </EditText>
 		        
 		   	</LinearLayout>
 
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="2px"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/default_text_size_small_very_extra"
-            android:background="@color/grey"></LinearLayout>
+            android:background="@color/grey"/>
 
         
     </LinearLayout>
@@ -221,7 +221,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/center_box_container"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/default_margin_from_top_large_very"
+        android:layout_marginTop="@dimen/default_running_text_size_small"
         android:orientation="vertical"
         android:gravity="center" >
         
@@ -232,7 +232,7 @@
             android:gravity="center"
             android:text="@string/policy_text"
            
-            android:textSize="@dimen/default_running_text_size_small_very_very" />
+            android:textSize="@dimen/default_text_size" />
         
         <TextView
             android:id="@+id/policy_textView2"
@@ -264,28 +264,38 @@
         android:id="@+id/button_bottom"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-
+        android:orientation="vertical"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
+
         >
 
 
         <Button
             android:id="@+id/login_Button"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/bottom_navigation_menu_height"
             android:text="@string/login_bottom_text"
-
-            android:paddingTop="@dimen/default_running_text_size_small_very_very"
-            android:paddingBottom="@dimen/default_running_text_size_small_very_very"
-            android:paddingLeft="@dimen/default_running_text_size_large"
-            android:paddingRight="@dimen/default_running_text_size_large"
 
             android:layout_gravity="center"
             android:textColor="@android:color/white"
             android:background="@color/red"
             android:textStyle="bold"
-            android:textSize="@dimen/default_text_size_small_very"
+            android:textSize="@dimen/default_running_text_size_small"
+
+            />
+
+        <TextView
+            android:id="@+id/skip_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_bottom_skip"
+
+            android:layout_gravity="center"
+            android:textColor="@android:color/holo_blue_dark"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/default_text_size"
+            android:layout_marginBottom="@dimen/default_text_size"
+            android:textSize="@dimen/default_running_text_size_small"
 
             />
 

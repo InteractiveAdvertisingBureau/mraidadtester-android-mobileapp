@@ -48,7 +48,7 @@ public class MyHttpClient {
 
 		timeout = 0;
 
-		final String uri = ApiList.HOST_USER_URL;
+		final String uri ="";
 
 		String responseString = null;
 

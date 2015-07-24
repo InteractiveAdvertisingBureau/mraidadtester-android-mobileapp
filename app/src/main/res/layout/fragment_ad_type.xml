@@ -4,11 +4,93 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/Fragment3" />
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/default_header_text_size"
+
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:layout_marginTop="@dimen/default_header_height"
+            android:textSize="@dimen/default_running_text_size_small"
+            android:textStyle="bold"
+            android:text="@string/Fragment3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_text_size_small_very"
+            android:textSize="@dimen/default_header_text_size"
+            android:textStyle="bold"
+            android:text="@string/heading_ad_type" />
+
+    </LinearLayout>
+
+
+   <!-- <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="@dimen/default_header_height"
+        android:layout_below="@+id/top_layout"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:text="@string/Fragment3" />
+
+
+        &lt;!&ndash;Used for separator&ndash;&gt;
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/default_text_size_small_very_extra"
+            android:background="@color/grey"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_text_size_small_very"
+            android:text="@string/Fragment3" />
+
+    </LinearLayout>-->
+
+    <ListView
+        android:id="@+id/ad_type_list_item"
+        android:layout_below="@+id/top_layout"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+
+    </ListView>
+
+
+    <Button
+        android:id="@+id/button_test_creative"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/bottom_navigation_menu_height"
+        android:text="@string/button_test_ad"
+        android:layout_below="@+id/ad_type_list_item"
+
+        android:gravity="center_horizontal|center_vertical"
+
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"
+        android:background="@color/red"
+        android:textStyle="bold"
+        android:textSize="@dimen/default_running_text_size_small"
+
+        />
 
 </RelativeLayout>

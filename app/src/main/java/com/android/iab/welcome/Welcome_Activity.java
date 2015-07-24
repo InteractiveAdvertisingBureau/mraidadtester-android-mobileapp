@@ -66,11 +66,26 @@ public class Welcome_Activity extends Activity {
          */
         if(loginStatus){
 
-            user_welcome_text.setText("Welcome  "+userName);
+            user_welcome_text.setText("Welcome  " + userName);
             user_welcome_text.setVisibility(View.VISIBLE);
-            button_start.setVisibility(View.GONE);
 
-            callHandler();
+
+                button_start.setOnClickListener(new OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        // TODO Auto-generated method stub
+
+                        i = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(i);
+                        finish();
+
+
+                    }
+                });
+
+
+
         }
 
 
@@ -83,7 +98,7 @@ public class Welcome_Activity extends Activity {
 
                     i = new Intent(getApplicationContext(), Login_Activity.class);
                     startActivity(i);
-
+                    finish();
 
 
                 }
@@ -91,9 +106,7 @@ public class Welcome_Activity extends Activity {
         }
 
 
-
     }
-
 
 
 
@@ -107,27 +120,6 @@ public class Welcome_Activity extends Activity {
 
 
 
-    private void callHandler()
-    {
-		 /*  Showing splash screen with a timer. This method will be executed once the timer is over */
-        splashHandler.postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                // This method will be executed once the timer is over
-                // Start your app main activity
-                Intent i = new Intent(Welcome_Activity.this, MainActivity.class);
-
-                splashHandler.postDelayed(r, 3000);
-
-                startActivity(i);
-
-                // close this activity
-                finish();
-            }
-        }, SPLASH_TIME_OUT);
-
-
     }
 
 
@@ -135,7 +127,3 @@ public class Welcome_Activity extends Activity {
 
 
 
-
-
-
-}

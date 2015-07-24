@@ -9,9 +9,7 @@
     <dimen name="default_container_layout_padding">14px</dimen>
      <dimen name="default_title_text_size">42px</dimen>
     
-     
-     
-     
+
       <dimen name="default_screen_width">720px</dimen>
         <dimen name="default_deal_margin">25px</dimen>
          <dimen name="default_text_size">36px</dimen>
@@ -26,12 +24,15 @@
                       <dimen name="default_medium_text">27px</dimen>
                          <dimen name="default_small_text">18px</dimen>
 
-    <dimen name="nav_drawer_width">570px</dimen>
+    <dimen name="nav_drawer_width">480px</dimen>
 	<!-- Header text size -->
     
     	<dimen name="default_header_text_size">30px</dimen>   
     		<dimen name="default_header_height">75px</dimen>
                 <dimen name="default_header_padding_small_very_very">15px</dimen>
+
+    <!-- Bottom Button height -->
+    <dimen name="default_bottom_button_height">75px</dimen>
 
 
 
@@ -44,6 +45,8 @@
     	<!-- welcome screen -->
     	
     	<dimen name="default_running_text_size_large">54px</dimen>
+
+        <dimen name="default_running_text_size_medium">45px</dimen>
     		<dimen name="default_running_text_size_small">39px</dimen>
     			<dimen name="default_running_text_size_small_very">24px</dimen>    
     			<dimen name="default_running_text_size_small_very_very">18px</dimen>             
@@ -67,8 +70,12 @@
    
           <dimen name="driver_small_image_width">105px</dimen>
       	  <dimen name="driver_small_image_height">105px</dimen>
-   
-     
+
+    <!-- login screen -->
+    <dimen name="login_box_container_size_large">525px</dimen>
+
+    <!-- Navigation drwawer width -->
+    <dimen name="navigation_drawer_width">600px</dimen>
     
       
      

@@ -30,7 +30,7 @@
 
 
     <!-- navigation drawer width -->
-    <dimen name="nav_drawer_width">855px</dimen>
+    <dimen name="nav_drawer_width">720px</dimen>
 
     <!-- Header text size -->
 
@@ -39,7 +39,8 @@
     <dimen name="default_header_padding_small_very_very">20px</dimen>
 
 
-
+    <!-- Bottom Button height -->
+    <dimen name="default_bottom_button_height">112px</dimen>
 
 
     <!-- splash screen -->
@@ -50,6 +51,8 @@
     <!-- welcome screen -->
 
     <dimen name="default_running_text_size_large">90px</dimen>
+    <dimen name="default_running_text_size_medium">68px</dimen>
+
     <dimen name="default_running_text_size_small">58px</dimen>
     <dimen name="default_running_text_size_small_very">36px</dimen>
     <dimen name="default_running_text_size_small_very_very">27px</dimen>
@@ -60,13 +63,15 @@
 
 
     <!-- login screen -->
-    <dimen name="login_box_conatainer_size_large">525px</dimen>
+    <dimen name="login_box_container_size_large">787px</dimen>
 
 
     <!-- home screen -->
     <dimen name="home_navigation_menu_height">112px</dimen>
     <dimen name="bottom_navigation_menu_height">169px</dimen>
 
+    <!-- Navigation drwawer width -->
+    <dimen name="navigation_drawer_width">900px</dimen>
 
 
 

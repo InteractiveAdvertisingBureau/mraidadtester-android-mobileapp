@@ -41,9 +41,12 @@ public class MyAsyncTask extends AsyncTask<String, Void, String> {
 		
 		try {
 			try {
-				String token=	act.getSharedPreferences("Location", Context.MODE_PRIVATE).getString("TOKEN", "");
+				/**
+				* Changes made on 21/7/15
+				**/
+				/*String token=	act.getSharedPreferences("Location", Context.MODE_PRIVATE).getString("TOKEN", "");
 				if(!jobject.has("securityToken"))
-				jobject.put("securityToken", token);
+				jobject.put("securityToken", token);*/
 			
 				this.methoed_name=jobject.getString("methodeName");
 			} catch (JSONException e) {
@@ -105,9 +108,7 @@ public class MyAsyncTask extends AsyncTask<String, Void, String> {
 	protected void onPostExecute(String result) {
 		super.onPostExecute(result);
 		dialog.cancel();
-//		if (null != dialog && dialog.isShowing()) {
-//			dialog.dismiss();
-//		}
+
 		//call method from here....
 		
 		

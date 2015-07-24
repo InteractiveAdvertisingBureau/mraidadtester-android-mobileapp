@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   	android:background="@android:color/white">
+    
+    <include
+        android:id="@+id/test_header"
+        layout="@layout/test_ad_header"
+       />
+
+
+    <LinearLayout
+        android:id="@+id/ad_interstitial"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/test_header"
+        android:gravity="center"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Test Interstitial"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ad_banner"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        android:layout_height="@dimen/default_margin_from_top_large_very_very">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:text="Test Banner"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

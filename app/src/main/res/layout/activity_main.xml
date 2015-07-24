@@ -41,7 +41,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="33"
                 android:text="@string/ad_tag_heading"
-                android:gravity="right"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="@dimen/default_running_text_size_medium"
                 />
 
             <TextView
@@ -50,6 +52,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/select_sdk_heading"
                 android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/default_running_text_size_medium"
                 android:layout_weight="33"
                 />
 
@@ -58,8 +62,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/ad_type_heading"
-                android:gravity="left"
+                android:gravity="center"
+                android:textStyle="bold"
                 android:layout_weight="33"
+                android:textSize="@dimen/default_running_text_size_medium"
                 />
 
         </LinearLayout>
@@ -97,37 +103,62 @@
             android:layout_height="@dimen/bottom_navigation_menu_height"
             android:orientation="horizontal"
             android:layout_alignParentBottom="true"
-            android:padding="@dimen/default_header_padding_small_very_very"
-            android:gravity="center_vertical">
+
+            android:gravity="center_vertical"
+            >
 
             <TextView
                 android:id="@+id/previous_button"
                 android:layout_width="0dp"
-                android:layout_weight="33"
+                android:layout_weight="130"
                 android:layout_height="wrap_content"
                 android:gravity="left|center_vertical"
                 android:drawableStart="@drawable/back_arrow"
+                android:drawableLeft="@drawable/back_arrow"
                 android:textColor="@color/red"
+                android:textStyle="bold"
+                android:textSize="@dimen/default_running_text_size_medium"
                 android:text="@string/bottom_nav_previous"/>
 
             <TextView
                 android:id="@+id/save_button"
                 android:layout_width="0dp"
-                android:layout_weight="33"
+                android:layout_weight="110"
                 android:layout_height="wrap_content"
                 android:text="@string/bottom_nav_save"
+                android:textStyle="bold"
+                android:textColor="@color/red"
+                android:textSize="@dimen/default_running_text_size_medium"
                 android:gravity="center"/>
 
             <TextView
                 android:id="@+id/next_button"
                 android:layout_width="0dp"
-                android:layout_weight="33"
+                android:layout_weight="120"
                 android:layout_height="wrap_content"
                 android:gravity="right|center_vertical"
                 android:drawableEnd="@drawable/next_arrow"
                 android:drawableRight="@drawable/next_arrow"
                 android:textColor="@color/red"
+                android:textStyle="bold"
+                android:textSize="@dimen/default_running_text_size_medium"
                 android:text="@string/bottom_nav_next"/>
+
+            <TextView
+                android:id="@+id/start_button"
+                android:layout_width="0dp"
+                android:layout_weight="120"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                android:textSize="@dimen/default_running_text_size_medium"
+                android:text="@string/bottom_nav_start_over"/>
+
+
+
+
         </LinearLayout>
 
 

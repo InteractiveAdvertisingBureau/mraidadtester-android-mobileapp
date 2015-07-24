@@ -24,12 +24,12 @@
     </string>
 
 
-    <string name="app_name">IAB CREATIVES</string>
+    <string name="app_name">IAB CREATIVE</string>
     <string name="app_actionbar_title">TEST CREATIVES</string>
 
     <string name="welcome_top_text">technology lab</string>
     <string name="welcome_bottom_text">Get Started</string>
-    <string name="welcome_center_heading">Mobile \nCreative \nQA</string>
+    <string name="welcome_center_heading">MRAID Ads\nSDK Tester</string>
 	<string name="welcome_text">A tool to test mobile creatives \nin multiple
 	    mobile Ads SDK \nenvironments</string>
 
@@ -41,11 +41,15 @@
 	<string name="policy_text">By continuing, you are agree to our \n<a href="https://www.claritusconsulting.com">Terms</a>
 	    and <a href="http://www.claritusconsulting.com">Privacy Policy.</a> </string>
 
-    <string name="login_bottom_text">Continue</string>
+    <string name="login_bottom_text">SIGN UP</string>
+    <string name="login_bottom_skip">Skip</string>
 
     <string name="Fragment1">Ad Tag</string>
     <string name="Fragment2">Select SDK</string>
     <string name="Fragment3">Ad Type</string>
+
+    <string name="heading_ad_type">Select Ad Type</string>
+    <string name="button_test_ad">Test Creative</string>
 
     <string-array name="nav_drawer_menu_items">
         <item >first</item>
@@ -71,12 +75,14 @@
 
 
 
-    <string name="ad_tag_message">Paste Ad Tag?</string>
+    <string name="ad_tag_message">Paste Ad Tag</string>
     <string name="ad_type_heading">Ad Type</string>
     <string name="select_sdk_heading">Select SDK</string>
     <string name="ad_tag_heading">Ad Tag</string>
     <string name="bottom_nav_save">Save</string>
     <string name="bottom_nav_next">Next</string>
+
+    <string name="bottom_nav_start_over">Start Over</string>
     <string name="bottom_nav_previous">Previous</string>
 
     <!-- navigation drawer item -->
@@ -93,6 +99,9 @@
 
     <string name="nav_item_friends">Friends</string>
     <string name="nav_item_notifications">Messages</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_company_name">Company</string>
+    <string name="hint_email">Email</string>
 
 
     <!-- navigation drawer item labels  -->

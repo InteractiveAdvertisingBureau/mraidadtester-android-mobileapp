@@ -2,6 +2,7 @@ package com.android.iab.main;
 
 
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,9 +14,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.iab.R;
+import com.android.iab.helper.HelperMessage;
 import com.android.iab.helper.HelperMethods;
+import com.android.iab.utility.Helper;
 
 /**
  * Home Activity for loading layouts resources
@@ -48,8 +52,9 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
 
     //  EditText tab_add_tag;
     TextView tab1, tab2,tab3;
-    TextView next_button, previous_button, save_button;
+    TextView next_button, previous_button, start_button,save_button;
     //  String javaScriptString ="";
+
 
     /**
      * TAB_POSITION for managing position of tab. i.e. in which
@@ -57,6 +62,9 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
      */
     int TAB_POSITION;
 
+
+
+    Typeface tf ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +104,10 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         getUIobjects();
         setOnClickEventListner();
         loadAdFragment();
+
+        tf = Typeface.createFromAsset(getAssets(),
+                "fonts/futura_std_bold.ttf");
+
  }
 
     /**
@@ -108,13 +120,20 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         next_button = (TextView) findViewById(R.id.next_button);
         previous_button = (TextView) findViewById(R.id.previous_button);
         save_button = (TextView) findViewById(R.id.save_button);
-
+        start_button = (TextView) findViewById(R.id.start_button);
 
         tab1= (TextView) findViewById(R.id.tab1);
         tab2= (TextView) findViewById(R.id.tab2);
         tab3= (TextView) findViewById(R.id.tab3);
 
+
+        next_button.setTypeface(tf);
+        previous_button.setTypeface(tf);
+        save_button.setTypeface(tf);
+        start_button.setTypeface(tf);
+
     //    javaScriptString = tab_add_tag.getText().toString();
+
     }
 
 
@@ -124,11 +143,13 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
      */
     private void setOnClickEventListner() {
 
-
         next_button.setOnClickListener(this);
-
         previous_button.setOnClickListener(this);
+        start_button.setOnClickListener(this);
 
+        tab1.setOnClickListener(this);
+        tab2.setOnClickListener(this);
+        tab3.setOnClickListener(this);
 
     }
 
@@ -152,55 +173,112 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         {
             case R.id.next_button:
 
-                if(TAB_POSITION==0){
 
-                    TAB_POSITION=TAB_POSITION+1;
-                    loadSDKFragment();
+                firstTab();
 
-                }
-                else if(TAB_POSITION==1){
-
-                    TAB_POSITION=TAB_POSITION+1;
-
-                    loadTypeFragment();
-                    updateUI(TAB_POSITION);
-
-                }
-
-                else if(TAB_POSITION==2){
-
-                    loadTypeFragment();
-                    updateUI(TAB_POSITION);
-                    TAB_POSITION++;
-                }
-
-              break;
+                break;
 
             case R.id.previous_button:
 
-                if(TAB_POSITION==1)
-                {
 
-                TAB_POSITION=TAB_POSITION-1;
+                secondTab();
+
+                break;
+
+            case R.id.start_button:
+                loadAdFragment();
+                TAB_POSITION = 0;
+                updateUI(TAB_POSITION);
+                break;
+
+            case R.id.tab1:
 
                 loadAdFragment();
+                TAB_POSITION = 0;
                 updateUI(TAB_POSITION);
+                break;
 
+            case R.id.tab2:
+
+                Boolean validate = AddTagFragment.getInstance().validateScript();
+                if(validate) {
+                    loadSDKFragment();
+                    TAB_POSITION = 1;
+                    updateUI(TAB_POSITION);
                 }
+                else
+                    Helper.defaultOneButtonDialog(this, HelperMessage.AD_TAG_VALIDATION_MESSAGE);
 
-            else if(TAB_POSITION==2){
+                break;
 
-                TAB_POSITION=TAB_POSITION-1;
+            case R.id.tab3:
+
+                Boolean validate2 = AddTagFragment.getInstance().validateScript();
+                if(validate2) {
+                    loadTypeFragment();
+                    TAB_POSITION = 2;
+                    updateUI(TAB_POSITION);
+                }
+                else
+                    Helper.defaultOneButtonDialog(this, HelperMessage.AD_TAG_VALIDATION_MESSAGE);
+
+                break;
+        }
+
+    }
+
+
+    public void firstTab(){
+
+        if (TAB_POSITION == 0) {
+
+            Boolean validate = AddTagFragment.getInstance().validateScript();
+            if(validate) {
+                TAB_POSITION = TAB_POSITION + 1;
                 loadSDKFragment();
-                updateUI(TAB_POSITION);
-
             }
+            else
+                //Toast.makeText(getApplicationContext(),"Pls enter script", Toast.LENGTH_SHORT).show();
+                Helper.defaultOneButtonDialog(this, HelperMessage.AD_TAG_VALIDATION_MESSAGE);
 
-            break;
         }
 
+        else if (TAB_POSITION == 1) {
+
+            TAB_POSITION = TAB_POSITION + 1;
+
+            loadTypeFragment();
+            updateUI(TAB_POSITION);
+
         }
 
+        else if (TAB_POSITION == 2) {
+
+            loadTypeFragment();
+            updateUI(TAB_POSITION);
+            TAB_POSITION++;
+        }
+
+
+    }
+
+    public void secondTab(){
+
+        if (TAB_POSITION == 1) {
+
+            TAB_POSITION = TAB_POSITION - 1;
+
+            loadAdFragment();
+            updateUI(TAB_POSITION);
+
+        } else if (TAB_POSITION == 2) {
+
+            TAB_POSITION = TAB_POSITION - 1;
+            loadSDKFragment();
+            updateUI(TAB_POSITION);
+
+        }
+    }
 
     /**
      * Method for Loading Ad Fragment in MainActivity
@@ -261,10 +339,11 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             case 0 :previous_button.setVisibility(View.GONE);
                     save_button.setVisibility(View.GONE);
                     next_button.setVisibility(View.VISIBLE);
-                tab1.setTextColor(getResources().getColor(R.color.red));
-                tab2.setTextColor(getResources().getColor(R.color.grey));
-                tab3.setTextColor(getResources().getColor(R.color.grey));
+                    start_button.setVisibility(View.GONE);
 
+                    tab1.setTextColor(getResources().getColor(R.color.red));
+                    tab2.setTextColor(getResources().getColor(R.color.grey));
+                    tab3.setTextColor(getResources().getColor(R.color.grey));
 
                 Log.e("position updateUI 0", "position = " + position);
                     break;
@@ -272,21 +351,21 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             case 1 :save_button.setVisibility(View.GONE);
                     previous_button.setVisibility(View.VISIBLE);
                     save_button.setVisibility(View.GONE);
+                    start_button.setVisibility(View.GONE);
                 Log.e("position updateUI 1", "position = " + position);
-
 
                 tab1.setTextColor(getResources().getColor(R.color.grey));
                 tab2.setTextColor(getResources().getColor(R.color.red));
                 tab3.setTextColor(getResources().getColor(R.color.grey));
 
-
                 break;
 
             case 2 :previous_button.setVisibility(View.VISIBLE);
-                    save_button.setVisibility(View.GONE);
+                    save_button.setVisibility(View.VISIBLE);
                     next_button.setVisibility(View.GONE);
-                Log.e("position updateUI 2", "position = " + position);
+                    start_button.setVisibility(View.VISIBLE);
 
+                Log.e("position updateUI 2", "position = " + position);
 
                 tab1.setTextColor(getResources().getColor(R.color.grey));
                 tab2.setTextColor(getResources().getColor(R.color.grey));

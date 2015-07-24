@@ -3,7 +3,11 @@ package com.android.iab.bean;
 import java.io.Serializable;
 
 /**
- * Created by syed on
+ * SDK Bean  for storing sdk type data i.e. sdk type
+ *
+ * @author Syed
+ * @version 2015.
+ * @since 1.0
  */
 public class SDK_Bean implements Serializable{
 

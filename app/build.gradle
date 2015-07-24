@@ -10,7 +10,7 @@ android {
         }
     }
     compileSdkVersion 21
-    buildToolsVersion "21.1.1"
+    buildToolsVersion "21.1.2"
     defaultConfig {
         applicationId "com.android.iab"
         minSdkVersion 14
@@ -27,6 +27,7 @@ android {
     sourceSets {
         main {
             res.srcDirs = ['src/main/res', 'src/main/res/drawable-hdpi', 'src/main/res/values-21']
+            assets.srcDirs = ['src/main/assets', 'src/main/assets/']
         }
     }
 }
@@ -36,4 +37,7 @@ dependencies {
     compile 'com.android.support:support-v4:21.0.2'
     compile 'com.android.support:appcompat-v7:21.0.+'
     compile 'com.android.support:recyclerview-v7:22.2.0'
+    compile 'com.google.android.gms:play-services-ads:7.5.0'
+
+
 }

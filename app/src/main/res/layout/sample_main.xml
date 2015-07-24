@@ -225,11 +225,11 @@
 
     <fragment
         android:id="@+id/fragment_navigation_drawer"
-        android:layout_width="@dimen/navigation_drawer_width"
+        android:layout_width="@dimen/login_box_container_size_large"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:layout= "@layout/fragment_navigation_drawer"
-        android:name="com.android.iab.main.FragmentDrawer_2"
+        android:name="com.android.iab.main.FragmentDrawer"
         tools:layout="@layout/fragment_navigation_drawer"
         />
 

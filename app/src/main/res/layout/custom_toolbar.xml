@@ -6,12 +6,12 @@
     android:orientation="vertical" >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/app_actionbar_title"
+        android:gravity="center"
+        android:text="@string/app_name"
         android:textColor="@color/white"
         android:id="@+id/mytext"
-        android:textSize="@dimen/default_text_size" />
+        android:textSize="@dimen/default_running_text_size_medium" />
 
 </LinearLayout>

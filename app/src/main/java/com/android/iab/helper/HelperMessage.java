@@ -18,6 +18,12 @@ public class HelperMessage {
     public static String MESSAGE_USER_EMAIL = "Please enter a valid email";
     public static String MESSAGE_COMPANY_NAME = "Please enter a company name";
 
+    public static String AD_TAG_VALIDATION_MESSAGE = "Ad Tag is required";
+
+    public static String SDK_VALIDATION_MESSAGE = "Please Select Atleast One SDK";
+
+    public static String LOGIN_WELCOME_MESSAGE = "You have successfully registered.";
+
 
 
 }
