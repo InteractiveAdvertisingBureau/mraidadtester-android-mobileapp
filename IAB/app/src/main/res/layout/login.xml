@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@android:color/white">
+    
+    
+    <RelativeLayout
+        android:id="@+id/top_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_header_height"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:background="#ffffff" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/default_header_height"
+            
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/back_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center" 
+                
+               >
+
+ 			<ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:src="@drawable/back_arrow" />
+ 			
+ 			 <TextView
+            	android:id="@+id/iab_title"
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	android:layout_centerHorizontal="true"
+            	android:layout_centerVertical="true"
+            	android:text="@string/header_back"
+            	android:textColor="@color/red"
+            	android:textSize="@dimen/default_header_text_size" />
+            
+		</LinearLayout>
+		
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_done"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+            
+            
+            
+        </LinearLayout>
+
+    </RelativeLayout>
+    
+     <LinearLayout
+       	android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+       	android:layout_above="@+id/center_box_container"
+       	android:layout_marginBottom="@dimen/default_margin_from_top_large"
+        android:paddingLeft="@dimen/default_running_text_size_large"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/center_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/welcome_bottom_text"
+            
+            android:textAllCaps="true"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            android:textSize="@dimen/default_running_text_size_large" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/center_box_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:layout_centerVertical="true"
+        android:padding="@dimen/default_running_text_size_large"
+        android:gravity="center">
+
+        
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/user_name_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Name                "
+                android:textSize="@dimen/default_running_text_size_small_very" />
+
+            <EditText
+                android:id="@+id/user_name_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:maxLength="20"
+                 >
+            </EditText>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/default_text_size_small_very_extra"
+            android:background="@color/grey"></LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal"
+                android:layout_gravity="left"
+		        android:layout_marginTop="@dimen/default_running_text_size_small"
+		        >
+
+        		<TextView
+        		    android:id="@+id/company_name_textView"
+        		    android:layout_width="wrap_content"
+        		    android:layout_height="wrap_content"
+        		    android:gravity="left"
+        		    android:text="Company         "
+        		    android:textSize="@dimen/default_running_text_size_small_very" />
+		     
+		        <EditText
+	        	    android:id="@+id/company_name_editText"
+	        	    android:layout_width="match_parent"
+	        	    android:layout_height="wrap_content"
+	        	    android:ems="10"
+
+	        	    android:maxLength="20"
+	        	    android:background="@android:color/white"
+	        	    android:inputType="text" >
+				</EditText>
+		        
+		   	</LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/default_text_size_small_very_extra"
+            android:background="@color/grey"></LinearLayout>
+        	
+        	
+        	<LinearLayout
+                android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal"
+                android:layout_gravity="left"
+		        android:layout_marginTop="@dimen/default_running_text_size_small"
+		        >
+
+        		<TextView
+        		    android:id="@+id/user_email_textView"
+        		    android:layout_width="wrap_content"
+        		    android:layout_height="wrap_content"
+        		    android:gravity="left"
+        		    
+        		    android:textSize="@dimen/default_running_text_size_small_very"
+        		    android:text="Email               " />
+		     
+		        <EditText
+	        	    android:id="@+id/user_email_editText"
+	        	    android:layout_width="wrap_content"
+	        	    android:layout_height="wrap_content"
+	        	    android:ems="10"
+	        	    
+	        	    android:paddingRight="@dimen/default_text_size_small_very_extra"
+	        	    android:maxLength="20"
+	        	    android:background="@android:color/white"
+	        	    android:inputType="textEmailAddress" >
+                </EditText>
+		        
+		   	</LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/default_text_size_small_very_extra"
+            android:background="@color/grey"></LinearLayout>
+
+        
+    </LinearLayout>
+
+    
+
+
+    <LinearLayout
+        android:id="@+id/policy_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/center_box_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/default_margin_from_top_large_very"
+        android:orientation="vertical"
+        android:gravity="center" >
+        
+        <TextView
+            android:id="@+id/policy_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/policy_text"
+           
+            android:textSize="@dimen/default_running_text_size_small_very_very" />
+        
+        <TextView
+            android:id="@+id/policy_textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text=" "
+            
+            android:linksClickable="true"
+            android:autoLink="web"
+            android:textColorLink="@color/red"
+            android:textSize="@dimen/default_running_text_size_small_very_very" />
+        
+        
+        <TextView
+            android:id="@+id/logged_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text=" "
+            android:visibility="gone"           
+            android:textSize="@dimen/default_running_text_size_small_very" />
+
+        
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/button_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        >
+
+
+        <Button
+            android:id="@+id/login_Button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_bottom_text"
+
+            android:paddingTop="@dimen/default_running_text_size_small_very_very"
+            android:paddingBottom="@dimen/default_running_text_size_small_very_very"
+            android:paddingLeft="@dimen/default_running_text_size_large"
+            android:paddingRight="@dimen/default_running_text_size_large"
+
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"
+            android:background="@color/red"
+            android:textStyle="bold"
+            android:textSize="@dimen/default_text_size_small_very"
+
+            />
+
+
+    </LinearLayout>
+
+    
+</RelativeLayout>
