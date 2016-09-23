@@ -24,8 +24,9 @@
     </string>
 
 
-    <string name="app_name">IAB CREATIVE</string>
-    <string name="app_actionbar_title">TEST CREATIVES</string>
+    <string name="app_name">MRAID Text</string>
+    <string name="app_name_">MRAIDAdsSDKTester</string>
+
 
     <string name="welcome_top_text">technology lab</string>
     <string name="welcome_bottom_text">Get Started</string>
@@ -34,12 +35,15 @@
 	    mobile Ads SDK \nenvironments</string>
 
     <string name="header_back">Back</string>
-    <string name="user_name">Name      </string>
+    <string name="user_name">Name</string>
     <string name="user_company">Company</string>
     <string name="user_email">Email</string>
 
-	<string name="policy_text">By continuing, you are agree to our \n<a href="https://www.claritusconsulting.com">Terms</a>
-	    and <a href="http://www.claritusconsulting.com">Privacy Policy.</a> </string>
+	<string name="policy_text1">By continuing, you are agree to our  </string>
+    <string name="policy_text2">Terms
+	    and Privacy Policy </string>
+     <string name="policy_text3">Terms
+	    and Conditions of use </string>
 
     <string name="login_bottom_text">SIGN UP</string>
     <string name="login_bottom_skip">Skip</string>
@@ -60,63 +64,42 @@
     <string name="drawer_open">Drawer Open</string>
     <string name="drawer_close">Drawer Close</string>
     <string name="title_activity_navigation__drawer_">Navigation_Drawer_Activity</string>
-
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_example">Example action</string>
-
     <string name="action_settings">Settings</string>
     <string name="test_creative">TEST CREATIVE</string>
-
-
-
     <string name="ad_tag_message">Paste Ad Tag</string>
     <string name="ad_type_heading">Ad Type</string>
     <string name="select_sdk_heading">Select SDK</string>
     <string name="ad_tag_heading">Ad Tag</string>
     <string name="bottom_nav_save">Save</string>
     <string name="bottom_nav_next">Next</string>
-
-    <string name="bottom_nav_start_over">Start Over</string>
+    <string name="bottom_nav_start_over">Start Over </string>
     <string name="bottom_nav_previous">Previous</string>
-
-    <!-- navigation drawer item -->
-    <string name="nav_item_home1">Creatives1</string>
-    <string name="nav_item_home2">Creatives2</string>
-    <string name="nav_item_home3">Creatives3</string>
-    <string name="nav_item_home4">Creatives4</string>
-    <string name="nav_item_home5">Creatives5</string>
-    <string name="nav_item_home6">Creatives6</string>
-    <string name="nav_item_home7">Creatives7</string>
-    <string name="nav_item_home8">Creatives8</string>
-    <string name="nav_item_home9">Creatives9</string>
-    <string name="nav_item_home10">Creatives10</string>
-
     <string name="nav_item_friends">Friends</string>
     <string name="nav_item_notifications">Messages</string>
     <string name="hint_username">Username</string>
     <string name="hint_company_name">Company</string>
     <string name="hint_email">Email</string>
-
-
-    <!-- navigation drawer item labels  -->
-    <string-array name="nav_drawer_labels">
-        <item>@string/nav_item_home1</item>
-        <item>@string/nav_item_home2</item>
-        <item>@string/nav_item_home3</item>
-        <item>@string/nav_item_home4</item>
-        <item>@string/nav_item_home5</item>
-        <item>@string/nav_item_home6</item>
-        <item>@string/nav_item_home7</item>
-        <item>@string/nav_item_home8</item>
-        <item>@string/nav_item_home9</item>
-        <item>@string/nav_item_home10</item>
-
-    </string-array>
-
+    <string name="lebel_home">TEST CREATIVE   </string>
+    <string name="lebel_home_padding">Email</string>
+       <string name="lebel_setting">Profile</string>
+        <string name="lebel_term_condition">Term &amp; Conditions</string>
+    <string name="lebel_banner_view">Banner Display View</string>
+    <string name="lebel_interstitial">Interstitial Display View</string>
+    <string name="get_ad">Get Ad</string>
+    <string name="title_ad_display">Your Ad Will Display Here</string>
+    <string name="partner_id_title">Partner ID:</string>
+    <string name="site_id_title">Site ID:</string>
+    <string name="enable_autorefresh">Enable AutoRefresh</string>
+    <string name="loading">loading&#8230;</string>
+    <string name="autorefresh_text">Ad will be refreshed in 20 sec interval</string>
+    <string name="edit">Edit</string>
+    <string name="done">Done</string>
+    <string name="welcome">Welcome</string>
+    <string name="save_creative">Saved Creatives</string>
 </resources>

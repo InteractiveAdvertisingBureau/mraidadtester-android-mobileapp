@@ -2,9 +2,41 @@
 <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:minHeight="?attr/actionBarSize"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/bottom_navigation_menu_height"
+
     android:background="?attr/colorPrimary"
-    local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    local:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    android:minHeight="@dimen/bottom_navigation_menu_height"
+    local:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    android:gravity="center"
+    local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+            android:gravity="center"
+        android:orientation="horizontal"
+
+        >
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text= "@string/lebel_home"
+            android:textColor="@color/red"
+            android:textSize="@dimen/default_running_text_size_medium"
+            android:typeface="sans"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text= "@string/lebel_home_padding"
+            android:textColor="@color/red"
+            android:textSize="@dimen/default_running_text_size_medium"
+            android:typeface="sans"
+            android:visibility="invisible"
+            />
+        </LinearLayout>
+</android.support.v7.widget.Toolbar>

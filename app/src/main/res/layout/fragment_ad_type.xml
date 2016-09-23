@@ -1,9 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
-
 
     <LinearLayout
         android:id="@+id/top_layout"
@@ -11,86 +9,47 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="@dimen/default_header_text_size"
-
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/sdkNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="top"
             android:layout_marginTop="@dimen/default_header_height"
-            android:textSize="@dimen/default_running_text_size_small"
-            android:textStyle="bold"
-            android:text="@string/Fragment3" />
+            android:gravity="top"
+            android:text="@string/Fragment3"
+            android:textSize="@dimen/default_running_text_size_small" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/default_text_size_small_very"
-            android:textSize="@dimen/default_header_text_size"
-            android:textStyle="bold"
-            android:text="@string/heading_ad_type" />
+            android:text="@string/heading_ad_type"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_running_text_size_small"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
-
-   <!-- <LinearLayout
-        android:id="@+id/bottom_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="@dimen/default_header_height"
-        android:layout_below="@+id/top_layout"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="top"
-            android:text="@string/Fragment3" />
-
-
-        &lt;!&ndash;Used for separator&ndash;&gt;
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/default_text_size_small_very_extra"
-            android:background="@color/grey"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/default_text_size_small_very"
-            android:text="@string/Fragment3" />
-
-    </LinearLayout>-->
-
     <ListView
         android:id="@+id/ad_type_list_item"
-        android:layout_below="@+id/top_layout"
         android:layout_width="match_parent"
-
-        android:layout_height="wrap_content">
-
-    </ListView>
-
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_layout"></ListView>
 
     <Button
         android:id="@+id/button_test_creative"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/bottom_navigation_menu_height"
-        android:text="@string/button_test_ad"
         android:layout_below="@+id/ad_type_list_item"
-
-        android:gravity="center_horizontal|center_vertical"
-
         android:layout_gravity="center"
-        android:textColor="@android:color/white"
+        android:layout_marginTop="@dimen/default_margin_from_top_large"
         android:background="@color/red"
-        android:textStyle="bold"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/button_test_ad"
+        android:textColor="@android:color/white"
         android:textSize="@dimen/default_running_text_size_small"
-
-        />
-
+        android:layout_marginLeft="@dimen/default_running_text_size_small"
+        android:layout_marginRight="@dimen/default_running_text_size_small"
+        android:textStyle="bold" />
 </RelativeLayout>

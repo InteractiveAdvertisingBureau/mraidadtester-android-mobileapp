@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <include
+        android:id="@+id/test_header"
+        layout="@layout/test_ad_header" />
+
+    <RelativeLayout
+        android:layout_below="@+id/test_header"
+        android:id="@+id/ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.adform.sdk.pub.views.AdInline
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/view_ad_inline"
+            ad_height="50"
+            ad_width="320"
+            mastertag_id="111111"
+            debug_mode="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

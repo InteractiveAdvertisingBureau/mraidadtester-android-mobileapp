@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="@dimen/bottom_navigation_menu_height"
-android:gravity="center"
-android:orientation="vertical" >
-
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:layout_gravity="left"
-    android:text="@string/app_name"
-    android:textColor="@color/red"
-    android:id="@+id/header_text"
-    android:gravity="left|center_vertical"
-    android:drawableStart="@drawable/back_arrow"
-    android:drawableLeft="@drawable/back_arrow"
-    android:textSize="@dimen/default_running_text_size_medium" />
-
-<LinearLayout
-    android:id="@+id/bottom_menu_seprator"
     android:layout_width="match_parent"
-    android:layout_height="2px"
-    android:layout_below = "@+id/header"
-    android:background="@color/text_color_grey_one"></LinearLayout>
+    android:layout_height="@dimen/bottom_navigation_menu_height"
+    android:gravity="center"
+    android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/header_text"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:drawableLeft="@drawable/back_arrow"
+        android:gravity="left|center_vertical"
+        android:text="@string/app_name"
+        android:textColor="@color/red"
+        android:textSize="@dimen/default_running_text_size_medium"
+        android:typeface="sans" />
+
+    <LinearLayout
+        android:id="@+id/bottom_menu_seprator"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_below="@+id/header"
+        android:background="@color/text_color_grey_one"></LinearLayout>
 </LinearLayout>
 
 

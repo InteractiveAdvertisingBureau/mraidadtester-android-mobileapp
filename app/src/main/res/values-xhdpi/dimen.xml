@@ -1,82 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-
-
-
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    
+<resources>
     <dimen name="default_container_layout_padding">14px</dimen>
-     <dimen name="default_title_text_size">42px</dimen>
-    
-
-      <dimen name="default_screen_width">720px</dimen>
-        <dimen name="default_deal_margin">25px</dimen>
-         <dimen name="default_text_size">36px</dimen>
-           <dimen name="default_text_size_small">30px</dimen>
-             <dimen name="default_text_size_small_very">27px</dimen>
-               <dimen name="default_text_size_small_very_extra">12px</dimen>
-               <dimen name="default_text_size_small_very_extra_extra">6px</dimen>
-                
-                  <dimen name="default_slider_width">420px</dimen>
-                 
-                   <dimen name="default_large_text">33px</dimen>
-                      <dimen name="default_medium_text">27px</dimen>
-                         <dimen name="default_small_text">18px</dimen>
-
-    <dimen name="nav_drawer_width">480px</dimen>
-	<!-- Header text size -->
-    
-    	<dimen name="default_header_text_size">30px</dimen>   
-    		<dimen name="default_header_height">75px</dimen>
-                <dimen name="default_header_padding_small_very_very">15px</dimen>
-
-    <!-- Bottom Button height -->
+    <dimen name="default_title_text_size">42px</dimen>
+    <dimen name="default_line_height">2px</dimen>
+    <dimen name="default_screen_width">720px</dimen>
+    <dimen name="default_deal_margin">25px</dimen>
+    <dimen name="default_text_size">36px</dimen>
+    <dimen name="default_text_size_small">30px</dimen>
+    <dimen name="default_text_size_small_very">27px</dimen>
+    <dimen name="default_text_size_small_very_extra">12px</dimen>
+    <dimen name="default_text_size_small_very_extra_extra">6px</dimen>
+    <dimen name="default_slider_width">420px</dimen>
+    <dimen name="default_large_text">33px</dimen>
+    <dimen name="default_medium_text">27px</dimen>
+    <dimen name="default_small_text">18px</dimen>
+    <dimen name="default_header_text_size">30px</dimen>
+    <dimen name="default_header_height">75px</dimen>
+    <dimen name="default_header_padding_small_very_very">15px</dimen>
     <dimen name="default_bottom_button_height">75px</dimen>
-
-
-
-    <!-- splash screen -->
-    	
-    	<dimen name="default_padding">24px</dimen>
-    		<dimen name="default_padding_large">39px</dimen>
-    	
-    	
-    	<!-- welcome screen -->
-    	
-    	<dimen name="default_running_text_size_large">54px</dimen>
-
-        <dimen name="default_running_text_size_medium">45px</dimen>
-    		<dimen name="default_running_text_size_small">39px</dimen>
-    			<dimen name="default_running_text_size_small_very">24px</dimen>    
-    			<dimen name="default_running_text_size_small_very_very">18px</dimen>             
-
-    			
-    			<dimen name="default_margin_from_top_large">75px</dimen>
-                        <dimen name="default_margin_from_top_large_very">150px</dimen>
-
-
-    <!-- home screen -->
+    <dimen name="default_padding">24px</dimen>
+    <dimen name="default_padding_large">39px</dimen>
+    <dimen name="default_running_text_size_large">54px</dimen>
+    <dimen name="default_running_text_size_medium">45px</dimen>
+    <dimen name="default_running_text_size_small">39px</dimen>
+    <dimen name="default_running_text_size_small_very">24px</dimen>
+    <dimen name="default_running_text_size_small_very_very">18px</dimen>
+    <dimen name="default_margin_from_top_large">75px</dimen>
+    <dimen name="default_margin_from_top_large_very">150px</dimen>
     <dimen name="home_navigation_menu_height">75px</dimen>
-
     <dimen name="bottom_navigation_menu_height">112px</dimen>
-
-           
-          <dimen name="default_vertical_seprator">36px</dimen>
-          <dimen name="filter_width">600px</dimen>
-          
-      	  <dimen name="driver_large_image_width">150px</dimen>
-      	  <dimen name="driver_large_image_height">150px</dimen>
-   
-          <dimen name="driver_small_image_width">105px</dimen>
-      	  <dimen name="driver_small_image_height">105px</dimen>
-
-    <!-- login screen -->
+    <dimen name="default_vertical_separator">36px</dimen>
+    <dimen name="filter_width">600px</dimen>
+    <dimen name="driver_large_image_width">150px</dimen>
+    <dimen name="driver_large_image_height">150px</dimen>
+    <dimen name="driver_small_image_width">105px</dimen>
+    <dimen name="driver_small_image_height">105px</dimen>
     <dimen name="login_box_container_size_large">525px</dimen>
-
-    <!-- Navigation drwawer width -->
     <dimen name="navigation_drawer_width">600px</dimen>
-    
-      
-     
+    <dimen name="add_tag_edit_text_height">360px</dimen>
 </resources>

@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -8,23 +7,17 @@
         android:id="@+id/sdk_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/default_header_text_size"
-
         android:layout_alignParentTop="true"
-        android:text="@string/Fragment2"
-
-        android:textSize="@dimen/default_running_text_size_small"
-        android:textStyle="bold"
         android:layout_margin="@dimen/default_text_size_small"
-        />
+        android:layout_marginLeft="@dimen/default_header_text_size"
+        android:text="@string/Fragment2"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_running_text_size_small"
+        android:typeface="sans" />
 
     <ListView
         android:id="@+id/sdk_list_item"
-        android:layout_below="@+id/sdk_heading"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        
-    </ListView>
-
-
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sdk_heading"></ListView>
 </RelativeLayout>

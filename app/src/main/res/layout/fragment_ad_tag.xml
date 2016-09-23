@@ -1,36 +1,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-
-
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <TextView
-        android:layout_marginLeft="@dimen/default_header_text_size"
-        android:layout_marginTop="@dimen/default_header_height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:layout_marginLeft="@dimen/default_header_text_size"
+        android:layout_marginTop="@dimen/default_header_height"
         android:text="@string/ad_tag_message"
-        android:textStyle="bold"
+        android:textColor="@color/black"
         android:textSize="@dimen/default_running_text_size_small"
-
-        />
+        android:typeface="sans" />
 
     <EditText
-
+        android:id="@+id/add_tag_editText"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/add_tag_edit_text_height"
         android:layout_marginLeft="@dimen/default_header_text_size"
         android:layout_marginRight="@dimen/default_header_text_size"
         android:layout_marginTop="@dimen/default_text_size_small_very"
-        android:id="@+id/add_tag_editText"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/add_tag_edittext_height"
+        android:background="@drawable/rounded_shape"
         android:gravity="top"
         android:hint="@string/ad_tag_message"
-        android:text=""
-        android:background="@drawable/rounded_shape"
-       />
-
+        android:padding="@dimen/default_text_size_small_very"
+        android:text="" />
 </LinearLayout>
