@@ -2,44 +2,40 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   	android:background="@android:color/white">
-    
+    android:background="@android:color/white">
+
     <include
         android:id="@+id/test_header"
-        layout="@layout/test_ad_header"
-       />
-
+        layout="@layout/test_ad_header" />
 
     <LinearLayout
         android:id="@+id/ad_interstitial"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/test_header"
-        android:gravity="center"
-        android:layout_height="match_parent">
+        android:gravity="center">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="Test Interstitial"/>
+        <com.admarvel.android.ads.AdMarvelView
+            android:id="@+id/ad"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/default_margin_from_top_large"
+            android:visibility="gone"
+            android:layout_gravity="bottom" />
+
+
 
     </LinearLayout>
-
 
     <LinearLayout
         android:id="@+id/ad_banner"
         android:layout_width="match_parent"
+        android:layout_height="@dimen/default_margin_from_top_large_very_very"
         android:layout_alignParentBottom="true"
-        android:visibility="gone"
-        android:layout_height="@dimen/default_margin_from_top_large_very_very">
-
+        android:visibility="gone">
         <TextView
+            android:id="@+id/ad_bannerTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
-            android:text="Test Banner"/>
-
+            android:text="Test Banner" />
     </LinearLayout>
-
-
-</RelativeLayout>
+    </RelativeLayout>

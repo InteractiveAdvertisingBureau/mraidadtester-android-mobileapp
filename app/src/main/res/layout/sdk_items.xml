@@ -3,40 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/default_text_size_small_very">
- 
 
- 
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:gravity="center_vertical"
-
-        android:text="Creative 1"
-        android:textStyle="bold"
         android:layout_alignParentTop="true"
-         />
- 
-
+        android:gravity="center_vertical"
+        android:text="Creative 1"
+        android:textSize="18sp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
         android:id="@+id/version"
-
-        android:layout_below="@+id/name"
-         />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:text="New Text" />
+
+    <TextView
         android:id="@+id/selectIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/tick_grey"
         android:layout_below="@+id/name"
-        />
-
+        android:background="@drawable/tick_grey" />
 </RelativeLayout>

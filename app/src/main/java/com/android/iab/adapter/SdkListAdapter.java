@@ -1,9 +1,19 @@
+/**
+ * ****************************************************************************
+ * Copyright (c) 2015, Interactive Advertising Bureau
+ * All rights reserved.
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+ * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * <p>
+ * ****************************************************************************
+ */
+
 package com.android.iab.adapter;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,107 +21,104 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.android.iab.R;
-import com.android.iab.bean.SDK_Bean;
-import com.android.iab.helper.HelperMethods;
+import com.android.iab.bean.SDKBean;
+import com.android.iab.main.MainActivity;
+import com.android.iab.utility.SharePref;
 
 import java.util.ArrayList;
 
-/**
- * SdkList Adapter for rendering views i.e. sdlk list
- *
- * @author Syed
- * @version 2015.
- * @since 1.0
- */
-
-public class SdkListAdapter extends ArrayAdapter<SDK_Bean>  {
-    private LayoutInflater mInflater;
-
-    ArrayList<SDK_Bean> entries;
-    Activity mActivity;
-
-    /*
-     *    SDK_Bean for storing  sdk list
-     */
-    ArrayList<SDK_Bean> array_list_sdk=new ArrayList<SDK_Bean>();
-
-    public static String SDK_TYPE_TAG ="Sdk_Type";
+/**This Class is an Adapter which is used to display List of SDK
+ * */
+public class SdkListAdapter extends ArrayAdapter<SDKBean> {
     /**
-     * SharedPreferences object to store coomon sharable data.
-     */
+     * Fields which are used in this Class
+     *
+     * @param entries                         This is a Collection ArrayList having  SDKBean type Bean
+     * @param mActivity                       This is an instnace of Activity which is Pass by Activity
+     * @param mPrefs                          This is a SharedPreferences object to store common sharable data.
+     **/
+
+    private LayoutInflater mInflater;
+    ArrayList<SDKBean> entries;
+    Activity mActivity;
     SharedPreferences mPrefs;
 
-    public SdkListAdapter(Activity context, ArrayList<SDK_Bean> values) {
+    public SdkListAdapter(Activity context, ArrayList<SDKBean> values) {
         super(context, R.layout.sdk_items, values);
         mInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        entries=values;
-
-        mActivity=context;
-
-        mPrefs= mActivity.getSharedPreferences(HelperMethods.MODE_TYPE, Context.MODE_PRIVATE);
-
+        entries = values;
+        mActivity = context;
+        mPrefs = mActivity.getSharedPreferences(SharePref.MODE_TYPE, Context.MODE_PRIVATE);
     }
-
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         final Holder holder;
-
         if (convertView == null) {
-            // Inflate the view since it does not exist
             convertView = mInflater.inflate(R.layout.sdk_items, parent, false);
             holder = new Holder();
-            // Create and save off the holder in the tag so we get quick access to inner fields
-            // This must be done for performance reasons
-            holder.Name=(TextView) convertView.findViewById(R.id.name);
-
-            holder.version=(TextView) convertView.findViewById(R.id.version);
-            holder.selectIcon=(TextView) convertView.findViewById(R.id.selectIcon);
-
-            holder.Name.setText(entries.get(position).getSdkName());
-            holder.version.setText(entries.get(position).getSdkversion());
-
+            holder.Name = (TextView) convertView.findViewById(R.id.name);
+            holder.version = (TextView) convertView.findViewById(R.id.version);
+            holder.selectIcon = (TextView) convertView.findViewById(R.id.selectIcon);
             convertView.setTag(holder);
-        }
-        else {
+        } else {
             holder = (Holder) convertView.getTag();
         }
-
-
-         /*
-        * click listner event for sdk list items
-        * */
-        convertView.findViewById(R.id.selectIcon).setOnClickListener(new View.OnClickListener() {
+        holder.Name.setText(entries.get(position).getSdkName());
+        holder.version.setText(entries.get(position).getSdkversion());
+        if (entries.get(position).isSelected()) {
+            holder.Name.setTextColor(mActivity.getResources().getColor(R.color.red));
+            holder.selectIcon.setBackgroundResource(R.drawable.tick_red);
+        } else {
+            holder.Name.setTextColor(mActivity.getResources().getColor(R.color.black));
+            holder.selectIcon.setBackgroundResource(R.drawable.tick_grey);
+        }
+        convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                SharedPreferences.Editor editor=mPrefs.edit();
-                editor.putInt(SDK_TYPE_TAG, position);
-                editor.commit();
-
-                Log.e("Selected Item", "" + entries.get(position).getSdkName());
-
-
+                selectSdk(position);
             }
         });
-
-
         return convertView;
     }
-
-
 
     /** View holder for the views we need access to */
     private static class Holder {
         TextView Name;
         TextView version;
-        TextView   selectIcon;
-
-
+        TextView selectIcon;
     }
 
+    /**This methoed is used to Set SDK */
+    public void selectSdk(int position) {
+        for (int i = 0; i < entries.size(); i++) {
+            entries.get(i).setIsSelected(false);
+        }
 
+        entries.get(position).setIsSelected(true);
+        notifyDataSetChanged();
+        MainActivity.getInstance().ResetAdType();
+    }
 
+    /**This method Check whic SDK is selected*/
+    public SDKBean getSelectedSdk() {
+        SDKBean sdk_bean = null;
+        for (int i = 0; i < entries.size(); i++) {
+            if (entries.get(i).isSelected()) {
+                return entries.get(i);
+            }
+        }
+        return sdk_bean;
+    }
 
+    public void setSelectedSdk(String sdkId) {
+        for (int i = 0; i < entries.size(); i++) {
+            if (!entries.get(i).getSdkName().equals(sdkId)) {
+                entries.get(i).setIsSelected(false);
+            } else {
+                entries.get(i).setIsSelected(true);
+            }
+        }
+        notifyDataSetChanged();
+    }
 }

@@ -3,36 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
-   
-    
     <LinearLayout
         android:id="@+id/filter_container"
         android:layout_width="@dimen/default_slider_width"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        
-         <TextView
-	        android:id="@+id/textView1"
-	        android:layout_width="@dimen/default_slider_width"
-	        android:layout_height="wrap_content"
-	        android:gravity="left"
-	      
-	        android:text="DATA"
-	        android:textColor="#ffffff" 
-	        android:background="@android:color/black"/>
-        
+
+        <TextView
+            android:id="@+id/creativeNameTextView"
+            android:layout_width="@dimen/default_slider_width"
+            android:layout_height="wrap_content"
+            android:background="@android:color/black"
+            android:gravity="left"
+            android:text="DATA"
+            android:textColor="#ffffff" />
+
         <ListView
             android:id="@+id/menuItem_list"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" >
-            
-        </ListView>
-        
-        
-        
-        
+            android:layout_height="match_parent"></ListView>
     </LinearLayout>
-
 </LinearLayout>

@@ -1,18 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.iab" >
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.android.iab">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
 
     <application
+        android:name=".utility.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme.Base" >
+        android:theme="@style/AppTheme.Base">
         <activity
             android:name=".splash.SplashActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name_">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,13 +40,170 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".main.MainActivity" android:label="@string/app_name"
-            android:windowSoftInputMode="adjustPan"
-            />
-        <activity android:name=".login.Login_Activity" android:label="@string/app_name"/>
-        <activity android:name=".welcome.Welcome_Activity" android:label="@string/app_name"/>
-        <activity android:name=".main.TestAdActivity" android:label="@string/app_name"/>
+        <activity
+            android:name=".main.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".login.SignUpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".welcome.WelcomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".setting.Setting"
+            android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".setting.TermAndCondition"
+            android:screenOrientation="portrait" />
+
+
+        <!-- ADMARVEL:  AdMarvel Core SDK declaration. You must include them in your App manifest -->
+        <!-- ADMARVEL:  AdMarvel Core SDK declaration. You must include them in your App manifest -->
+        <activity
+            android:name=".sdk.admarvel.AdMarvelBannerAdsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
+
+
+        <activity
+            android:name=".sdk.admarvel.AdMarvelInterstitialActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+
+
+        <activity
+            android:name="com.admarvel.android.ads.AdMarvelActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:label="@string/app_name"/>
+        <activity
+            android:name="com.admarvel.android.ads.AdMarvelVideoActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+
+        <activity
+            android:name=".sdk.pabmatic.PubmaticBannertActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+         />
+        <activity
+            android:name=".sdk.pabmatic.PubmaticInterstitialActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+
+        <provider
+            android:name="com.admarvel.android.ads.AdMarvelLocalFileContentProvider"
+            android:authorities="com.admarvel.ads.AdMarvelLocalFileContentProvider"
+            android:exported="false" />
+
+        <activity
+            android:name=".sdk.millennial.InlineActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
+
+        <activity
+            android:name=".sdk.millennial.InterstitialActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
+
+        <activity
+            android:name=".sdk.inmobi.BannerAdsActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            tools:ignore="UnusedAttribute"
+            />
+
+        <activity
+            android:name=".sdk.inmobi.InterstitialAdsActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            tools:ignore="UnusedAttribute"
+            />
+
+        <activity
+            android:name="com.inmobi.rendering.InMobiAdActivity"
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            tools:ignore="UnusedAttribute" />
+
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.adform.sdk.activities.AdActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|screenLayout|uiMode"/>
+
+        <activity
+            android:name=".sdk.adform.AdInlineActivity"
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            />
+
+        <activity
+            android:name=".sdk.adform.AdOverlayActivity"
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            />
+
+        <activity
+            android:name="com.android.iab.sdk.smartadserver.SASBanner"
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            tools:ignore="UnusedAttribute"/>
+
+        <activity
+            android:name="com.android.iab.sdk.smartadserver.SASInterstitial"
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            tools:ignore="UnusedAttribute"/>
+
+        <!--Required Receiver for enhanced targeting for better ads.-->
+
+        <receiver android:name="com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.inmobi.share.id" />
+            </intent-filter>
+        </receiver>
+
+        <service android:enabled="true" android:name="com.inmobi.signals.activityrecognition.ActivityRecognitionManager" />
+
+        <!--Required for Google Play Services-->
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="e63bfaba50c901a758a4c569e15d6fe613221dab" />
     </application>
 
 </manifest>

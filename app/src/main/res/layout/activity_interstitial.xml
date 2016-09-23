@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				xmlns:tools="http://schemas.android.com/tools"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+	android:background="@color/text_color_grey"
+				tools:context="com.millennialmedia.sampleapp.InterstitialActivity">
+	<include
+		android:id="@+id/test_header"
+		layout="@layout/test_ad_header" />
+
+	<Button
+		android:id="@+id/load"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:text="@string/loading"
+		android:visibility="gone"/>
+
+	<Button
+		android:id="@+id/show"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/load"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="60dp"
+		android:enabled="false"
+		android:visibility="gone"
+		/>
+
+	<!-- <android.support.v7.widget.Toolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:background="@color/primary"
+		android:minHeight="?attr/actionBarSize"/> -->
+</RelativeLayout>

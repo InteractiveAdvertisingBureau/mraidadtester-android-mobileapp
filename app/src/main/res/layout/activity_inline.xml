@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				xmlns:tools="http://schemas.android.com/tools"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:background="@color/text_color_grey"
+				tools:context="com.millennialmedia.sampleapp.InlineActivity">
+	<include
+		android:id="@+id/test_header"
+		layout="@layout/test_ad_header" />
+
+<!-- 	<android.support.v7.widget.Toolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:background="@color/primary"
+		android:minHeight="?attr/actionBarSize"/> -->
+
+	<Button
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Request"
+		android:id="@+id/request_button"
+		android:visibility="gone"
+		android:layout_centerInParent="true"/>
+
+	<!-- Millennial Media SDK will fill this container with an ad -->
+	<RelativeLayout
+		android:id="@+id/ad_container"
+		android:layout_width="fill_parent"
+		android:layout_height="50dp"
+	     android:layout_alignParentBottom="true"
+		android:layout_centerHorizontal="true"
+		android:background="@android:color/darker_gray"
+		android:visibility="gone"/>
+</RelativeLayout>
