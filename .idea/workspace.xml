@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c87ac6df-b4cc-4e2b-a9ab-a6155e43ddd6" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mraidadtester-android-mobileapp.iml" />
+      <change beforePath="$PROJECT_DIR$/IAB/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.gradle/2.4/taskArtifacts/cache.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.gradle/2.4/taskArtifacts/fileSnapshots.bin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.gradle/2.4/taskArtifacts/outputFileStates.bin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.idea/.name" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.idea/compiler.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.idea/copyright/profiles_settings.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.idea/encodings.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.idea/gradle.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.idea/libraries/appcompat_v7_21_0_3.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.idea/libraries/recyclerview_v7_22_2_0.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.idea/libraries/support_annotations_22_2_0.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.idea/libraries/support_v4_22_2_0.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.idea/misc.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.idea/modules.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.idea/vcs.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/.idea/workspace.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/IAB.iml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/.gitignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/.idea/.name" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/.idea/compiler.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/.idea/copyright/profiles_settings.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/.idea/encodings.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/.idea/libraries/appcompat_v7_21_0_3.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/.idea/libraries/recyclerview_v7_22_2_0.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/.idea/libraries/support_annotations_22_2_0.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/.idea/libraries/support_v4_22_2_0.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/.idea/misc.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/.idea/modules.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/.idea/workspace.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/app.iml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/build.gradle" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/gradle/wrapper/gradle-wrapper.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/gradle/wrapper/gradle-wrapper.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/gradlew" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/gradlew.bat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/local.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/proguard-rules.pro" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/androidTest/java/com/android/iab/ApplicationTest.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/AndroidManifest.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/adapter/CreativeListAdapter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/adapter/NavigationDrawerAdapter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/adapter/SdkListAdapter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/bean/Creatives_List_Bean.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/bean/SDK_Bean.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/helper/HelperMessage.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/helper/HelperMethods.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/login/Login_Activity.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/main/AddTagFragment.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/main/AddTypeFragment.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/main/FragmentDrawer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/main/MainActivity.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/main/SelectSDKFragment.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/model/NavDrawerItem.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/splash/SplashActivity.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/sqlitehelper/DatabaseHandler.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/sqlitehelper/User_Details.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/utility/ApiList.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/utility/AsyncTaskListner.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/utility/Helper.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/utility/MyAsyncTask.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/utility/MyHttpClient.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/utility/Utils.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/java/com/android/iab/welcome/Welcome_Activity.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/add_creative.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/back_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/close_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/creative_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/creative_list_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/email_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/lock_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/logo.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/menu_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/more_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/next_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/question_mark.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/settings_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/small_logo.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/splash.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/tick_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/tick_grey.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/tick_grey_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-hdpi/tick_red.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/add_creative.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/back_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/close_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/creative_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/creative_list_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/email_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/lock_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/logo.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/menu_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/more_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/next_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/question_mark.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/settings_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/small_logo.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/splash.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/tick_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/tick_grey.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/tick_grey_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xhdpi/tick_red.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/add_creative.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/back_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/close_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/creative_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/creative_list_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/email_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/lock_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/logo.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/menu_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/more_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/next_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/question_mark.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/settings_icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/small_logo.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/splash.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/tick_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/tick_grey.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/tick_grey_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable-xxhdpi/tick_red.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable/rounded_shape.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/drawable/shadow.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/layout/activity_main.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/layout/custom_toolbar.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/layout/fragment_ad_tag.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/layout/fragment_ad_type.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/layout/fragment_navigation_drawer.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/layout/fragment_sdk.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/layout/left_menu.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/layout/login.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/layout/nav_drawer_row.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/layout/sample_main.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/layout/sdk_items.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/layout/splash_screen.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/layout/toolbar.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/layout/welcome_screen.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/menu/menu_main.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/values-hdpi/dimen.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/values-v14/styles.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/values-v21/base-colors.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/values-v21/base-template-styles.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/values-v21/styles.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/values-w820dp/dimens.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/values-xhdpi/dimen.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/values-xxhdpi/dimen.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/values/colors.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/values/dimens.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/values/strings.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/values/styles.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/app/src/main/res/values/themes.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/build.gradle" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/build/intermediates/dex-cache/cache.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/build/intermediates/gradle_project_sync_data.bin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/gradle.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/gradle/wrapper/gradle-wrapper.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/gradle/wrapper/gradle-wrapper.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/gradlew" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/gradlew.bat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/local.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IAB/settings.gradle" afterPath="" />
+    </list>
+    <ignored path="$PROJECT_DIR$/build/classes/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev-shubham" />
+      </map>
+    </option>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="59" />
+    <option name="y" value="24" />
+    <option name="width" value="1305" />
+    <option name="height" value="708" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="AndroidView" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="mraidadtester-android-mobileapp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="mraidadtester-android-mobileapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mraidadtester-android-mobileapp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="mraidadtester-android-mobileapp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mraidadtester-android-mobileapp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="mraidadtester-android-mobileapp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mraidadtester-android-mobileapp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="mraidadtester-android-mobileapp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mraidadtester-android-mobileapp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="mraidadtester-android-mobileapp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mraidadtester-android-mobileapp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="mraidadtester-android-mobileapp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mraidadtester-android-mobileapp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="mraidadtester-android-mobileapp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mraidadtester-android-mobileapp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="mraidadtester-android-mobileapp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="iab" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mraidadtester-android-mobileapp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="mraidadtester-android-mobileapp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
+    <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+    <property name="ignore_missing_gitignore" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c87ac6df-b4cc-4e2b-a9ab-a6155e43ddd6" name="Default" comment="" />
+      <created>1528355308654</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1528355308654</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="59" y="24" width="1307" height="772" extended-state="6" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.50277555" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Flutter Outline" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24980174" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.49722442" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Flutter Inspector" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="104" column="1" lean-forward="true" selection-start-line="104" selection-start-column="1" selection-end-line="104" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
