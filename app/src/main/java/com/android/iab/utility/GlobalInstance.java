@@ -17,8 +17,8 @@ public class GlobalInstance {
     * @param SDK_VERSION_ARRAY                      This is an Array of String which is used for SDK Version
     * @param AD_TYPE_ARRAY                          This is an Array of String which is used for AD Type
     */
-    public static String[] SDK_NAME_ARRAY = {"Ad Marvel", "PubMatic","Millennial","InMobi","AdForm","SmartAdServer"};
-    public static String[] SDK_VERSION_ARRAY = {"v3.2.6 ", "v2.1", "v6.1.0","V5.1.1","V2.5.0","V6.3"};
+    public static String[] SDK_NAME_ARRAY = {"Ad Marvel", "PubMatic","Millennial","InMobi","AdForm","SmartAdServer","OpenX"};
+    public static String[] SDK_VERSION_ARRAY = {"v3.2.6 ", "v2.1", "v6.1.0","V5.1.1","V2.12.0","V6.9","4.7.0"};
     public static String[] AD_TYPE_ARRAY = {"Banner ", "Interstitial"};
     public static String AD_TYPE_BANNER = "Banner";
     public static String AD_TYPE_INTERSTITIAL = "Interstitial";
@@ -27,6 +27,7 @@ public class GlobalInstance {
     public static String SDK_TYPE_MILLENNIAL = "Millennial";
     public static String SDK_TYPE_INMOBI = "InMobi";
     public static String SDK_TYPE_ADFORM="AdForm";
+    public static String SDK_TYPE_OPENX="OpenX";
     public static String SDK_TYPE_SMART_AD_SERVER="SmartAdServer";
     public static String TYPE_MY_CREATIVE = "1";
     public static String TYPE_DEFAULT_CREATIVE = "10";

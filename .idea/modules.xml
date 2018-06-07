@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/inmobi_adapter-release/inmobi_adapter-release.iml" filepath="$PROJECT_DIR$/inmobi_adapter-release/inmobi_adapter-release.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mm-ad-sdk/mm-ad-sdk.iml" filepath="$PROJECT_DIR$/mm-ad-sdk/mm-ad-sdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/mraidadtester-android-mobileapp.iml" filepath="$PROJECT_DIR$/mraidadtester-android-mobileapp.iml" />
     </modules>
   </component>

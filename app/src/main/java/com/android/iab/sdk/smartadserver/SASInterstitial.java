@@ -36,7 +36,9 @@ public class SASInterstitial extends Activity {
         mBannerView = (SASInterstitialView)findViewById(R.id.banner);
         String pageId = getIntent().getStringExtra(IntentKey.SCRIPT_ID);
         setResult();
-        mBannerView.loadAd(100989, "652022", 15049, true, "iab_id="+pageId, null);
+
+       mBannerView.loadAd(100989, "652022", 15049, true, "iab_id="+pageId, null);
+      //  mBannerView.loadAd(104808, "663262", 15140, true, "iab_id="+pageId, null);
 
     }
 

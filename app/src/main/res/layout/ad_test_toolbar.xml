@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_alignRight="@+id/back_imageView"
-        android:text="@string/app_actionbar_title"
+        android:text="@string/app_name"
         android:textColor="@color/red"
         android:id="@+id/test_add_title"
 

@@ -2,7 +2,6 @@ package com.android.iab.sdk.inmobi;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -20,7 +19,7 @@ import com.inmobi.sdk.InMobiSdk;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BannerAdsActivity extends ActionBarActivity{
+public class BannerAdsActivity extends Activity {
 
     private static final String TAG = BannerAdsActivity.class.getSimpleName();
     private static final long YOUR_PLACEMENT_ID = 1449190430700l;
@@ -37,7 +36,7 @@ public class BannerAdsActivity extends ActionBarActivity{
         InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
         InMobiSdk.init(this, YOUR_PROPERTY_ID);
 
-        header_text=(TextView)findViewById(R.id.header_text);
+        header_text = (TextView) findViewById(R.id.header_text);
 
         //Back button clicked on Header to go Back
         header_text.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +66,7 @@ public class BannerAdsActivity extends ActionBarActivity{
                 @Override
                 public void onAdLoadFailed(InMobiBanner inMobiBanner,
                                            InMobiAdRequestStatus inMobiAdRequestStatus) {
-                    Log.i(TAG, "Banner ad failed to load with error: " +
+                    Log.e(TAG, "Banner ad failed to load with error: " +
                             inMobiAdRequestStatus.getMessage());
                     HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.MESSAGE_AD_LOAD_FAILED, BannerAdsActivity.this);
 
@@ -75,46 +74,45 @@ public class BannerAdsActivity extends ActionBarActivity{
 
                 @Override
                 public void onAdDisplayed(InMobiBanner inMobiBanner) {
-                    Log.i(TAG, "Banner ad onAdDisplayed"
+                    Log.e(TAG, "Banner ad onAdDisplayed"
                     );
                 }
 
                 @Override
                 public void onAdDismissed(InMobiBanner inMobiBanner) {
-                    Log.i(TAG, "Banner ad onAdDismissed"
+                    Log.e(TAG, "Banner ad onAdDismissed"
                     );
                 }
 
                 @Override
                 public void onAdInteraction(InMobiBanner inMobiBanner, Map<Object, Object> map) {
-                    Log.i(TAG, "Banner ad onAdInteraction"
+                    Log.e(TAG, "Banner ad onAdInteraction"
                     );
                 }
 
                 @Override
                 public void onUserLeftApplication(InMobiBanner inMobiBanner) {
-                    Log.i(TAG, "Banner ad onUserLeftApplication"
+                    Log.e(TAG, "Banner ad onUserLeftApplication"
                     );
                 }
 
                 @Override
                 public void onAdRewardActionCompleted(InMobiBanner inMobiBanner, Map<Object, Object> map) {
-                    Log.i(TAG, "Banner ad onAdRewardActionCompleted"
-                            );
+                    Log.e(TAG, "Banner ad onAdRewardActionCompleted"
+                    );
                 }
             });
 
 
-
             int width = toPixelUnits(320);
-            int height= toPixelUnits(50);
+            int height = toPixelUnits(50);
             RelativeLayout.LayoutParams bannerLayoutParams =
                     new RelativeLayout.LayoutParams(width, height);
             bannerLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
             bannerLayoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
-            String iab_creative=getIntent().getStringExtra(IntentKey.SCRIPT);
+            String iab_creative = getIntent().getStringExtra(IntentKey.SCRIPT);
 
-            Map < String , String > targetParams = new HashMap< String , String >();
+            Map<String, String> targetParams = new HashMap<String, String>();
             String base64 = Base64.encodeToString(iab_creative.getBytes(), Base64.DEFAULT);
        /*     Log.d("Script", iab_creative);
             Log.d("base64", base64);
@@ -131,6 +129,7 @@ public class BannerAdsActivity extends ActionBarActivity{
         float density = getResources().getDisplayMetrics().density;
         return Math.round(dipUnit * density);
     }
+
     private void setResult() {
         setResult(Activity.RESULT_OK);
     }

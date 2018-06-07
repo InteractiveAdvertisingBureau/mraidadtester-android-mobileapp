@@ -16,7 +16,7 @@ repositories {
 
 
 android {
-  /* signingConfigs {
+    /* signingConfigs {
         IAB {
             keyAlias 'iab'
             keyPassword 'pass@123'
@@ -25,7 +25,7 @@ android {
         }
     }*/
     compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.android.iab"
         minSdkVersion 16
@@ -69,16 +69,18 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:support-v4:21.0.2'
+    compile 'com.android.support:support-v4:21.0.3'
     compile 'com.android.support:appcompat-v7:21.0.+'
     compile 'com.android.support:recyclerview-v7:21.0.2'
     compile 'com.google.android.gms:play-services-ads:9.0.2'
+
     compile files('libs/admarvel-android-sdk-core.jar')
     compile files('libs/gson-2.2.2.jar')
     compile files('libs/commons-collections4-4.0.jar')
     compile files('libs/mastadview.jar')
     compile files('libs/InMobi-5.1.1.jar')
     // Unit testing dependencies
+    compile 'com.android.support.constraint:constraint-layout:1.1.0'
     testCompile 'junit:junit:4.12'
     // Set this dependency if you want to use Mockito
     testCompile 'org.mockito:mockito-core:1.10.19'
@@ -96,9 +98,10 @@ dependencies {
     testCompile 'org.robolectric:shadows-support-v4:3.0-rc2'
     testCompile 'org.robolectric:robolectric:3.0-rc2'
     compile project(':mm-ad-sdk')
-    compile project(':inmobi_adapter-release')
-    compile(name: 'advertising-sdk-2.5.0', ext: 'aar')
-    compile files('libs/SmartAdServer-Android-SDK-6.3.jar')
+    // compile project(':inmobi_adapter-release')
+    compile(name: 'advertising-sdk-2.12.0', ext: 'aar')
+    compile(name: 'AndroidSdk-4.7.0', ext: 'aar')
+    compile(name:'SmartAdServer-Android-SDK-6.9',ext:'aar')
     compile('com.crashlytics.sdk.android:crashlytics:2.6.2@aar') {
         transitive = true;
     }

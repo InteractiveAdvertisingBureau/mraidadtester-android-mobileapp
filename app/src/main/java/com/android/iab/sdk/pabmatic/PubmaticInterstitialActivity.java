@@ -2,6 +2,7 @@ package com.android.iab.sdk.pabmatic;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -88,6 +89,7 @@ public class PubmaticInterstitialActivity extends Activity {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			Log.e("Error",e.toString());
 		}
 		super.onDestroy();
 	}

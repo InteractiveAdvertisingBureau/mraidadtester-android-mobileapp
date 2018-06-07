@@ -71,7 +71,7 @@ public class PubmaticBannertActivity extends Activity {
 			MASTAdViewDelegate.RequestListener {
 		@Override
 		public void onFailedToReceiveAd(MASTAdView adView, Exception ex) {
-
+            Log.e("Error",ex.toString());
 			HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.MESSAGE_AD_LOAD_FAILED, PubmaticBannertActivity.this);
 
 		}

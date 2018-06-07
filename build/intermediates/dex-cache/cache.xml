@@ -1,2 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/5674b9ae1564072f2c69e7bb898a4f2bebe999a7/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0ae0d98413c42aeb0b87c49ce085094ec091e20d">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0288fadfa1c38f1e54e97f8d6a9cce0aed5cf1b8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/3670d77ecddb13712108c832fca53fe5d437365b/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4796f18d3750bf2bfa078407a94a7f9db35b440d">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4b42b8ab5fb2b6080a01f577a9818413e39b8691/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/8702d4d5c6af92c7abc6ee83e792c4ee45f9b908/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e3376f705dc1863a8782faf275e56f188b8129eb">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_80fedd47397d40e8b946a149431bede87b689bc2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/Desktop/Beanstalk/iab-android/app/libs/SmartAdServer-Android-SDK-6.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fc4846ebbbb624d7232b0e8d498bc8e454442cfd">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/SmartAdServer-Android-SDK-6.3_33cc9c31a8816faa54d7dc098a6a6013ccead6bb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/259ea22a7d989686c903563472ad246d6a2bd179/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="96b0bc384136189848f4d4c900ea45ae963d86b0">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_765495890bd1e2df9d4b8df636e2a35159a35391/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/Desktop/Beanstalk/iab-android/app/libs/mastadview.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1189ef34438ecd47da59c64b7066c6e4da01735e">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/mastadview_7f2b280a4ae2fc6dc82460b228c8e5f6e60433ed/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/Desktop/Beanstalk/iab-android/app/libs/InMobi-5.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8d2d42030db01a345b908e1ce4435678e056da81">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/InMobi-5.1.1_52d0a84d51e2eae8008234235c5f54adfda644cd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/f52204f7f0375135b853c847a345e47233a84a17/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5af05fb0f5e20fa3f6bd886eed1b8fe185330d46/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/Desktop/Beanstalk/iab-android/app/libs/admarvel-android-sdk-core.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="06dfa295d9112c64de1a3f20af2ebcd5cf427de6">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/admarvel-android-sdk-core_695c433a9176d0be276c6b40dbaa3361cff0ff87/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/40533d265b34228ebce68f33ea799544449ee285/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a637ea73d78e58f13decdc721b01817d39941f10">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_7caa0e0c2656a37f948709f56f6cceea32351a05/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/8b20bb71ae08bfd011ba029a9e72c18e4bfbc617/output/jars/libs/headerbidding.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9f483c6268798113859fcf752721a7f1624b71e8">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/headerbidding_6bf5f82016d4702eb267522e07640f1ce7ad38d7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/9ce3d7aefd0637962c6162bd791304f8aade78dc/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4022261eeea0d92eb2997a68d2c1f084a16abad9">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a2a2c4cf2e0a01230ac9b307eff601f0cb256857/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-22.2.1_d78a267fded1ffaae38f51a6ee3d1b558b1e283c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/78e51298d148986b2d88d51f90e0a8b7d3f8272f/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f4fb6981392ca7680d02fd57d26d6124c141d9d9">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_dd146cec7be59b788e377ed103babdcc1f1df8b8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/1eaff0f7f347cbfa4d7f0e276b520351af6aa0d9/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9919563cffd8e3732e944d3c437d4b9575a08448">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ce1d237f2f20ce50ba2ec8264c8acf70450c10de/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/8b20bb71ae08bfd011ba029a9e72c18e4bfbc617/output/jars/libs/awaitility-1.6.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9f69ef461b1c70812d1919f9be843ea6525cf568">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/awaitility-1.6.3_575f3e0c8129c9c32dbcc3cba9d95f738499e93b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/Desktop/Beanstalk/iab-android/app/libs/commons-collections4-4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="da217367fd25e88df52ba79e47658d4cf928b0d1">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/commons-collections4-4.0_85b862a97cb73f69939890680ca8bec0e6b9ca69/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/6a108df3f3b4c342501e280548cbb1b3e44f9773/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="94d9cedd04b124aed044ac71c451a292856d854c">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e54a89d5e1280f80443ea712cc20eebf3e9eb105/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/3e082f5a525e27afc2d59b108e19900d69e7f5ef/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b42cf2134829f715edfa2adaf0ee246631322dba">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9d6ad2ed6041abace6a2ea5bc8f88665a3ed7b3c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/5976a1015cd2a993741e308d4f2bf3afa005f994/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_66819a5c65b58aa1c3b2cb0b3b6df594b70ae2e4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/f52204f7f0375135b853c847a345e47233a84a17/output/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.0.0_4406c3d849c16f35991392ba16251b771ad9fc36/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_b7541825e1ec96c12ee769673bbcb84e64001906/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/Desktop/Beanstalk/iab-android/app/libs/gson-2.2.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="53bfcd3c8e310d1493b2691484525ed90b04e236">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/gson-2.2.2_7daead882364f2b93e735b6ff462b342574da92d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/dfe50cf3c64153339486d30ce46a0502abf2feb0/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="23e3acde10f4cf52778f8dc88107fb96459f2392">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2bd6e38b7d80ee9b1dac3f41ce36d3ced88abdf4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/0b42043e2dbd9d08e509cd4e3c2371a06c180126/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e3e366ad917b1fd4de5f1a0626d4e9af903dba52">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_1730bbacf0eb5724b7764f18be99ed91d8470abe/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f1d966039354c16e62a265043df37dc0227fa5d0">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_6d0d37986d4f45ce7b9f81802a9325402e25b6c1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/9de369d3bce6a839ac2de49ccfebfc33b5098817/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="aec1bc54964a85d851c2c1b1cb7f90f7dbd755ab">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9e489b69cfa9244ca02adff29541f775edd1936e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/8b20bb71ae08bfd011ba029a9e72c18e4bfbc617/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b274a2476f5e0054fa01d0e60d43eded964df372">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6a0ec850dfcf34a14712b660146e386d8e9be480/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/claritus/.android/build-cache/c6bdb907d36f6868be62a42ea879c408bd46f17d/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b8e0372ca6dc89ac4fe22b76eeea4f68ece435b8">
+        <dex dex="/home/claritus/Desktop/Beanstalk/iab-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_77767fb99aac24f6a068924c8e28be557008b964/classes.dex" />
+    </item>
+
+</items>

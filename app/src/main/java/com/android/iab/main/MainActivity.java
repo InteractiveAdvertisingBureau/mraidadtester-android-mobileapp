@@ -11,9 +11,12 @@
 
 package com.android.iab.main;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v4.widget.DrawerLayout;
@@ -25,6 +28,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
 
 import com.android.iab.R;
 import com.android.iab.adapter.AdTypeAdapter;
@@ -43,6 +47,8 @@ import com.android.iab.sdk.inmobi.BannerAdsActivity;
 import com.android.iab.sdk.inmobi.InterstitialAdsActivity;
 import com.android.iab.sdk.millennial.InlineActivity;
 import com.android.iab.sdk.millennial.InterstitialActivity;
+import com.android.iab.sdk.openx.OpenXBannerActivity;
+import com.android.iab.sdk.openx.OpenXInterstitial;
 import com.android.iab.sdk.pabmatic.PubmaticBannertActivity;
 import com.android.iab.sdk.pabmatic.PubmaticInterstitialActivity;
 import com.android.iab.sdk.smartadserver.SASBanner;
@@ -66,6 +72,9 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
+
+import static android.app.Activity.RESULT_OK;
+import static com.millennialmedia.internal.utils.EnvironmentUtils.getApplicationContext;
 
 public class MainActivity extends ActionBarActivity implements FragmentDrawer.FragmentDrawerListener, View.OnClickListener, OnCreativeListClickListner, AsyncTaskListner {
     /**
@@ -160,6 +169,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
     public MainActivity() {
         mainActivity = this;
     }
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -487,6 +497,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         selectSdkTextView.setTextColor(getResources().getColor(R.color.grey));
         selectAddTypeTextView.setTextColor(getResources().getColor(R.color.red));
         sdkNameTextView.setText(sdkName + " " + sdkversion);
+        Log.e("sdk version",sdkversion);
     }
 
     /**
@@ -657,6 +668,16 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                 else
                     intent = new Intent(MainActivity.this, AdInlineActivity.class);
                 intent.putExtra(IntentKey.SCRIPT, script);
+                startActivityForResult(intent, test_creative);
+            }
+            else if(sdkName.equals(GlobalInstance.SDK_TYPE_OPENX))
+            {
+                int scriptId=HelperMethods.isScriptAlreadyStored(MainActivity.this,add_tag_editText.getText().toString().trim());
+                if (selectedAddType.equals(GlobalInstance.AD_TYPE_INTERSTITIAL))
+                    intent = new Intent(MainActivity.this, OpenXInterstitial.class);
+                else
+                    intent = new Intent(MainActivity.this, OpenXBannerActivity.class);
+                intent.putExtra(IntentKey.SCRIPT_ID, ""+scriptId);
                 startActivityForResult(intent, test_creative);
             }else if(sdkName.equals(GlobalInstance.SDK_TYPE_SMART_AD_SERVER))
             {

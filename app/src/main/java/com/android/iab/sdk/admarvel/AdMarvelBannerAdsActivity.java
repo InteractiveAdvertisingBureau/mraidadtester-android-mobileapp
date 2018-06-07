@@ -154,7 +154,7 @@ public class AdMarvelBannerAdsActivity extends Activity implements
 				Logging.log("onFailedToReceiveAd" );
 				// loadingLayout.setVisibility(View.INVISIBLE );
 
-				Log.e("errorCode", "errorCode");
+				Log.e("errorReason", errorReason.toString());
 				runOnUiThread(new Runnable() {
 					@Override
 					public void run() {

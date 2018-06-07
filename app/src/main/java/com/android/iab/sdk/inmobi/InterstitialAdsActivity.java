@@ -2,7 +2,6 @@ package com.android.iab.sdk.inmobi;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +18,7 @@ import com.inmobi.sdk.InMobiSdk;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InterstitialAdsActivity extends ActionBarActivity {
+public class InterstitialAdsActivity extends Activity {
 
     private static final String TAG = InterstitialAdsActivity.class.getSimpleName();
     private static final long YOUR_PLACEMENT_ID = 1450223352908l;
@@ -39,7 +38,7 @@ public class InterstitialAdsActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inmobi_interstitial_ads);
 
-        header_text=(TextView)findViewById(R.id.header_text);
+        header_text = (TextView) findViewById(R.id.header_text);
 
         //Back button clicked on Header to go Back
         header_text.setOnClickListener(new View.OnClickListener() {
@@ -99,8 +98,8 @@ public class InterstitialAdsActivity extends ActionBarActivity {
                     }
                 });
 
-        String iab_creative=getIntent().getStringExtra(IntentKey.SCRIPT);
-        Map < String , String > targetParams = new HashMap< String , String >();
+        String iab_creative = getIntent().getStringExtra(IntentKey.SCRIPT);
+        Map<String, String> targetParams = new HashMap<String, String>();
         String base64 = Base64.encodeToString(iab_creative.getBytes(), Base64.DEFAULT);
     /*    Log.d("Script", iab_creative);
         Log.d("base64", base64);*/
