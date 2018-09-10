@@ -12,10 +12,12 @@
 package com.android.iab.utility;
 
 public class ApiList {
-      public static final String BASE_URL ="http://50.60.132.101";
-   // public static final String BASE_URL ="http://50.60.132.100:8080";
+    public static final String BASE_URL = "http://50.60.132.101";
+    // public static final String BASE_URL ="http://50.60.132.100:8080";
+    public static final String IAB_BASE_URL = "https://api.iabtechlab.com";
     /**
-     *  Url to open Term & Condition Page using WebView */
+     * Url to open Term & Condition Page using WebView
+     */
     public static final String URL_TERM_CONDITION = "http://www.iab.net/legal_disclaimer";
 
     /**
@@ -27,6 +29,7 @@ public class ApiList {
     public static final String API_URL_GET_CREATIVE = "/IABAPI/iab/api/getcreative/";
     public static final String API_URL_GET_ALL_CREATIVE = "/IABAPI/iab/api/getcreativemobile/";
     public static final String API_URL_SIGN_UP = "/IABAPI/iab/api/mobile";
+    public static final String API_URL_RIGISTRATION = "/api/mraid/registerform";
     public static final String API_URL_SAVE_CREATIVE = "/IABAPI/iab/api/savecreative?";
     public static final String API_URL_DELETE_CREATIVE = "/IABAPI/iab/api/deletecreative/";
 }

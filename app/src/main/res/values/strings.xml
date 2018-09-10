@@ -102,4 +102,6 @@
     <string name="done">Done</string>
     <string name="welcome">Welcome</string>
     <string name="save_creative">Saved Creatives</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
 </resources>

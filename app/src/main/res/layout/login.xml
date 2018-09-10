@@ -9,7 +9,7 @@
         android:id="@+id/center_heading_llayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin_from_top_large_very_very"
+        android:layout_marginTop="@dimen/default_margin_from_top_large_very"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -27,10 +27,11 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="@dimen/abc_text_size_title_material_toolbar"
         android:id="@+id/center_box_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/center_heading_llayout"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/default_running_text_size_small">
@@ -43,23 +44,60 @@
 
             <TextView
                 android:id="@+id/user_name_textView"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.35"
                 android:gravity="left"
-                android:text="Name            "
+                android:text="@string/first_name"
                 android:textColor="@color/black"
                 android:textSize="@dimen/default_running_text_size_small"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/user_name_editText"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.7"
                 android:background="@android:color/white"
                 android:ems="10"
-                android:hint="@string/hint_username"
-                android:inputType="textPersonName"
-               ></EditText>
+                android:hint="@string/first_name"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_line_height"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/default_text_size_small_very_extra"
+            android:background="@color/grey" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/default_running_text_size_small"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/last_name_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:gravity="left"
+                android:text="@string/last_name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_running_text_size_small"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/last_name_editText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:background="@android:color/white"
+                android:ems="10"
+                android:hint="@string/last_name"
+                android:inputType="textPersonName" />
         </LinearLayout>
 
         <TextView
@@ -78,23 +116,24 @@
 
             <TextView
                 android:id="@+id/company_name_textView"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.35"
                 android:gravity="left"
-                android:text="Company     "
+                android:text="Company"
                 android:textColor="@color/black"
                 android:textSize="@dimen/default_running_text_size_small"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/company_name_editText"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.7"
                 android:background="@android:color/white"
                 android:ems="10"
                 android:hint="@string/hint_company_name"
-                android:inputType="text"
-               ></EditText>
+                android:inputType="text" />
         </LinearLayout>
 
         <TextView
@@ -113,23 +152,25 @@
 
             <TextView
                 android:id="@+id/user_email_textView"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.35"
                 android:gravity="left"
-                android:text="Email             "
+                android:text="Email"
                 android:textColor="@color/black"
                 android:textSize="@dimen/default_running_text_size_small"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/user_email_editText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.7"
                 android:background="@android:color/white"
                 android:ems="10"
                 android:hint="@string/hint_email"
                 android:inputType="textEmailAddress"
-                android:paddingRight="@dimen/default_text_size_small_very_extra"></EditText>
+                android:paddingRight="@dimen/default_text_size_small_very_extra" />
         </LinearLayout>
 
         <TextView
@@ -199,13 +240,13 @@
             android:layout_width="fill_parent"
             android:layout_height="@dimen/bottom_navigation_menu_height"
             android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/default_running_text_size_small"
+            android:layout_marginRight="@dimen/default_running_text_size_small"
             android:background="@color/red"
             android:text="@string/login_bottom_text"
             android:textColor="@android:color/white"
             android:textSize="@dimen/default_running_text_size_small"
             android:textStyle="bold"
-            android:layout_marginLeft="@dimen/default_running_text_size_small"
-            android:layout_marginRight="@dimen/default_running_text_size_small"
             android:typeface="monospace" />
 
         <TextView
@@ -218,6 +259,7 @@
             android:gravity="center"
             android:text="@string/login_bottom_skip"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="@dimen/default_running_text_size_small" />
+            android:textSize="@dimen/default_running_text_size_small"
+            />
     </LinearLayout>
 </RelativeLayout>

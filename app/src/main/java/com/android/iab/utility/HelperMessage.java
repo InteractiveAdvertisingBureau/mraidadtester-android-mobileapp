@@ -14,6 +14,8 @@ package com.android.iab.utility;
 public class HelperMessage {
     public static String NETWORK_ERROR_MESSAGE = "Looks like you are not connected to the internet. Please enable cellular data or wifi and try again ";
     public static String MESSAGE_USER_NAME = "Please enter a user name";
+    public static String MESSAGE_FIRST_NAME = "Please enter a First name";
+    public static String MESSAGE_LAST_NAME = "Please enter a Last name";
     public static String MESSAGE_USER_EMAIL = "Please enter a valid Email Id.";
     public static String MESSAGE_USER_EMAIL_VALID = "Please enter a valid email";
     public static String MESSAGE_COMPANY_NAME = "Please enter a company name";

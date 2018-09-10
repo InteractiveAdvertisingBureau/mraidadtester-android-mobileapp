@@ -12,7 +12,6 @@
 package com.android.iab.main;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -220,16 +219,27 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             String url = ApiList.BASE_URL + ApiList.API_URL_SAVE_CREATIVE;
             String data = "apikey=" + SharePref.getUserAccessKey(getApplicationContext()) + "&name=" +  URLUTF8Encoder.encode(creativeName) + "&des=" +  URLUTF8Encoder.encode(add_tag_String) + "&sdk=" + URLUTF8Encoder.encode(sdkName)+ "&type=" +  URLUTF8Encoder.encode(selectedAddType);
             GetPostDataFromServer getPostDataFromServer = new GetPostDataFromServer(this);
-            getPostDataFromServer.getResponse(url, data, ApiList.API_URL_SAVE_CREATIVE);
+            getPostDataFromServer.getResponse(url, data, ApiList.API_URL_SAVE_CREATIVE, false);
         } else {
             HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.NETWORK_ERROR_MESSAGE, this);
         }
     }
 
     private void userLogin() {
-        String url = ApiList.BASE_URL + ApiList.API_URL_SIGN_UP + "/" + "demo_first_name" + "/" + "demo_last_name" + "/" + getID() + "/" + "demo_company" + "/android";
+       /* String url = ApiList.BASE_URL + ApiList.API_URL_SIGN_UP + "/" + "demo_first_name" + "/" + "demo_last_name" + "/" + getID() + "/" + "demo_company" + "/android";
         GetDataFromServer getDataFromServer = new GetDataFromServer(MainActivity.this);
-        getDataFromServer.getResponse(url, ApiList.API_URL_SIGN_UP);
+        getDataFromServer.getResponse(url, ApiList.API_URL_SIGN_UP);*/
+        String data = "firstname=%s&lastname=%s&email=%s&company=%s&platform=android";
+        ;
+        //data =  URLUTF8Encoder.encode(user_nameString) + "/" +  URLUTF8Encoder.encode(user_nameString) + "/" +  URLUTF8Encoder.encode(user_emailString) + "/" +  URLUTF8Encoder.encode(company_nameString) + "/android";
+        data = String.format(data, "demo_first_name", "demo_last_name", getID(), "demo_company");
+        String url = ApiList.IAB_BASE_URL + ApiList.API_URL_RIGISTRATION;
+        /*
+        GetDataFromServer getDataFromServer = new GetDataFromServer(SignUpActivity.this);
+        getDataFromServer.getResponse(url, ApiList.API_URL_SIGN_UP);*/
+        GetPostDataFromServer getPostDataFromServer = new GetPostDataFromServer(MainActivity.this);
+        getPostDataFromServer.getResponse(url, data, ApiList.API_URL_RIGISTRATION, true);
+
     }
 
 
@@ -745,7 +755,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            } else if (apiName.equals(ApiList.API_URL_SIGN_UP)) {
+            } else if (apiName.equals(ApiList.API_URL_RIGISTRATION)) {
                 try {
                     JSONObject jsonObject_response = new JSONObject(result);
                     String response = jsonObject_response.getString("response");

@@ -13,10 +13,8 @@ package com.android.iab.login;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,26 +27,22 @@ import android.widget.Toast;
 
 import com.android.iab.R;
 import com.android.iab.font.SetFont;
+import com.android.iab.main.MainActivity;
+import com.android.iab.setting.TermAndCondition;
+import com.android.iab.utility.ApiList;
 import com.android.iab.utility.AsyncTaskListner;
+import com.android.iab.utility.GetPostDataFromServer;
 import com.android.iab.utility.GlobalInstance;
 import com.android.iab.utility.HelperMessage;
 import com.android.iab.utility.HelperMethods;
 import com.android.iab.utility.IntentKey;
 import com.android.iab.utility.SharePref;
-import com.android.iab.main.MainActivity;
-import com.android.iab.setting.TermAndCondition;
-import com.android.iab.utility.ApiList;
-import com.android.iab.utility.GetDataFromServer;
-import com.android.iab.utility.URLUTF8Encoder;
 import com.android.iab.welcome.WelcomeActivity;
 
 import org.json.JSONObject;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-
 /**
- *  This is an Activity which is used to Register User
+ * This is an Activity which is used to Register User
  */
 public class SignUpActivity extends Activity implements OnClickListener, AsyncTaskListner {
 
@@ -61,22 +55,24 @@ public class SignUpActivity extends Activity implements OnClickListener, AsyncTa
      * @param company_name_editText         This is a ThextView which is used to get User Company Name
      * @param user_email_editText           This is a ThextView which is used to get User Email
      * @param login_Button                  This is a ThextView which is used to know Term & Condition
-     *
-     * */
+     */
     private TextView policy_textView;
     private TextView skip_Button;
     private EditText user_name_editText;
+    private EditText last_name_editText;
     private EditText company_name_editText;
     private EditText user_email_editText;
     private Button login_Button;
 
     /**
      * String for storing user credentials
+     *
      * @param user_nameString               This is a String which is used for get User Name
      * @param company_nameString            This is a String which is used for get User Company Name
      * @param user_emailString              This is a String which is used for get User Email Address
-     * */
+     */
     private String user_nameString;
+    private String last_nameString;
     private String company_nameString;
     private String user_emailString;
 
@@ -100,6 +96,7 @@ public class SignUpActivity extends Activity implements OnClickListener, AsyncTa
         policy_textView = (TextView) findViewById(R.id.policy_textView);
         skip_Button = (TextView) findViewById(R.id.skip_Button);
         user_name_editText = (EditText) findViewById(R.id.user_name_editText);
+        last_name_editText = (EditText) findViewById(R.id.last_name_editText);
         company_name_editText = (EditText) findViewById(R.id.company_name_editText);
         user_email_editText = (EditText) findViewById(R.id.user_email_editText);
         login_Button = (Button) findViewById(R.id.login_Button);
@@ -121,6 +118,7 @@ public class SignUpActivity extends Activity implements OnClickListener, AsyncTa
         switch (v.getId()) {
             case R.id.login_Button:
                 user_nameString = user_name_editText.getText().toString();
+                last_nameString = last_name_editText.getText().toString();
                 user_emailString = user_email_editText.getText().toString();
                 company_nameString = company_name_editText.getText().toString();
                 if (validateData()) {
@@ -129,9 +127,9 @@ public class SignUpActivity extends Activity implements OnClickListener, AsyncTa
                 break;
             case R.id.skip_Button:
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.putExtra(IntentKey.IS_LOAD_USER_CREATIVE,false);
+                intent.putExtra(IntentKey.IS_LOAD_USER_CREATIVE, false);
                 startActivity(intent);
-                                // close this activity
+                // close this activity
                 finish();
                 break;
             case R.id.policy_textView:
@@ -158,7 +156,11 @@ public class SignUpActivity extends Activity implements OnClickListener, AsyncTa
     private Boolean validateData() {
         // TODO Auto-generated method stub
         if (user_nameString.length() == 0) {
-            Toast.makeText(getApplicationContext(), HelperMessage.MESSAGE_USER_NAME,
+            Toast.makeText(getApplicationContext(), HelperMessage.MESSAGE_FIRST_NAME,
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (last_nameString.length() == 0) {
+            Toast.makeText(getApplicationContext(), HelperMessage.MESSAGE_LAST_NAME,
                     Toast.LENGTH_SHORT).show();
             return false;
         } else if (company_nameString.length() == 0) {
@@ -181,37 +183,43 @@ public class SignUpActivity extends Activity implements OnClickListener, AsyncTa
      *
      * */
     private void userLogin() {
-            String data;
-            data =  URLUTF8Encoder.encode(user_nameString) + "/" +  URLUTF8Encoder.encode(user_nameString) + "/" +  URLUTF8Encoder.encode(user_emailString) + "/" +  URLUTF8Encoder.encode(company_nameString) + "/android";
-            String url = ApiList.BASE_URL+ApiList.API_URL_SIGN_UP + "/" + data;
-            GetDataFromServer getDataFromServer = new GetDataFromServer(SignUpActivity.this);
-            getDataFromServer.getResponse(url, ApiList.API_URL_SIGN_UP);
+        String data = "firstname=%s&lastname=%s&email=%s&company=%s&platform=android";
+        ;
+        //data =  URLUTF8Encoder.encode(user_nameString) + "/" +  URLUTF8Encoder.encode(user_nameString) + "/" +  URLUTF8Encoder.encode(user_emailString) + "/" +  URLUTF8Encoder.encode(company_nameString) + "/android";
+        data = String.format(data, user_nameString, last_nameString, user_emailString, company_nameString);
+        String url = ApiList.IAB_BASE_URL + ApiList.API_URL_RIGISTRATION;
+        /*
+        GetDataFromServer getDataFromServer = new GetDataFromServer(SignUpActivity.this);
+        getDataFromServer.getResponse(url, ApiList.API_URL_SIGN_UP);*/
+        GetPostDataFromServer getPostDataFromServer = new GetPostDataFromServer(this);
+        getPostDataFromServer.getResponse(url, data, ApiList.API_URL_RIGISTRATION,false);
+        openAlert(getResources().getString(R.string.app_name), user_nameString + ", " + HelperMessage.LOGIN_WELCOME_MESSAGE, this);
     }
 
     /**
      * Interface Callback: callback method for track API response
      * used for getting & extracting response from the JSONObject
      *
-     * @param result                 Response String getting By Server
-     * @param apiName                Identify Which API is used in this Request
+     * @param result  Response String getting By Server
+     * @param apiName Identify Which API is used in this Request
      */
     public void onTaskComplete(String result, String apiName, int serverRequest) {
         Log.e(result, apiName);
         if (serverRequest == GlobalInstance.IS_SERVER_REQUEST_TRUE) {
-        try {
-            JSONObject jsonObject_response = new JSONObject(result);
-            String response = jsonObject_response.getString("response");
+            try {
+                JSONObject jsonObject_response = new JSONObject(result);
+                String response = jsonObject_response.getString("response");
 
-            if (response.equalsIgnoreCase("true")) {
-                String access_key = jsonObject_response.getString("accessKey");
-                SharePref.setUserInfo(getApplicationContext(), user_nameString, user_emailString, company_nameString, access_key);
-                openAlert(getResources().getString(R.string.app_name), user_nameString + ", " + HelperMessage.LOGIN_WELCOME_MESSAGE, this);
-            } else {
-                openAlert(getResources().getString(R.string.app_name), HelperMessage.MESSAGE_SERVER_ALERT, this);
+                if (response.equalsIgnoreCase("true")) {
+                    String access_key = jsonObject_response.getString("accessKey");
+                    SharePref.setUserInfo(getApplicationContext(), user_nameString, user_emailString, company_nameString, access_key);
+                  //  openAlert(getResources().getString(R.string.app_name), user_nameString + ", " + HelperMessage.LOGIN_WELCOME_MESSAGE, this);
+                } else {
+                 //   openAlert(getResources().getString(R.string.app_name), HelperMessage.MESSAGE_SERVER_ALERT, this);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         } else {
             if (serverRequest == GlobalInstance.IS_SERVER_REQUEST_ERROR) {
                 HelperMethods.serverRequestError(getApplicationContext());
@@ -222,11 +230,11 @@ public class SignUpActivity extends Activity implements OnClickListener, AsyncTa
     }
 
     /**
-     *  Methoed: method for creating Alert of Successfull Login
+     * Methoed: method for creating Alert of Successfull Login
      *
-     * @param title                 Used for display Dialog Title
-     * @param message               Used for display Dialog Message
-     * @param activity              this is Instance of Current Activity
+     * @param title    Used for display Dialog Title
+     * @param message  Used for display Dialog Message
+     * @param activity this is Instance of Current Activity
      */
     private void openAlert(String title, String message, Activity activity) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(activity);
@@ -236,7 +244,7 @@ public class SignUpActivity extends Activity implements OnClickListener, AsyncTa
         alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 Intent signIntent = new Intent(getApplicationContext(), WelcomeActivity.class);
-                signIntent.putExtra(IntentKey.IS_LOAD_DEFAULT_CREATIVE,false);
+                signIntent.putExtra(IntentKey.IS_LOAD_DEFAULT_CREATIVE, false);
                 startActivity(signIntent);
                 finish();
             }
