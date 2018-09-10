@@ -23,7 +23,6 @@
         android:text="@string/app_name"
         android:textColor="@color/red"
         android:id="@+id/test_add_title"
-
         android:textSize="@dimen/default_text_size" />
 
 </RelativeLayout>
