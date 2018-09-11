@@ -77,8 +77,9 @@ dependencies {
     compile files('libs/admarvel-android-sdk-core.jar')
     compile files('libs/gson-2.2.2.jar')
     compile files('libs/commons-collections4-4.0.jar')
-    compile files('libs/mastadview.jar')
     compile files('libs/InMobi-5.1.1.jar')
+    compile files('libs/banner-sdk-debug.aar')
+    compile files('libs/common-sdk-debug.aar')
     // Unit testing dependencies
     compile 'com.android.support.constraint:constraint-layout:1.1.0'
     testCompile 'junit:junit:4.12'
