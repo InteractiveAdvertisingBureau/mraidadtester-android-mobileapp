@@ -1,198 +1,156 @@
 package com.android.iab.sdk.pabmatic;
 
 import android.app.Activity;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.admarvel.android.ads.AdMarvelView;
-import com.admarvel.android.util.Logging;
 import com.android.iab.R;
 import com.android.iab.utility.HelperMessage;
 import com.android.iab.utility.HelperMethods;
 import com.android.iab.utility.IntentKey;
-import com.moceanmobile.mast.MASTAdView;
-import com.moceanmobile.mast.MASTAdView.LogLevel;
-import com.moceanmobile.mast.MASTAdViewDelegate;
-
-import java.util.Map;
+import com.pubmatic.sdk.banner.PMBannerAdView;
+import com.pubmatic.sdk.banner.pubmatic.PMBannerAdRequest;
+import com.pubmatic.sdk.common.AdRequest;
+import com.pubmatic.sdk.common.PMAdSize;
+import com.pubmatic.sdk.common.PMError;
+import com.pubmatic.sdk.common.PMLogger;
+import com.pubmatic.sdk.common.PubMaticSDK;
 
 public class PubmaticBannertActivity extends Activity {
 
-	private MASTAdView mAdView;
-	private TextView header_text;
+    private PMBannerAdView mAdView;
+    private TextView header_text;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_pubmatic_banner);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_pubmatic_banner);
 
-		mAdView = (MASTAdView) findViewById(R.id.adView);
-		mAdView.setZone(350030); // Can also be set in layout XML
+        mAdView = (PMBannerAdView) findViewById(R.id.adView);
+        mAdView.setUseInternalBrowser(true);//Optional
+        setupMraidFeatureListeners(mAdView);
 
+        AdRequest request = PMBannerAdRequest.createPMBannerAdRequest("123", "456", "789");
+        request.setAdSize(new PMAdSize(320, 50));
 
-		// Add listeners (optional)
-		mAdView.setRequestListener(new AdRequestListener());
-		mAdView.setActivityListener(new AdActivityListener());
-		mAdView.setRichMediaListener(new AdRichMediaListener());
-		mAdView.setInternalBrowserListener(new AdInternalBrowserListener());
-
-		// Set log level (Optional)
-		mAdView.setLogLevel(LogLevel.Debug);
-
-		header_text = (TextView) findViewById(R.id.header_text);
-
-		//Back button clicked on Header to go Back
-		header_text.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				finish();
-			}
-		});
-
-		//Set Screen Title
-		header_text.setText(getResources().getString(R.string.lebel_banner_view));
-		setResult();
-
-		String script = getIntent().getStringExtra(IntentKey.SCRIPT);
-		Log.e("Script", script);
-		mAdView.setCreativeCode(script);
-
-	}
-	private void setResult() {
-		setResult(RESULT_OK);
-	}
+        String script = getIntent().getStringExtra(IntentKey.SCRIPT);
+        Log.e("Script", script);
+        request.setCreativeCode(script);
 
 
-
-	private class AdRequestListener implements
-			MASTAdViewDelegate.RequestListener {
-		@Override
-		public void onFailedToReceiveAd(MASTAdView adView, Exception ex) {
-            Log.e("Error",ex.toString());
-			HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.MESSAGE_AD_LOAD_FAILED, PubmaticBannertActivity.this);
-
-		}
-
-		@Override
-		public void onReceivedAd(MASTAdView adView) {
-
-		}
-
-		@Override
-		public void onReceivedThirdPartyRequest(MASTAdView adView,
-				Map<String, String> properties, Map<String, String> parameters) {
-
-		}
-	}
-
-	private class AdActivityListener implements
-			MASTAdViewDelegate.ActivityListener {
-
-		@Override
-		public boolean onOpenUrl(MASTAdView adView, String url) {
-
-			return false;
-		}
-
-		@Override
-		public void onLeavingApplication(MASTAdView adView) {
-
-		}
-
-		@Override
-		public boolean onCloseButtonClick(MASTAdView adView) {
-
-			return false;
-		}
-	}
-
-	private class AdInternalBrowserListener implements
-			MASTAdViewDelegate.InternalBrowserListener {
-		@Override
-		public void onInternalBrowserPresented(MASTAdView adView) {
-
-		}
-
-		@Override
-		public void onInternalBrowserDismissed(MASTAdView adView) {
-
-		}
-	}
-
-
-
-	private class AdRichMediaListener implements
-			MASTAdViewDelegate.RichMediaListener {
-		@Override
-		public void onExpanded(MASTAdView adView) {
-
-		}
-
-		@Override
-		public void onResized(MASTAdView adView, Rect area) {
-
-		}
-
-		@Override
-		public void onCollapsed(MASTAdView adView) {
-
-		}
-
-		@Override
-		public boolean onPlayVideo(MASTAdView adView, String url) {
-
-			return false;
-		}
-
-		@Override
-		public void onEventProcessed(MASTAdView adView, String request) {
-
-		}
-	}
-
-	@Override
-	protected void onResume()
-	{		// TODO Auto-generated method stub
-		super.onResume();
-
-	}
-
-	@Override
-	protected void onPause()
-	{		// TODO Auto-generated method stub
-		super.onPause();
-	}
-
-	@Override
-	public void onStart()
-	{
-		super.onStart();
-	}
-
-	@Override
-	public void onStop()
-	{
-		super.onStop();
-
-		// your code
-	}
-
-	@Override
-	protected void onDestroy()
-	{
-		try {
-
-			if (mAdView != null) {
-				mAdView.reset();
+        mAdView.setRequestListener(new PMBannerAdView.BannerAdViewDelegate.RequestListener() {
+            @Override
+            public void onFailedToReceiveAd(PMBannerAdView pmBannerAdView, PMError pmError) {
+                HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.MESSAGE_AD_LOAD_FAILED, PubmaticBannertActivity.this);
             }
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		super.onDestroy();
-	}
+
+            @Override
+            public void onReceivedAd(PMBannerAdView pmBannerAdView) {
+
+            }
+        });
+        mAdView.loadRequest(request);
+
+        // Set log level (Optional)
+		PubMaticSDK.setLogLevel(PMLogger.PMLogLevel.Debug);
+
+        header_text = (TextView) findViewById(R.id.header_text);
+
+        //Back button clicked on Header to go Back
+        header_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        //Set Screen Title
+        header_text.setText(getResources().getString(R.string.lebel_banner_view));
+        setResult();
+
+    }
+
+    private void setResult() {
+        setResult(RESULT_OK);
+    }
+
+
+    void setupMraidFeatureListeners(PMBannerAdView adView) {
+
+
+        PMBannerAdView.BannerAdViewDelegate.FeatureSupportHandler featureHandler = new PMBannerAdView.BannerAdViewDelegate.FeatureSupportHandler() {
+
+            @Override
+            public Boolean shouldSupportSMS(PMBannerAdView adView) {
+                return true;
+            }
+
+            @Override
+            public Boolean shouldSupportPhone(PMBannerAdView adView) {
+                return true;
+            }
+
+            @Override
+            public Boolean shouldSupportCalendar(PMBannerAdView adView) {
+                return true;
+            }
+
+            @Override
+            public Boolean shouldSupportStorePicture(PMBannerAdView adView) {
+                return true;
+            }
+
+            @Override
+            public boolean shouldStorePicture(PMBannerAdView sender, String url) {
+                return true;
+            }
+
+            @Override
+            public boolean shouldAddCalendarEntry(PMBannerAdView sender, String calendarProperties) {
+                return true;
+            }
+        };
+
+        adView.setFeatureSupportHandler(featureHandler);
+
+    }
+
+    @Override
+    protected void onResume() {        // TODO Auto-generated method stub
+        super.onResume();
+
+    }
+
+    @Override
+    protected void onPause() {        // TODO Auto-generated method stub
+        super.onPause();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // your code
+    }
+
+    @Override
+    protected void onDestroy() {
+        try {
+            if (mAdView != null) {
+				mAdView.destroy();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        super.onDestroy();
+    }
 
 
 }

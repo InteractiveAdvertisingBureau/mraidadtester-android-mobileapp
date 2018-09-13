@@ -8,13 +8,9 @@
         android:id="@+id/test_header"
         layout="@layout/test_ad_header" />
 
-    <com.moceanmobile.mast.MASTAdView
+    <com.pubmatic.sdk.banner.PMBannerAdView
         android:id="@+id/adView"
-        logLevel="Debug"
-        zone="350030"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-     android:layout_alignParentBottom="true"
-
-        android:background="#777777" />
+     android:layout_alignParentBottom="true" />
 </RelativeLayout>
