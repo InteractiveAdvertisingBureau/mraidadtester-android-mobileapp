@@ -196,7 +196,8 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
      */
     private void getAllCreativeFromServer() {
         if (HelperMethods.isNetworkAvailable(this)) {
-            String url = ApiList.BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getUserAccessKey(getApplicationContext());
+            // String url = ApiList.BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getUserAccessKey(getApplicationContext());
+            String url = ApiList.SCRIPT_URL;
             GetDataFromServer getDataFromServer = new GetDataFromServer(MainActivity.this);
             getDataFromServer.getResponse(url, ApiList.API_URL_GET_ALL_CREATIVE);
         } else {
@@ -206,10 +207,12 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
 
     /**
      * This Method  is used to save User's Creative
-     *
-     * @param userCreativeType to check Creative Type
+     * <p>
+     * //@param userCreativeType to check Creative Type
      */
-    private void saveUserCreativeFromServer(int userCreativeType) {
+    // as per our new request this feature is commented
+
+    /*private void saveUserCreativeFromServer(int userCreativeType) {
         if (HelperMethods.isNetworkAvailable(this)) {
             user_creative_type = userCreativeType;
             String url = ApiList.BASE_URL + ApiList.API_URL_SAVE_CREATIVE;
@@ -219,8 +222,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         } else {
             HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.NETWORK_ERROR_MESSAGE, this);
         }
-    }
-
+    }*/
     private void userLogin() {
        /* String url = ApiList.BASE_URL + ApiList.API_URL_SIGN_UP + "/" + "demo_first_name" + "/" + "demo_last_name" + "/" + getID() + "/" + "demo_company" + "/android";
         GetDataFromServer getDataFromServer = new GetDataFromServer(MainActivity.this);
@@ -311,7 +313,8 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                     updateUI(select_sdk_position);
                 break;
             case R.id.save_button:
-                createDialogForAddCreative();
+                // as per our new request this feature is commented
+                //  createDialogForAddCreative();
                 break;
             case R.id.start_button:
                 // refresh Activity
@@ -343,9 +346,11 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             public void onClick(DialogInterface dialog, int id) {
                 dialog.dismiss();
                 creativeName = creativeNameEditText.getText().toString().trim();
-                if (creativeName.length() > 0)
-                    saveUserCreativeFromServer(GlobalInstance.USER_CREATIVE_MANUAL);
-                else
+                if (creativeName.length() > 0) {
+                    // as per our new request this feature is commented
+
+                    //saveUserCreativeFromServer(GlobalInstance.USER_CREATIVE_MANUAL);
+                } else
                     HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.CREATIVE_NAME_MASSAGE, MainActivity.this);
             }
         });
@@ -484,7 +489,6 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         saveButton.setVisibility(View.GONE);
         previousButton.setVisibility(View.VISIBLE);
         nextButton.setVisibility(View.VISIBLE);
-        saveButton.setVisibility(View.GONE);
         startButton.setVisibility(View.GONE);
         addTagTextView.setTextColor(getResources().getColor(R.color.grey));
         selectSdkTextView.setTextColor(getResources().getColor(R.color.red));
@@ -583,7 +587,8 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == test_creative) {
-            saveButton.setVisibility(View.VISIBLE);
+            // as per our new request this feature is commented
+            //  saveButton.setVisibility(View.VISIBLE);
             nextButton.setVisibility(View.GONE);
             startButton.setVisibility(View.VISIBLE);
         }
@@ -659,7 +664,8 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                     startActivityForResult(intent, test_creative);
                 } else {
                     creativeName = HelperMethods.getCreativeName(MainActivity.this);
-                    saveUserCreativeFromServer(GlobalInstance.USER_CREATIVE_AUTO);
+                    // as per our new request this feature is commented
+                    //saveUserCreativeFromServer(GlobalInstance.USER_CREATIVE_AUTO);
                     // HelperMethods.openAlert(getResources().getString(R.string.app_name), "Not Saved", MainActivity.this);
                 }
 
@@ -697,7 +703,8 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                     startActivityForResult(intent, test_creative);
                 } else {
                     creativeName = HelperMethods.getCreativeName(MainActivity.this);
-                    saveUserCreativeFromServer(GlobalInstance.USER_CREATIVE_AUTO);
+                    // as per our new request this feature is commented
+                    // saveUserCreativeFromServer(GlobalInstance.USER_CREATIVE_AUTO);
                 }
             }
         }
@@ -728,12 +735,14 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                         String p_CreativeName;
                         String p_Des;
                         String p_SdkName;
-                        String r_id;
+                        String r_id = "";
                         dataSource.deleteAllPreviousData();
                         for (int position = 0; position < creativeJsonArray.length(); position++) {
                             JSONObject creativeJsonObject = creativeJsonArray.getJSONObject(position);
                             id = creativeJsonObject.getString("id");
-                            r_id = creativeJsonObject.getString("r_id");
+                            if (creativeJsonObject.has("r_id")) {
+                                r_id = creativeJsonObject.getString("r_id");
+                            }
                             p_BannerType = creativeJsonObject.getString("p_BannerType");
                             p_CreativeName = creativeJsonObject.getString("p_CreativeName");
                             String response_data = creativeJsonObject.getString("p_Des");
@@ -763,7 +772,10 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            } else if (apiName.equals(ApiList.API_URL_SAVE_CREATIVE)) {
+            }
+            // as per our new request this feature is commented
+
+           /* else if (apiName.equals(ApiList.API_URL_SAVE_CREATIVE)) {
                 try {
                     JSONObject jsonObject_response = new JSONObject(result);
                     String status = jsonObject_response.getString("status");
@@ -782,7 +794,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
+            }*/
         } else {
             if (serverRequest == GlobalInstance.IS_SERVER_REQUEST_ERROR) {
                 HelperMethods.serverRequestError(getApplicationContext());

@@ -43,7 +43,6 @@ import com.android.iab.utility.GlobalInstance;
 import com.android.iab.utility.HelperMessage;
 import com.android.iab.utility.HelperMethods;
 import com.android.iab.utility.OnCreativeListClickListner;
-import com.android.iab.utility.SharePref;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -142,7 +141,8 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
     public void onClick(View v) {
         switch (v.getId()) {   //Click to Edit Creative List
             case R.id.isEditTextView:
-                if (isEdit) { //If Edit Option  true
+                // as per our new request this feature is commented
+                /*if (isEdit) { //If Edit Option  true
                     isEdit = false;
                     isEditText.setText(getActivity().getString(R.string.edit));
                     settingTextView.setVisibility(View.VISIBLE);
@@ -153,7 +153,7 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
                     isEditText.setText(getActivity().getString(R.string.done));
                     settingTextView.setVisibility(View.INVISIBLE);
                     getCreativeTitleNameList();
-                }
+                }*/
                 break;
             //After Setting Pressed will go Profile Page
             case R.id.settingTextView:
@@ -178,7 +178,8 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
             public void onClick(View view, int position) {
                 drawerListener.onDrawerItemSelected(view, position);
                 if (isEdit && !creativesListBeans.get(position).getIsDeleted().equals(GlobalInstance.TYPE_DEFAULT_CREATIVE)) {//If Edit Option True then delete Creative from Creative List and Refresh Creative Page
-                    deleteUserCreativeFromServer(position);
+                    // as per our new request this feature is commented
+                    //   deleteUserCreativeFromServer(position);
                 } else if (!isEdit) {//If Edit Option False then Open Home Page for this Creative
                     mDrawerLayout.closeDrawer(containerView);
                     OnCreativeListClickListner onCreativeListClickListner = (OnCreativeListClickListner) getActivity();
@@ -260,7 +261,7 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
     /**
      * This Method  is used to getUserCreative List From Sever
      */
-    private void deleteUserCreativeFromServer(int position) {
+   /* private void deleteUserCreativeFromServer(int position) {
         if (HelperMethods.isNetworkAvailable(getActivity())) {
             String url = ApiList.BASE_URL + ApiList.API_URL_DELETE_CREATIVE + SharePref.getUserAccessKey(getActivity().getApplicationContext()) + "/" + creativesListBeans.get(position).getId();
             GetDataFromServer getDataFromServer = new GetDataFromServer(getActivity(), FragmentDrawer.this);
@@ -269,14 +270,16 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
         } else {
             HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.NETWORK_ERROR_MESSAGE, getActivity());
         }
-    }
+    }*/
 
     /**
      * This Method  is used to save User's Creative
      */
     private void getUserCreativeFromServer() {
         if (HelperMethods.isNetworkAvailable(getActivity())) {
-            String url = ApiList.BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getUserAccessKey(getActivity().getApplicationContext());
+
+            String url = ApiList.SCRIPT_URL;
+            //     String url = ApiList.BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getUserAccessKey(getActivity().getApplicationContext());
             GetDataFromServer getDataFromServer = new GetDataFromServer(getActivity(), FragmentDrawer.this);
             getDataFromServer.getResponse(url, ApiList.API_URL_GET_ALL_CREATIVE);
             if (getDataFromServer.dialog.isShowing())
@@ -294,7 +297,7 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
         DataSource dataSource = new DataSource(getActivity().getApplicationContext());
         dataSource.open();
         long rowId = dataSource.removeCreativeFromDb(creativesListBeans.get(position).getId());
-        Log.d("rowId", "" + rowId);
+        // Log.d("rowId", "" + rowId);
         dataSource.close();
         if (rowId != -1)
             refreshCreativeList();
@@ -311,7 +314,8 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
     public void onTaskComplete(String result, String apiName, int serverRequest) {
         Log.d(result, apiName);
         if (serverRequest == GlobalInstance.IS_SERVER_REQUEST_TRUE) {
-            if (apiName.equals(ApiList.API_URL_DELETE_CREATIVE)) {
+            // as per our new request this feature is commented
+            /*if (apiName.equals(ApiList.API_URL_DELETE_CREATIVE)) {
                 try {
                     JSONObject jsonObject = new JSONObject(result);
                     String status = jsonObject.getString("response");
@@ -326,7 +330,8 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            } else if (apiName.equals(ApiList.API_URL_GET_ALL_CREATIVE)) {
+            } else*/
+            if (apiName.equals(ApiList.API_URL_GET_ALL_CREATIVE)) {
 
                 try {
                     JSONObject jsonObject = new JSONObject(result);
@@ -340,12 +345,13 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
                         String p_CreativeName;
                         String p_Des;
                         String p_SdkName;
-                        String r_id;
+                        String r_id = "";
                         dataSource.deleteAllPreviousData();
                         for (int position = 0; position < creativeJsonArray.length(); position++) {
                             JSONObject creativeJsonObject = creativeJsonArray.getJSONObject(position);
                             id = creativeJsonObject.getString("id");
-                            r_id = creativeJsonObject.getString("r_id");
+                            if (creativeJsonObject.has("r_id"))
+                                r_id = creativeJsonObject.getString("r_id");
                             p_BannerType = creativeJsonObject.getString("p_BannerType");
                             p_CreativeName = creativeJsonObject.getString("p_CreativeName");
                             String response_data = creativeJsonObject.getString("p_Des");
@@ -377,7 +383,7 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
     }
 
     /**
-     *Get Creative From Server
+     * Get Creative From Server
      */
     public static interface ClickListener {
         public void onClick(View view, int position);

@@ -108,7 +108,8 @@ public class WelcomeActivity extends Activity implements AsyncTaskListner {
      */
     private void getDefaultCreativeFromServer() {
         if (HelperMethods.isNetworkAvailable(this)) {
-            String url = ApiList.BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getDefaultAccessKey();
+            String url = ApiList.SCRIPT_URL;
+            // String url = ApiList.BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getDefaultAccessKey();
             GetDataFromServer getDataFromServer = new GetDataFromServer(WelcomeActivity.this);
             getDataFromServer.getResponse(url, ApiList.API_URL_GET_ALL_CREATIVE);
         } else {
@@ -125,7 +126,8 @@ public class WelcomeActivity extends Activity implements AsyncTaskListner {
 
     private void getAllCreativeFromServer() {
         if (HelperMethods.isNetworkAvailable(this)) {
-            String url = ApiList.BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getDefaultAccessKey();
+            String url = ApiList.SCRIPT_URL;
+            // String url = ApiList.BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getDefaultAccessKey();
             GetDataFromServer getDataFromServer = new GetDataFromServer(WelcomeActivity.this);
             getDataFromServer.getResponse(url, ApiList.API_URL_GET_ALL_CREATIVE);
         } else {
@@ -185,12 +187,14 @@ public class WelcomeActivity extends Activity implements AsyncTaskListner {
                     String p_CreativeName;
                     String p_Des;
                     String p_SdkName;
-                    String r_id;
+                    String r_id = "";
                     dataSource.deleteAllPreviousData();
                     for (int position = 0; position < creativeJsonArray.length(); position++) {
                         JSONObject creativeJsonObject = creativeJsonArray.getJSONObject(position);
                         p_id = creativeJsonObject.getString("id");
-                        r_id = creativeJsonObject.getString("r_id");
+                        if (creativeJsonObject.has("r_id")) {
+                            r_id = creativeJsonObject.getString("r_id");
+                        }
                         p_BannerType = creativeJsonObject.getString("p_BannerType");
                         p_CreativeName = creativeJsonObject.getString("p_CreativeName");
                         String response_data = creativeJsonObject.getString("p_Des");

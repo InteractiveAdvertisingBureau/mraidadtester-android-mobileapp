@@ -12,9 +12,10 @@
 package com.android.iab.utility;
 
 public class ApiList {
-    public static final String BASE_URL = "http://50.60.132.101";
+    //public static final String BASE_URL = "http://50.60.132.101";
     // public static final String BASE_URL ="http://50.60.132.100:8080";
     public static final String IAB_BASE_URL = "https://api.iabtechlab.com";
+    public static final String SCRIPT_URL = "https://s3-us-west-2.amazonaws.com/iab-publicfiles/mraid-scripts/mraid.json";
     /**
      * Url to open Term & Condition Page using WebView
      */
