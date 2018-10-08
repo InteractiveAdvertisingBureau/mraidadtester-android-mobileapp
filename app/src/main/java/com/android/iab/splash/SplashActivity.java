@@ -36,7 +36,7 @@ public class SplashActivity extends Activity {
     /**
      * @param SPLASH_TIME_OUT                          This is a Timer to display splash screen
      * @param splashHandler                            This is a Handler which is called Runnable Interface
-     * */
+     */
     private static int SPLASH_TIME_OUT = 2000;  //Timer to display splash screen
     private Handler splashHandler = new Handler();
 
@@ -51,7 +51,7 @@ public class SplashActivity extends Activity {
                 checkDataBase();
                 // Start your app main activity
                 Intent i = new Intent(SplashActivity.this, WelcomeActivity.class);
-                i.putExtra(IntentKey.IS_LOAD_DEFAULT_CREATIVE,true);
+                i.putExtra(IntentKey.IS_LOAD_DEFAULT_CREATIVE, true);
                 startActivity(i);
                 // close this activity
                 finish();

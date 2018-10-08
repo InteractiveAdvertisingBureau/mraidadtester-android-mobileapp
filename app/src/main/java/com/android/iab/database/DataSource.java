@@ -53,7 +53,7 @@ public class DataSource {
      * Adding Creative Into Database
      */
     public long insertCreativeIntoDb(String CREATIVE_ID, String CREATIVE_TYPE, String CREATIVE_NAME, String CREATIVE_DESCRIPTION, String CREATIVE_SDK_NAME, String CREATIVE_IS_DELETED) {
-        long rowId=-1;
+        long rowId = -1;
 
         try {
             ContentValues cv = new ContentValues(7);
@@ -123,7 +123,7 @@ public class DataSource {
         boolean isAdded = false;
         try {
 
-           // Log.e("Creative Name", creativeName);
+            // Log.e("Creative Name", creativeName);
             String sql = "select count(*) from  " + DBHelper.TABLE_SAVE_SCRIPT + " where " + DBHelper.CREATIVE_NAME + "='" + creativeName + "';";
             Cursor cursor = Db.rawQuery(sql, null);
             if (cursor.moveToFirst()) {
@@ -148,12 +148,12 @@ public class DataSource {
         int isAdded = 0;
         try {
 
-         //   Log.e("Creative Name", creativeName);
+            //   Log.e("Creative Name", creativeName);
             String sql = "select * from  " + DBHelper.TABLE_SAVE_SCRIPT + " where " + DBHelper.CREATIVE_DESCRIPTION + "='" + HelperMethods.encode(creativeName) + "';";
             Cursor cursor = Db.rawQuery(sql, null);
             if (cursor.moveToFirst()) {
                 String id = cursor.getString(cursor.getColumnIndex(DBHelper.CREATIVE_ROW_ID_KEY));
-                    isAdded = Integer.parseInt(id);
+                isAdded = Integer.parseInt(id);
             }
             cursor.close();
         } catch (Exception e) {
@@ -178,12 +178,13 @@ public class DataSource {
             return rowId;
         }
     }
+
     /**
      * Delete All Data from DataBase
      */
     public void deleteAllPreviousData(String creativeType) {
         try {
-            String sql = " DELETE FROM " + DBHelper.TABLE_SAVE_SCRIPT+" where "+DBHelper.CREATIVE_IS_DELETED+"="+creativeType;
+            String sql = " DELETE FROM " + DBHelper.TABLE_SAVE_SCRIPT + " where " + DBHelper.CREATIVE_IS_DELETED + "=" + creativeType;
             Db.execSQL(sql);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -201,25 +202,26 @@ public class DataSource {
             e.printStackTrace();
         }
     }
+
     /**
      * Get User Creative Name automatically in the case of Millennial
      */
     public String getTempScriptName() {
-        String scriptName="";
+        String scriptName = "";
         {
             // TODO Auto-generated method stub
 
             try {
-             //   String sql = "select * from  savedScript where p_CreativeName like "+"'"+ GlobalInstance.DEFAULT_SCRIPT_NAME +"%' order by  p_CreativeName desc limit 1";
-           String sql="select max(cast(substr(p_CreativeName,9) as integer)) from  savedScript where p_CreativeName like "+"'"+ GlobalInstance.DEFAULT_SCRIPT_NAME +"%'  and cast(substr(p_CreativeName,9) as integer) > 0";
+                //   String sql = "select * from  savedScript where p_CreativeName like "+"'"+ GlobalInstance.DEFAULT_SCRIPT_NAME +"%' order by  p_CreativeName desc limit 1";
+                String sql = "select max(cast(substr(p_CreativeName,9) as integer)) from  savedScript where p_CreativeName like " + "'" + GlobalInstance.DEFAULT_SCRIPT_NAME + "%'  and cast(substr(p_CreativeName,9) as integer) > 0";
 
-           // Log.e("sql",sql);
+                // Log.e("sql",sql);
                 Cursor cursor = Db.rawQuery(sql, null);
                 if (cursor.moveToFirst())
                     do {
-                       int count= cursor.getInt(0)+1;
-                        scriptName=GlobalInstance.DEFAULT_SCRIPT_NAME+count;
-                       // Log.e("scriptName",GlobalInstance.DEFAULT_SCRIPT_NAME+count);
+                        int count = cursor.getInt(0) + 1;
+                        scriptName = GlobalInstance.DEFAULT_SCRIPT_NAME + count;
+                        // Log.e("scriptName",GlobalInstance.DEFAULT_SCRIPT_NAME+count);
 
                     } while (cursor.moveToNext());
                 cursor.close();

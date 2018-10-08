@@ -34,6 +34,8 @@ import com.android.iab.R;
 import com.android.iab.adapter.NavigationDrawerAdapter;
 import com.android.iab.bean.CreativesListBean;
 import com.android.iab.database.DataSource;
+import com.android.iab.model.NavDrawerItem;
+import com.android.iab.setting.Setting;
 import com.android.iab.utility.ApiList;
 import com.android.iab.utility.AsyncTaskListner;
 import com.android.iab.utility.GetDataFromServer;
@@ -41,8 +43,6 @@ import com.android.iab.utility.GlobalInstance;
 import com.android.iab.utility.HelperMessage;
 import com.android.iab.utility.HelperMethods;
 import com.android.iab.utility.OnCreativeListClickListner;
-import com.android.iab.model.NavDrawerItem;
-import com.android.iab.setting.Setting;
 import com.android.iab.utility.SharePref;
 
 import org.json.JSONArray;
@@ -57,6 +57,8 @@ import java.util.List;
  */
 
 public class FragmentDrawer extends Fragment implements View.OnClickListener, AsyncTaskListner {
+    ArrayList<CreativesListBean> creativesListBeans = new ArrayList<>();
+    List<NavDrawerItem> navDrawerItems = new ArrayList<>();
     /**
      * Declaration of  widget which are used in This Page Globally
      *
@@ -67,8 +69,7 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
      * @param mDrawerLayout                This is a DrawerLayout which is used to Add Slider Menu in Main Layout
      * @param containerView                This is a Slider Menu View
      * @param mSwipeRefreshLayout               This is a SwipeRefresh Layout which is used to refresh Recycler View on pull
-     *
-     * */
+     */
     private RecyclerView recyclerView;
     private TextView isEditText;
     private TextView settingTextView;
@@ -76,8 +77,6 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
     private DrawerLayout mDrawerLayout;
     private View containerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-
-
     /**
      * @param adapter                        This is used for RecycleView  Adapter
      * @param drawerListener                 This is used as a Listner where Sliding Drawer is Open or Closed
@@ -86,10 +85,8 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
      */
     private NavigationDrawerAdapter adapter;
     private FragmentDrawerListener drawerListener;
-    ArrayList<CreativesListBean> creativesListBeans = new ArrayList<>();
     private boolean isEdit;
     private int deletedPosition;
-    List<NavDrawerItem> navDrawerItems = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -114,7 +111,7 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
     }
 
     public void refreshItems() {
-      getUserCreativeFromServer();
+        getUserCreativeFromServer();
     }
 
     void onItemsLoadComplete() {
@@ -149,7 +146,7 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
                     isEdit = false;
                     isEditText.setText(getActivity().getString(R.string.edit));
                     settingTextView.setVisibility(View.VISIBLE);
-                 getCreativeTitleNameList();
+                    getCreativeTitleNameList();
                 } else {  //If Edit Option  false
                     isEdit = true;
                     getCreativeTitleNameList();
@@ -181,13 +178,14 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
             public void onClick(View view, int position) {
                 drawerListener.onDrawerItemSelected(view, position);
                 if (isEdit && !creativesListBeans.get(position).getIsDeleted().equals(GlobalInstance.TYPE_DEFAULT_CREATIVE)) {//If Edit Option True then delete Creative from Creative List and Refresh Creative Page
-                  deleteUserCreativeFromServer(position);
-                } else if(!isEdit ){//If Edit Option False then Open Home Page for this Creative
+                    deleteUserCreativeFromServer(position);
+                } else if (!isEdit) {//If Edit Option False then Open Home Page for this Creative
                     mDrawerLayout.closeDrawer(containerView);
                     OnCreativeListClickListner onCreativeListClickListner = (OnCreativeListClickListner) getActivity();
                     onCreativeListClickListner.OnCreativeListItemClickListner(position);
                 }
             }
+
             @Override
             public void onLongClick(View view, int position) {
             }
@@ -196,7 +194,6 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
 
     /**
      * For Infalting MenuDrawer & implement the action on drawer open & close
-     *
      */
     public void setUp(int fragmentId, DrawerLayout drawerLayout, final Toolbar toolbar) {
         containerView = getActivity().findViewById(fragmentId);
@@ -230,10 +227,166 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
         });
     }
 
+    public void refreshCreativeList() {
+        getCreativeTitleNameList();
+    }
+
+    public void setDrawerListener(FragmentDrawerListener listener) {
+        this.drawerListener = listener;
+    }
+
+    /**
+     * Get Creative List which are Saved.
+     */
+    public List<NavDrawerItem> getCreativeTitleNameList() {
+        if (navDrawerItems.size() > 0)
+            navDrawerItems.clear();
+        if (creativesListBeans.size() > 0)
+            creativesListBeans.clear();
+        creativesListBeans = new DataSource(getActivity().getApplicationContext()).getCreativeListFromDb();
+        // preparing navigation drawer items
+        for (int i = 0; i < creativesListBeans.size(); i++) {
+            NavDrawerItem navItem = new NavDrawerItem();
+            navItem.setTitle(creativesListBeans.get(i).getCreativeName());
+            navItem.setIsDeleted(creativesListBeans.get(i).getIsDeleted());
+            navDrawerItems.add(navItem);
+        }
+        adapter.isEdit = isEdit;
+        adapter.setNotifyDataSetChanged(navDrawerItems);
+        adapter.notifyDataSetChanged();
+        return navDrawerItems;
+    }
+
+    /**
+     * This Method  is used to getUserCreative List From Sever
+     */
+    private void deleteUserCreativeFromServer(int position) {
+        if (HelperMethods.isNetworkAvailable(getActivity())) {
+            String url = ApiList.BASE_URL + ApiList.API_URL_DELETE_CREATIVE + SharePref.getUserAccessKey(getActivity().getApplicationContext()) + "/" + creativesListBeans.get(position).getId();
+            GetDataFromServer getDataFromServer = new GetDataFromServer(getActivity(), FragmentDrawer.this);
+            getDataFromServer.getResponse(url, ApiList.API_URL_DELETE_CREATIVE);
+            deletedPosition = position;
+        } else {
+            HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.NETWORK_ERROR_MESSAGE, getActivity());
+        }
+    }
+
+    /**
+     * This Method  is used to save User's Creative
+     */
+    private void getUserCreativeFromServer() {
+        if (HelperMethods.isNetworkAvailable(getActivity())) {
+            String url = ApiList.BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getUserAccessKey(getActivity().getApplicationContext());
+            GetDataFromServer getDataFromServer = new GetDataFromServer(getActivity(), FragmentDrawer.this);
+            getDataFromServer.getResponse(url, ApiList.API_URL_GET_ALL_CREATIVE);
+            if (getDataFromServer.dialog.isShowing())
+                getDataFromServer.dialog.hide();
+        } else {
+            onItemsLoadComplete();
+            HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.NETWORK_ERROR_MESSAGE, getActivity());
+        }
+    }
+
+    /**
+     * Remove Creative From Creative List
+     */
+    public void deleteCreative(int position) {
+        DataSource dataSource = new DataSource(getActivity().getApplicationContext());
+        dataSource.open();
+        long rowId = dataSource.removeCreativeFromDb(creativesListBeans.get(position).getId());
+        Log.d("rowId", "" + rowId);
+        dataSource.close();
+        if (rowId != -1)
+            refreshCreativeList();
+    }
+
+    /**
+     * Interface Callback: callback method for track API response
+     * used for getting & extracting response from the JSON
+     *
+     * @param result  Response String getting By Server
+     * @param apiName Identify Which API is used in this Request
+     */
+    @Override
+    public void onTaskComplete(String result, String apiName, int serverRequest) {
+        Log.d(result, apiName);
+        if (serverRequest == GlobalInstance.IS_SERVER_REQUEST_TRUE) {
+            if (apiName.equals(ApiList.API_URL_DELETE_CREATIVE)) {
+                try {
+                    JSONObject jsonObject = new JSONObject(result);
+                    String status = jsonObject.getString("response");
+                    if (status.equals("true")) {
+                        deleteCreative(deletedPosition);
+                        MainActivity.getInstance().getCreativeListFromDb();
+                        HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.CREATIVE_DELETED, getActivity());
+                    } else {
+                        String response = jsonObject.getString("response");
+                        HelperMethods.openAlert(getResources().getString(R.string.app_name), response, getActivity());
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } else if (apiName.equals(ApiList.API_URL_GET_ALL_CREATIVE)) {
+
+                try {
+                    JSONObject jsonObject = new JSONObject(result);
+                    String status = jsonObject.getString("status");
+                    if (status.equals("true")) {
+                        JSONArray creativeJsonArray = jsonObject.getJSONArray("response");
+                        DataSource dataSource = new DataSource(getActivity().getApplicationContext());
+                        dataSource.open();
+                        String id;
+                        String p_BannerType;
+                        String p_CreativeName;
+                        String p_Des;
+                        String p_SdkName;
+                        String r_id;
+                        dataSource.deleteAllPreviousData();
+                        for (int position = 0; position < creativeJsonArray.length(); position++) {
+                            JSONObject creativeJsonObject = creativeJsonArray.getJSONObject(position);
+                            id = creativeJsonObject.getString("id");
+                            r_id = creativeJsonObject.getString("r_id");
+                            p_BannerType = creativeJsonObject.getString("p_BannerType");
+                            p_CreativeName = creativeJsonObject.getString("p_CreativeName");
+                            String response_data = creativeJsonObject.getString("p_Des");
+                            p_Des = response_data.replace("\\", "");
+                            p_SdkName = creativeJsonObject.getString("p_SdkName");
+                            dataSource.insertCreativeIntoDb(id, p_BannerType, p_CreativeName, p_Des, p_SdkName, r_id);
+                        }
+                        onItemsLoadComplete();
+                        dataSource.close();
+                        getCreativeTitleNameList();
+                        MainActivity.getInstance().getCreativeListFromDb();
+                    } else {
+                        String response = jsonObject.getString("response");
+                        HelperMethods.openAlert(getResources().getString(R.string.app_name), response, getActivity());
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        } else {
+            if (serverRequest == GlobalInstance.IS_SERVER_REQUEST_ERROR) {
+                onItemsLoadComplete();
+                HelperMethods.serverRequestError(getActivity().getApplicationContext());
+            } else if (serverRequest == GlobalInstance.IS_SERVER_REQUEST_TIME_OUT) {
+                onItemsLoadComplete();
+                HelperMethods.serverRequestTimeout(getActivity().getApplicationContext());
+            }
+        }
+    }
+
+    /**
+     *Get Creative From Server
+     */
     public static interface ClickListener {
         public void onClick(View view, int position);
 
         public void onLongClick(View view, int position);
+    }
+
+    public interface FragmentDrawerListener {
+        public void onDrawerItemSelected(View view, int position);
     }
 
     static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
@@ -276,167 +429,6 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
         public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
 
         }*/
-    }
-
-    public interface FragmentDrawerListener {
-        public void onDrawerItemSelected(View view, int position);
-    }
-
-
-    public void refreshCreativeList() {
-        getCreativeTitleNameList();
-    }
-
-
-    public void setDrawerListener(FragmentDrawerListener listener) {
-        this.drawerListener = listener;
-    }
-
-    /**
-     * Get Creative List which are Saved.
-     */
-    public List<NavDrawerItem> getCreativeTitleNameList() {
-        if (navDrawerItems.size() > 0)
-            navDrawerItems.clear();
-        if (creativesListBeans.size() > 0)
-            creativesListBeans.clear();
-        creativesListBeans = new DataSource(getActivity().getApplicationContext()).getCreativeListFromDb();
-        // preparing navigation drawer items
-        for (int i = 0; i < creativesListBeans.size(); i++) {
-            NavDrawerItem navItem = new NavDrawerItem();
-            navItem.setTitle(creativesListBeans.get(i).getCreativeName());
-            navItem.setIsDeleted(creativesListBeans.get(i).getIsDeleted());
-            navDrawerItems.add(navItem);
-        }
-        adapter.isEdit=isEdit;
-        adapter.setNotifyDataSetChanged(navDrawerItems);
-        adapter.notifyDataSetChanged();
-        return navDrawerItems;
-    }
-
-    /**
-     * This Method  is used to getUserCreative List From Sever
-     */
-    private void deleteUserCreativeFromServer(int position) {
-        if (HelperMethods.isNetworkAvailable(getActivity())) {
-            String url = ApiList.BASE_URL + ApiList.API_URL_DELETE_CREATIVE + SharePref.getUserAccessKey(getActivity().getApplicationContext())+"/"+creativesListBeans.get(position).getId();
-            GetDataFromServer getDataFromServer = new GetDataFromServer(getActivity(),FragmentDrawer.this);
-            getDataFromServer.getResponse(url, ApiList.API_URL_DELETE_CREATIVE);
-            deletedPosition=position;
-        } else {
-            HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.NETWORK_ERROR_MESSAGE, getActivity());
-        }
-    }
-
-    /**
-     *Get Creative From Server
-     */
-    /**
-     * This Method  is used to save User's Creative
-     */
-    private void getUserCreativeFromServer() {
-        if (HelperMethods.isNetworkAvailable(getActivity())) {
-            String url = ApiList.BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getUserAccessKey(getActivity().getApplicationContext());
-            GetDataFromServer getDataFromServer = new GetDataFromServer(getActivity(),FragmentDrawer.this);
-            getDataFromServer.getResponse(url, ApiList.API_URL_GET_ALL_CREATIVE);
-            if(getDataFromServer.dialog.isShowing())
-                getDataFromServer.dialog.hide();
-        } else {
-            onItemsLoadComplete();
-            HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.NETWORK_ERROR_MESSAGE, getActivity());
-        }
-    }
-
-    /**
-     *Remove Creative From Creative List
-     */
-    public void deleteCreative(int position) {
-        DataSource dataSource = new DataSource(getActivity().getApplicationContext());
-        dataSource.open();
-        long rowId=dataSource.removeCreativeFromDb(creativesListBeans.get(position).getId());
-        Log.d("rowId",""+rowId);
-        dataSource.close();
-        if(rowId!=-1)
-            refreshCreativeList();
-    }
-
-    /**
-     * Interface Callback: callback method for track API response
-     * used for getting & extracting response from the JSON
-     *
-     * @param result  Response String getting By Server
-     * @param apiName Identify Which API is used in this Request
-     */
-    @Override
-    public void onTaskComplete(String result, String apiName,int serverRequest) {
-        Log.d(result, apiName);
-            if(serverRequest==GlobalInstance.IS_SERVER_REQUEST_TRUE) {
-                if(apiName.equals(ApiList.API_URL_DELETE_CREATIVE)){
-                try {
-                    JSONObject jsonObject = new JSONObject(result);
-                    String status = jsonObject.getString("response");
-                    if (status.equals("true")) {
-                        deleteCreative(deletedPosition);
-                        MainActivity.getInstance().getCreativeListFromDb();
-                        HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.CREATIVE_DELETED, getActivity());
-                    } else {
-                        String response = jsonObject.getString("response");
-                        HelperMethods.openAlert(getResources().getString(R.string.app_name), response, getActivity());
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-                else if (apiName.equals(ApiList.API_URL_GET_ALL_CREATIVE)){
-
-                    try {
-                        JSONObject jsonObject = new JSONObject(result);
-                        String status = jsonObject.getString("status");
-                        if (status.equals("true")) {
-                            JSONArray creativeJsonArray = jsonObject.getJSONArray("response");
-                            DataSource dataSource = new DataSource(getActivity().getApplicationContext());
-                            dataSource.open();
-                            String id;
-                            String p_BannerType;
-                            String p_CreativeName;
-                            String p_Des;
-                            String p_SdkName;
-                            String r_id;
-                            dataSource.deleteAllPreviousData( );
-                            for (int position = 0; position < creativeJsonArray.length(); position++) {
-                                JSONObject creativeJsonObject = creativeJsonArray.getJSONObject(position);
-                                id = creativeJsonObject.getString("id");
-                                r_id = creativeJsonObject.getString("r_id");
-                                p_BannerType = creativeJsonObject.getString("p_BannerType");
-                                p_CreativeName = creativeJsonObject.getString("p_CreativeName");
-                                String  response_data = creativeJsonObject.getString("p_Des");
-                                p_Des = response_data.replace("\\", "");
-                                p_SdkName = creativeJsonObject.getString("p_SdkName");
-                                dataSource.insertCreativeIntoDb(id, p_BannerType, p_CreativeName, p_Des, p_SdkName, r_id);
-                            }
-                           onItemsLoadComplete();
-                            dataSource.close();
-                            getCreativeTitleNameList();
-                            MainActivity.getInstance().getCreativeListFromDb();
-                        } else {
-                            String response = jsonObject.getString("response");
-                            HelperMethods.openAlert(getResources().getString(R.string.app_name), response, getActivity());
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-
-            else {
-                if(serverRequest==GlobalInstance.IS_SERVER_REQUEST_ERROR){
-                    onItemsLoadComplete();
-                    HelperMethods.serverRequestError(getActivity().getApplicationContext());
-                }  else if(serverRequest==GlobalInstance.IS_SERVER_REQUEST_TIME_OUT){
-                    onItemsLoadComplete();
-                    HelperMethods.serverRequestTimeout(getActivity().getApplicationContext());
-                }
-            }
     }
 
 }

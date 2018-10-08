@@ -17,19 +17,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 
 public class DBHelper extends SQLiteOpenHelper {
-    /**Database Version*/
-    private static final int DATABASE_VERSION = 2;
-    /**Database Path*/
-    static String path = Environment.getExternalStorageDirectory()
-            .getAbsolutePath() + "/Android/data/com.android.iab";
-
-    /**Database Name with Path*/
-    private static final String DATABASE_NAME = path + "/script.db";
-
-    /**Table Name*/
+    /**
+     * Table Name
+     */
     public static final String TABLE_SAVE_SCRIPT = "savedScript";
-
-    /**Column which are used in  TABLE_SAVE_SCRIPT*/
+    /**
+     * Column which are used in  TABLE_SAVE_SCRIPT
+     */
     public static final String CREATIVE_ROW_ID_KEY = "p_id";
     public static final String CREATIVE_UUID = "p_udid";
     public static final String CREATIVE_TYPE = "p_BannerType";
@@ -37,6 +31,19 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String CREATIVE_DESCRIPTION = "p_Des";
     public static final String CREATIVE_SDK_NAME = "p_SdkName";
     public static final String CREATIVE_IS_DELETED = "p_Is_Delete";
+    /**
+     * Database Version
+     */
+    private static final int DATABASE_VERSION = 2;
+    /**
+     * Database Path
+     */
+    static String path = Environment.getExternalStorageDirectory()
+            .getAbsolutePath() + "/Android/data/com.android.iab";
+    /**
+     * Database Name with Path
+     */
+    private static final String DATABASE_NAME = path + "/script.db";
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

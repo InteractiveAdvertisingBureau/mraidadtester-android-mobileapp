@@ -44,16 +44,18 @@ public class HelperMethods extends Application {
 
     /**
      * Method  to send Email
-     * @param emailTo  is used to whom user want to send Email
+     *
+     * @param emailTo      is used to whom user want to send Email
      * @param emailSubject is used as a Email Subject
      * @param emailContent is used as a Email Content
      */
-    public static void sendEmail(Activity context,String emailTo, String emailSubject, String emailContent) {
+    public static void sendEmail(Activity context, String emailTo, String emailSubject, String emailContent) {
         Intent testIntent = new Intent(Intent.ACTION_VIEW);
         Uri data = Uri.parse("mailto:?subject=" + emailSubject + "&body=" + emailContent + "&to=" + emailTo);
         testIntent.setData(data);
-        context. startActivity(testIntent);
+        context.startActivity(testIntent);
     }
+
     /**
      * Method  to Hide Keyboard
      */
@@ -64,6 +66,7 @@ public class HelperMethods extends Application {
                     .getWindowToken(), 0);
         }
     }
+
     /**
      * Method  to check  Email is Valid or not
      */
@@ -78,9 +81,11 @@ public class HelperMethods extends Application {
         }
         return isValid;
     }
+
     /**
      * Method  to Open Alert/Dialog
-     * @param title is used as a Dialog Title
+     *
+     * @param title   is used as a Dialog Title
      * @param message is used as a Dialog Message
      */
     public static void openAlert(String title, String message, Activity activity) {
@@ -113,6 +118,7 @@ public class HelperMethods extends Application {
         // show alert
         alertDialog.show();
     }
+
     /**
      * Method  to open Alert/Dialog if Server Request is failed
      */
@@ -129,37 +135,43 @@ public class HelperMethods extends Application {
         // show alert
         alertDialog.show();
     }
+
     /**
      * Method  to check Script/Creative is Already store in Database or not
      */
-    public static int isScriptAlreadyStored(Activity activity ,String script) {
+    public static int isScriptAlreadyStored(Activity activity, String script) {
         int isAdded;
-        DataSource dataSource=new DataSource(activity.getApplicationContext());
+        DataSource dataSource = new DataSource(activity.getApplicationContext());
         dataSource.open();
-        isAdded=dataSource.isCreativeAlreadySavedIntoDb(script);
-            dataSource.close();
-            return  isAdded;
-        }
+        isAdded = dataSource.isCreativeAlreadySavedIntoDb(script);
+        dataSource.close();
+        return isAdded;
+    }
+
     /**
      * Method  to get User Creative Name to save Creative on Server & Local Database
      */
     public static String getCreativeName(Activity activity) {
-        DataSource dataSource=new DataSource(activity.getApplicationContext());
+        DataSource dataSource = new DataSource(activity.getApplicationContext());
         dataSource.open();
-       String tempScriptName= dataSource.getTempScriptName();
-            dataSource.close();
-            return  tempScriptName;
-        }
+        String tempScriptName = dataSource.getTempScriptName();
+        dataSource.close();
+        return tempScriptName;
+    }
+
     /**
      * Method  to Decode String from Base64
+     *
      * @param encodeValue is a String which is used to Decode
      */
     public static String decode(String encodeValue) {
         byte[] decodeValue = Base64.decode(encodeValue, Base64.DEFAULT);
         return new String(decodeValue);
     }
+
     /**
      * Method  to Encode String into Base64
+     *
      * @param testValue is a String which is used to Encode
      */
     public static String encode(String testValue) {

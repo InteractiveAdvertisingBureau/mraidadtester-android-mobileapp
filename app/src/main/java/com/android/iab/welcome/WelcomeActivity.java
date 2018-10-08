@@ -1,4 +1,3 @@
-
 /**
  * ****************************************************************************
  * Copyright (c) 2015, Interactive Advertising Bureau
@@ -194,7 +193,7 @@ public class WelcomeActivity extends Activity implements AsyncTaskListner {
                         r_id = creativeJsonObject.getString("r_id");
                         p_BannerType = creativeJsonObject.getString("p_BannerType");
                         p_CreativeName = creativeJsonObject.getString("p_CreativeName");
-                        String  response_data = creativeJsonObject.getString("p_Des");
+                        String response_data = creativeJsonObject.getString("p_Des");
                         p_Des = response_data.replace("\\", "");
                         p_SdkName = creativeJsonObject.getString("p_SdkName");
                         dataSource.insertCreativeIntoDb(p_id, p_BannerType, p_CreativeName, p_Des, p_SdkName, r_id);

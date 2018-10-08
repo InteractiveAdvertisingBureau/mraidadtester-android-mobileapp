@@ -16,24 +16,18 @@ import java.util.Map;
 /**
  * Created by ayaz on 10/9/2015.
  */
-public class AdmarvelInterface  implements
+public class AdmarvelInterface implements
         AdMarvelInterstitialAds.AdMarvelInterstitialAdListener {
 
-        private String _siteId = "125546";
+    Activity activity;
+    private String _siteId = "125546";
+    private String _partnerId = "1dd21b33bd603c95";
+    private AdMarvelInterstitialAds adMarvelInterstitialAds;
+    private AdMarvelActivity adMarvelActivity = null;
 
-        private String _partnerId ="1dd21b33bd603c95";
+    public AdmarvelInterface(Activity adMarvelInterstitialActivity) {
 
-        private AdMarvelInterstitialAds adMarvelInterstitialAds;
-
-        private AdMarvelActivity adMarvelActivity = null;
-
-
-
-     Activity activity;
-
-        public AdmarvelInterface(Activity adMarvelInterstitialActivity) {
-
-        activity=adMarvelInterstitialActivity;
+        activity = adMarvelInterstitialActivity;
       /*  adMarvelInterstitialAds = new AdMarvelInterstitialAds(
                 activity , 0 , 0x726D6D , 0x00FF00 ,
                 0x000000 );
@@ -48,26 +42,23 @@ public class AdmarvelInterface  implements
         AdMarvelUtils.isTabletDevice(null);
 
 */
-      //  AdMarvelInterstitialAds.setListener();
+        //  AdMarvelInterstitialAds.setListener();
 
-          //  AdMarvelInterstitialAds.setListener((AdMarvelInterstitialAds.AdMarvelInterstitialAdListener) activity.getApplicationContext());
+        //  AdMarvelInterstitialAds.setListener((AdMarvelInterstitialAds.AdMarvelInterstitialAdListener) activity.getApplicationContext());
 
 
-     //   getAd();
+        //   getAd();
     }
 
     public void getAd() {
 
-        Map< String , Object > targetParams = new HashMap< String , Object >();
+        Map<String, Object> targetParams = new HashMap<String, Object>();
 
         targetParams.put("GEOLOCATION",
                 "42.253387,-83.6874026");
         targetParams.put("test", "bt_inapp");
         targetParams.put("case", "30");
         targetParams.put("AD_HTML", activity.getIntent().getStringExtra(IntentKey.SCRIPT));
-
-
-
 
 
         AdMarvelInterstitialAds.setEnableClickRedirect(true);
@@ -103,12 +94,12 @@ public class AdmarvelInterface  implements
 
     @Override
     public void onAdmarvelActivityLaunched(AdMarvelActivity adMarvelActivity) {
-        Toast.makeText(activity,"onAdmarvelActivityLaunched",Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity, "onAdmarvelActivityLaunched", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onAdMarvelVideoActivityLaunched(AdMarvelVideoActivity adMarvelVideoActivity) {
-        Toast.makeText(activity,"onAdMarvelVideoActivityLaunched",Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity, "onAdMarvelVideoActivityLaunched", Toast.LENGTH_SHORT).show();
 
     }
 

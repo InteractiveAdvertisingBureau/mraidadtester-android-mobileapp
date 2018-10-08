@@ -7,7 +7,6 @@ import android.widget.TextView;
 
 import com.android.iab.R;
 import com.android.iab.utility.IntentKey;
-
 import com.smartadserver.android.library.SASBannerView;
 
 /**
@@ -21,7 +20,7 @@ public class SASBanner extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.smart_ad_banner);
-        header_text=(TextView)findViewById(R.id.header_text);
+        header_text = (TextView) findViewById(R.id.header_text);
 
         //Back button clicked on Header to go Back
         header_text.setOnClickListener(new View.OnClickListener() {
@@ -33,10 +32,10 @@ public class SASBanner extends Activity {
 
         //Set Screen Title
         header_text.setText(getResources().getString(R.string.lebel_banner_view));
-        mBannerView = (SASBannerView)findViewById(R.id.banner);
+        mBannerView = (SASBannerView) findViewById(R.id.banner);
         String pageId = getIntent().getStringExtra(IntentKey.SCRIPT_ID);
         setResult();
-        mBannerView.loadAd(100989, "652021", 15048, true, "iab_id="+pageId, null);
+        mBannerView.loadAd(100989, "652021", 15048, true, "iab_id=" + pageId, null);
     }
 
     @Override
@@ -52,7 +51,7 @@ public class SASBanner extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(mBannerView!=null)
+        if (mBannerView != null)
             mBannerView.onDestroy();
 
     }

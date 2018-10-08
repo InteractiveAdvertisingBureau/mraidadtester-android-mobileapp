@@ -10,30 +10,30 @@ import android.os.Looper;
 
 public class Utils {
 
-	private static Handler mainHandler;
+    private static Handler mainHandler;
 
 
-	static {
-		mainHandler = new Handler(Looper.getMainLooper());
-	}
+    static {
+        mainHandler = new Handler(Looper.getMainLooper());
+    }
 
 
-	public static void runOnUiThread(Runnable runnable) {
+    public static void runOnUiThread(Runnable runnable) {
 
-		if (isUiThread()) {
-			runnable.run();
-		} else {
-			mainHandler.post(runnable);
-		}
-	}
+        if (isUiThread()) {
+            runnable.run();
+        } else {
+            mainHandler.post(runnable);
+        }
+    }
 
 
-	public static boolean isUiThread() {
+    public static boolean isUiThread() {
 
-		if (Looper.myLooper() == Looper.getMainLooper()) {
-			return true;
-		}
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            return true;
+        }
 
-		return false;
-	}
+        return false;
+    }
 }

@@ -18,8 +18,8 @@ package com.android.iab.sdk.inmobi;
 public class AdUnits {
 
     static String[] Types = {
-        "Banner Ads",
-        "Full screen Ads",
-        "Native Ads"
+            "Banner Ads",
+            "Full screen Ads",
+            "Native Ads"
     };
 }

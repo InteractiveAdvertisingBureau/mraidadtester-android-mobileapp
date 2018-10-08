@@ -192,7 +192,7 @@ public class SignUpActivity extends Activity implements OnClickListener, AsyncTa
         GetDataFromServer getDataFromServer = new GetDataFromServer(SignUpActivity.this);
         getDataFromServer.getResponse(url, ApiList.API_URL_SIGN_UP);*/
         GetPostDataFromServer getPostDataFromServer = new GetPostDataFromServer(this);
-        getPostDataFromServer.getResponse(url, data, ApiList.API_URL_RIGISTRATION,false);
+        getPostDataFromServer.getResponse(url, data, ApiList.API_URL_RIGISTRATION, false);
         openAlert(getResources().getString(R.string.app_name), user_nameString + ", " + HelperMessage.LOGIN_WELCOME_MESSAGE, this);
     }
 
@@ -213,9 +213,9 @@ public class SignUpActivity extends Activity implements OnClickListener, AsyncTa
                 if (response.equalsIgnoreCase("true")) {
                     String access_key = jsonObject_response.getString("accessKey");
                     SharePref.setUserInfo(getApplicationContext(), user_nameString, user_emailString, company_nameString, access_key);
-                  //  openAlert(getResources().getString(R.string.app_name), user_nameString + ", " + HelperMessage.LOGIN_WELCOME_MESSAGE, this);
+                    //  openAlert(getResources().getString(R.string.app_name), user_nameString + ", " + HelperMessage.LOGIN_WELCOME_MESSAGE, this);
                 } else {
-                 //   openAlert(getResources().getString(R.string.app_name), HelperMessage.MESSAGE_SERVER_ALERT, this);
+                    //   openAlert(getResources().getString(R.string.app_name), HelperMessage.MESSAGE_SERVER_ALERT, this);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

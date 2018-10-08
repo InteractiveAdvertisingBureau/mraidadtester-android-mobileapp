@@ -28,39 +28,41 @@ public class SharePref {
     public static String DEFAULT_ACCESS_KEY = "default_access_key";
     public static String USER_ACCESS_KEY = "user_access_key";
     public static String USER_TYPE = "user_type";
+
     /**
      * Method to get Default Access Key
-     * */
-    public static String getDefaultAccessKey(){
-      return GlobalInstance.DEFAULT_ACCESS_KEY;
+     */
+    public static String getDefaultAccessKey() {
+        return GlobalInstance.DEFAULT_ACCESS_KEY;
     }
 
-    public static String getUserAccessKey(Context context){
-        SharedPreferences sharedPreferences=context.getApplicationContext().getSharedPreferences(SharePref.MODE_TYPE, Context.MODE_PRIVATE);
-      return sharedPreferences.getString(USER_ACCESS_KEY,"");
-       // return "3uvzhCVxX44ulX3Cfk6rYg";
+    public static String getUserAccessKey(Context context) {
+        SharedPreferences sharedPreferences = context.getApplicationContext().getSharedPreferences(SharePref.MODE_TYPE, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(USER_ACCESS_KEY, "");
+        // return "3uvzhCVxX44ulX3Cfk6rYg";
 
     }
+
     /**
      * Method to check User is Login or not
-     * */
-    public static boolean isUserLogin(Context context){
-        SharedPreferences sharedPreferences=context.getApplicationContext().getSharedPreferences(SharePref.MODE_TYPE, Context.MODE_PRIVATE);
+     */
+    public static boolean isUserLogin(Context context) {
+        SharedPreferences sharedPreferences = context.getApplicationContext().getSharedPreferences(SharePref.MODE_TYPE, Context.MODE_PRIVATE);
         return sharedPreferences.getBoolean(USER_IS_LOGIN, false);
     }
 
     /**
      * Method to get User Name
-     * */
-    public static String getUserName(Context context){
-        SharedPreferences sharedPreferences=context.getApplicationContext().getSharedPreferences(SharePref.MODE_TYPE, Context.MODE_PRIVATE);
+     */
+    public static String getUserName(Context context) {
+        SharedPreferences sharedPreferences = context.getApplicationContext().getSharedPreferences(SharePref.MODE_TYPE, Context.MODE_PRIVATE);
         return sharedPreferences.getString(USER_NAME, GlobalInstance.DEFAULT_GUEST);
     }
 
     /**
      * Method to set User Info Locally using Shared Preference
-     * */
-    public static void setUserInfo(Context context,String user_name, String user_email, String company_name, String access_key) {
+     */
+    public static void setUserInfo(Context context, String user_name, String user_email, String company_name, String access_key) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(SharePref.MODE_TYPE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(USER_NAME, user_name);
@@ -71,9 +73,10 @@ public class SharePref {
         editor.putString(USER_TYPE, "");
         editor.commit();
     }
+
     /**
      * Method to set Skip Access Key Locally using Shared Preference
-     * */
+     */
     public static void setSkipAccessKey(Context context, String access_key) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(SharePref.MODE_TYPE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

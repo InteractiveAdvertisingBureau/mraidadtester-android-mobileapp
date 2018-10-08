@@ -9,65 +9,65 @@
 
 package com.android.iab.font;
 
-import java.lang.reflect.Field;
-
 import android.app.Activity;
 import android.graphics.Typeface;
 
+import java.lang.reflect.Field;
+
 public class SetFont {
 
-	Activity mActivity;
+    Activity mActivity;
 
-public SetFont(Activity mActivity) {
-		// TODO Auto-generated constructor stub
-	this.mActivity=mActivity;
-	setDefaultTypeFace();
-	setMonoSpaceTypeFace();
-	setSansTypeFace();
-	}
+    public SetFont(Activity mActivity) {
+        // TODO Auto-generated constructor stub
+        this.mActivity = mActivity;
+        setDefaultTypeFace();
+        setMonoSpaceTypeFace();
+        setSansTypeFace();
+    }
 
-	public void  setDefaultTypeFace(){
-		try {
-			Typeface defaultTypeFace = Typeface.createFromAsset(mActivity.getAssets(),
+    public void setDefaultTypeFace() {
+        try {
+            Typeface defaultTypeFace = Typeface.createFromAsset(mActivity.getAssets(),
                     "fonts/Futura-Std-Book.ttf");
-			final Field StaticField1 = Typeface.class
+            final Field StaticField1 = Typeface.class
                     .getDeclaredField("DEFAULT");
-			StaticField1.setAccessible(true);
-			StaticField1.set(null, defaultTypeFace);
-		} catch (NoSuchFieldException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		}
-	}
+            StaticField1.setAccessible(true);
+            StaticField1.set(null, defaultTypeFace);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
 
-	public void setSansTypeFace() {
-		try {
-			Typeface normalTypeFace = Typeface.createFromAsset(mActivity.getAssets(),
-					"fonts/Futura-Std-Heavy.ttf");
-			final Field StaticField2 = Typeface.class
-					.getDeclaredField("SANS_SERIF");
-			StaticField2.setAccessible(true);
-			StaticField2.set(null, normalTypeFace);
-		} catch (NoSuchFieldException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		}
-	}
+    public void setSansTypeFace() {
+        try {
+            Typeface normalTypeFace = Typeface.createFromAsset(mActivity.getAssets(),
+                    "fonts/Futura-Std-Heavy.ttf");
+            final Field StaticField2 = Typeface.class
+                    .getDeclaredField("SANS_SERIF");
+            StaticField2.setAccessible(true);
+            StaticField2.set(null, normalTypeFace);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
 
-	public void  setMonoSpaceTypeFace() {
-		try {
-			Typeface monospaceTypeFace = Typeface.createFromAsset(mActivity.getAssets(),
-					"fonts/futura_std_bold.ttf");
-			final Field StaticField3 = Typeface.class
-					.getDeclaredField("MONOSPACE");
-			StaticField3.setAccessible(true);
-			StaticField3.set(null, monospaceTypeFace);
-		} catch (NoSuchFieldException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		}
-	}
-	}
+    public void setMonoSpaceTypeFace() {
+        try {
+            Typeface monospaceTypeFace = Typeface.createFromAsset(mActivity.getAssets(),
+                    "fonts/futura_std_bold.ttf");
+            final Field StaticField3 = Typeface.class
+                    .getDeclaredField("MONOSPACE");
+            StaticField3.setAccessible(true);
+            StaticField3.set(null, monospaceTypeFace);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+}

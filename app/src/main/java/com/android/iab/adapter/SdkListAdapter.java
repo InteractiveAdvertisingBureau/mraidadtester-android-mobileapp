@@ -27,9 +27,13 @@ import com.android.iab.utility.SharePref;
 
 import java.util.ArrayList;
 
-/**This Class is an Adapter which is used to display List of SDK
- * */
+/**
+ * This Class is an Adapter which is used to display List of SDK
+ */
 public class SdkListAdapter extends ArrayAdapter<SDKBean> {
+    ArrayList<SDKBean> entries;
+    Activity mActivity;
+    SharedPreferences mPrefs;
     /**
      * Fields which are used in this Class
      *
@@ -39,9 +43,6 @@ public class SdkListAdapter extends ArrayAdapter<SDKBean> {
      **/
 
     private LayoutInflater mInflater;
-    ArrayList<SDKBean> entries;
-    Activity mActivity;
-    SharedPreferences mPrefs;
 
     public SdkListAdapter(Activity context, ArrayList<SDKBean> values) {
         super(context, R.layout.sdk_items, values);
@@ -82,14 +83,9 @@ public class SdkListAdapter extends ArrayAdapter<SDKBean> {
         return convertView;
     }
 
-    /** View holder for the views we need access to */
-    private static class Holder {
-        TextView Name;
-        TextView version;
-        TextView selectIcon;
-    }
-
-    /**This methoed is used to Set SDK */
+    /**
+     * This methoed is used to Set SDK
+     */
     public void selectSdk(int position) {
         for (int i = 0; i < entries.size(); i++) {
             entries.get(i).setIsSelected(false);
@@ -100,7 +96,9 @@ public class SdkListAdapter extends ArrayAdapter<SDKBean> {
         MainActivity.getInstance().ResetAdType();
     }
 
-    /**This method Check whic SDK is selected*/
+    /**
+     * This method Check whic SDK is selected
+     */
     public SDKBean getSelectedSdk() {
         SDKBean sdk_bean = null;
         for (int i = 0; i < entries.size(); i++) {
@@ -120,5 +118,14 @@ public class SdkListAdapter extends ArrayAdapter<SDKBean> {
             }
         }
         notifyDataSetChanged();
+    }
+
+    /**
+     * View holder for the views we need access to
+     */
+    private static class Holder {
+        TextView Name;
+        TextView version;
+        TextView selectIcon;
     }
 }

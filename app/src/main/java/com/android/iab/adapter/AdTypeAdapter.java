@@ -24,9 +24,10 @@ import com.android.iab.utility.SharePref;
 
 import java.util.ArrayList;
 
-/**This Class is an Adapter which is used to display List of Ad Type
- * */
-public class AdTypeAdapter extends ArrayAdapter<AdTypeBean>  {
+/**
+ * This Class is an Adapter which is used to display List of Ad Type
+ */
+public class AdTypeAdapter extends ArrayAdapter<AdTypeBean> {
     /**
      * Fields which are used in this Class
      *
@@ -42,9 +43,9 @@ public class AdTypeAdapter extends ArrayAdapter<AdTypeBean>  {
     public AdTypeAdapter(Activity context, ArrayList<AdTypeBean> values) {
         super(context, R.layout.ad_type_items, values);
         mInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        entries=values;
-        mActivity=context;
-        mPrefs= mActivity.getSharedPreferences(SharePref.MODE_TYPE, Context.MODE_PRIVATE);
+        entries = values;
+        mActivity = context;
+        mPrefs = mActivity.getSharedPreferences(SharePref.MODE_TYPE, Context.MODE_PRIVATE);
     }
 
     @Override
@@ -53,16 +54,17 @@ public class AdTypeAdapter extends ArrayAdapter<AdTypeBean>  {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.ad_type_items, parent, false);
             holder = new Holder();
-            holder.Type=(TextView) convertView.findViewById(R.id.name);
-            holder.selectIcon=(TextView) convertView.findViewById(R.id.selectIcon);
+            holder.Type = (TextView) convertView.findViewById(R.id.name);
+            holder.selectIcon = (TextView) convertView.findViewById(R.id.selectIcon);
             holder.Type.setText(entries.get(position).getAdtype());
             convertView.setTag(holder);
         } else {
             holder = (Holder) convertView.getTag();
-        } if(entries.get(position).isSelected()) {
+        }
+        if (entries.get(position).isSelected()) {
             holder.Type.setTextColor(mActivity.getResources().getColor(R.color.red));
             holder.selectIcon.setBackgroundResource(R.drawable.tick_red);
-        } else{
+        } else {
             holder.Type.setTextColor(mActivity.getResources().getColor(R.color.black));
             holder.selectIcon.setBackgroundResource(R.drawable.tick_grey);
         }
@@ -75,46 +77,54 @@ public class AdTypeAdapter extends ArrayAdapter<AdTypeBean>  {
         return convertView;
     }
 
-    /**  View holder for the views we need access to  */
-    private static class Holder {
-        TextView Type;
-        TextView   selectIcon;
-    }
-
-     /**This methoed is used to Store SDK which is selected for Ad*/
-    public void selectSdk(int position){
-        for(int i=0;i<entries.size();i++){
+    /**
+     * This methoed is used to Store SDK which is selected for Ad
+     */
+    public void selectSdk(int position) {
+        for (int i = 0; i < entries.size(); i++) {
             entries.get(i).setIsSelected(false);
         }
         entries.get(position).setIsSelected(true);
-        SharedPreferences.Editor editor=mPrefs.edit();
+        SharedPreferences.Editor editor = mPrefs.edit();
         editor.putInt(SharePref.AD_TYPE_TAG, position);
         editor.commit();
         notifyDataSetChanged();
     }
 
-    /**This methoed Check type of Add*/
-    public String getSelectedAddType(){
-        String p_BannerType="";
-        for(int i=0;i<entries.size();i++){
-            if(entries.get(i).isSelected()){
-                p_BannerType=entries.get(i).getAdtype();
-                return  p_BannerType;
+    /**
+     * This methoed Check type of Add
+     */
+    public String getSelectedAddType() {
+        String p_BannerType = "";
+        for (int i = 0; i < entries.size(); i++) {
+            if (entries.get(i).isSelected()) {
+                p_BannerType = entries.get(i).getAdtype();
+                return p_BannerType;
             }
         }
         return p_BannerType;
 
     }
 
-    /**This methoed is used to Set Add Type */
-    public void setSelectedAddType(String addTypeId){
-        for(int i=0;i<entries.size();i++){
-            if(!entries.get(i).getAdtype().trim().equals(addTypeId.trim())){
+    /**
+     * This methoed is used to Set Add Type
+     */
+    public void setSelectedAddType(String addTypeId) {
+        for (int i = 0; i < entries.size(); i++) {
+            if (!entries.get(i).getAdtype().trim().equals(addTypeId.trim())) {
                 entries.get(i).setIsSelected(false);
-            } else{
+            } else {
                 entries.get(i).setIsSelected(true);
             }
         }
         notifyDataSetChanged();
+    }
+
+    /**
+     * View holder for the views we need access to
+     */
+    private static class Holder {
+        TextView Type;
+        TextView selectIcon;
     }
 }

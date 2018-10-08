@@ -11,10 +11,7 @@ import com.openx.view.plugplay.listeners.AdEventsListener;
 import com.openx.view.plugplay.models.AdConfiguration;
 import com.openx.view.plugplay.models.AdDetails;
 import com.openx.view.plugplay.networking.parameters.UserParameters;
-import com.openx.view.plugplay.utils.logger.OXLog;
 import com.openx.view.plugplay.views.AdView;
-
-import java.util.Iterator;
 
 public class OpenXInterstitial extends Activity implements AdEventsListener {
     private String AD_ID_INTERSTITIAL = "538528672";
@@ -65,9 +62,8 @@ public class OpenXInterstitial extends Activity implements AdEventsListener {
 
     @Override
     public void adDidLoad(AdView adView, AdDetails adDetails) {
-        Log.e("Interstitial loaded","Interstitial successfully loaded.");
-        if(!(OpenXInterstitial.this).isFinishing())
-        {
+        Log.e("Interstitial loaded", "Interstitial successfully loaded.");
+        if (!(OpenXInterstitial.this).isFinishing()) {
             adView.showAsInterstitialFromRoot();
         }
 
@@ -75,7 +71,7 @@ public class OpenXInterstitial extends Activity implements AdEventsListener {
 
     @Override
     public void adDidFailToLoad(AdView adView, AdException e) {
-        Log.e("Interstitial failed",e.toString());
+        Log.e("Interstitial failed", e.toString());
     }
 
     @Override

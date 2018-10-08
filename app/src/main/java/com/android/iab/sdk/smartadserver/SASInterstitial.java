@@ -7,7 +7,6 @@ import android.widget.TextView;
 
 import com.android.iab.R;
 import com.android.iab.utility.IntentKey;
-import com.smartadserver.android.library.SASBannerView;
 import com.smartadserver.android.library.SASInterstitialView;
 
 /**
@@ -21,7 +20,7 @@ public class SASInterstitial extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.smart_ad_interstitial);
-        header_text=(TextView)findViewById(R.id.header_text);
+        header_text = (TextView) findViewById(R.id.header_text);
 
         //Back button clicked on Header to go Back
         header_text.setOnClickListener(new View.OnClickListener() {
@@ -33,12 +32,12 @@ public class SASInterstitial extends Activity {
 
         //Set Screen Title
         header_text.setText(getResources().getString(R.string.lebel_interstitial));
-        mBannerView = (SASInterstitialView)findViewById(R.id.banner);
+        mBannerView = (SASInterstitialView) findViewById(R.id.banner);
         String pageId = getIntent().getStringExtra(IntentKey.SCRIPT_ID);
         setResult();
 
-       mBannerView.loadAd(100989, "652022", 15049, true, "iab_id="+pageId, null);
-      //  mBannerView.loadAd(104808, "663262", 15140, true, "iab_id="+pageId, null);
+        mBannerView.loadAd(100989, "652022", 15049, true, "iab_id=" + pageId, null);
+        //  mBannerView.loadAd(104808, "663262", 15140, true, "iab_id="+pageId, null);
 
     }
 
@@ -55,10 +54,11 @@ public class SASInterstitial extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(mBannerView!=null)
+        if (mBannerView != null)
             mBannerView.onDestroy();
 
     }
+
     private void setResult() {
         setResult(Activity.RESULT_OK);
     }

@@ -4,12 +4,13 @@ import android.app.Application;
 
 import com.adform.sdk.utils.AdApplicationService;
 import com.crashlytics.android.Crashlytics;
+
 import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by claritus on 22/6/16.
  */
-public class MyApplication extends Application implements AdApplicationService.ServiceListener  {
+public class MyApplication extends Application implements AdApplicationService.ServiceListener {
     private AdApplicationService adService;
 
     @Override

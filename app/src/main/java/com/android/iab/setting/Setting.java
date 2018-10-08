@@ -38,7 +38,7 @@ public class Setting extends Activity implements View.OnClickListener {
      * @param version_textView                     This is a ThextView which is used to get User Company Name
      * @param policy_textView                      This is a ThextView which is used to get User Email      *
      * @param accesskey_textView                      This is a ThextView which is used to get Access Key      *
-     * */
+     */
     private TextView header_text;
     private TextView user_name_textView;
     private TextView company_name_textView;
@@ -48,6 +48,7 @@ public class Setting extends Activity implements View.OnClickListener {
 
     /**
      * string for dispaly user profile
+     *
      * @param user_nameString               This is a String which is used for get User Name
      * @param company_nameString            This is a String which is used for get User Company Name
      */
@@ -67,7 +68,7 @@ public class Setting extends Activity implements View.OnClickListener {
     }
 
     /**
-     *  Methoed to getProfile Information
+     * Methoed to getProfile Information
      */
     private void getProfileInfo() {
         SharedPreferences mPrefs;
@@ -83,12 +84,12 @@ public class Setting extends Activity implements View.OnClickListener {
         user_name_textView.setText(user_nameString);
         company_name_textView.setText(company_nameString);
         version_textView.setText("App Version 1.0");
-        accesskey_textView.setText("Key: "+SharePref.getUserAccessKey(getApplicationContext()));
+        accesskey_textView.setText("Key: " + SharePref.getUserAccessKey(getApplicationContext()));
     }
 
     /**
      * Methoed is used to Set Header Title
-     * */
+     */
     private void setHeaderTitle() {
         header_text.setText(getResources().getString(R.string.lebel_setting));
     }
@@ -113,11 +114,10 @@ public class Setting extends Activity implements View.OnClickListener {
         company_name_textView = (TextView) findViewById(R.id.company_name_textView);
         version_textView = (TextView) findViewById(R.id.version_textView);
         accesskey_textView = (TextView) findViewById(R.id.accesskey_textView);
-        if(SharePref.isUserLogin(getApplicationContext())&& ! SharePref.getUserName(getApplicationContext()).equals(GlobalInstance.DEFAULT_GUEST)){
+        if (SharePref.isUserLogin(getApplicationContext()) && !SharePref.getUserName(getApplicationContext()).equals(GlobalInstance.DEFAULT_GUEST)) {
             accesskey_textView.setVisibility(View.VISIBLE);
             findViewById(R.id.user_email_textView).setVisibility(View.VISIBLE);
-        }
-        else{
+        } else {
             accesskey_textView.setVisibility(View.GONE);
             findViewById(R.id.user_email_textView).setVisibility(View.GONE);
         }
@@ -140,9 +140,9 @@ public class Setting extends Activity implements View.OnClickListener {
                 break;
             //Its used to share Access Key
             case R.id.user_email_textView:
-                String emailContent=GlobalInstance.EMAIL_CONTENT_FOR_ACCESS_KEY;
-                emailContent=emailContent.replace(GlobalInstance.ACEESS_KEY,SharePref.getUserAccessKey(getApplicationContext()));
-                HelperMethods.sendEmail(this,"", GlobalInstance.SUBJECT_ACEESS_KEY,emailContent);
+                String emailContent = GlobalInstance.EMAIL_CONTENT_FOR_ACCESS_KEY;
+                emailContent = emailContent.replace(GlobalInstance.ACEESS_KEY, SharePref.getUserAccessKey(getApplicationContext()));
+                HelperMethods.sendEmail(this, "", GlobalInstance.SUBJECT_ACEESS_KEY, emailContent);
                 break;
         }
     }

@@ -10,8 +10,8 @@
  */
 
 package com.android.iab.utility;
-public class URLUTF8Encoder
-{
+
+public class URLUTF8Encoder {
     final static String[] hex = {
             "%00", "%01", "%02", "%03", "%04", "%05", "%06", "%07",
             "%08", "%09", "%0a", "%0b", "%0c", "%0d", "%0e", "%0f",
@@ -46,18 +46,18 @@ public class URLUTF8Encoder
             "%f0", "%f1", "%f2", "%f3", "%f4", "%f5", "%f6", "%f7",
             "%f8", "%f9", "%fa", "%fb", "%fc", "%fd", "%fe", "%ff"
     };
-    public static String encode(String s)
-    {
+
+    public static String encode(String s) {
         StringBuffer sbuf = new StringBuffer();
         int len = s.length();
         for (int i = 0; i < len; i++) {
             int ch = s.charAt(i);
             if ('A' <= ch && ch <= 'Z') {     // 'A'..'Z'
-                sbuf.append((char)ch);
+                sbuf.append((char) ch);
             } else if ('a' <= ch && ch <= 'z') {  // 'a'..'z'
-                sbuf.append((char)ch);
+                sbuf.append((char) ch);
             } else if ('0' <= ch && ch <= '9') {  // '0'..'9'
-                sbuf.append((char)ch);
+                sbuf.append((char) ch);
             } else if (ch == ' ') {           // space
                 sbuf.append('+');
             } else if (ch == '-' || ch == '_'     // unreserved
@@ -65,7 +65,7 @@ public class URLUTF8Encoder
                     || ch == '~' || ch == '*'
                     || ch == '\'' || ch == '('
                     || ch == ')') {
-                sbuf.append((char)ch);
+                sbuf.append((char) ch);
             } else if (ch <= 0x007f) {        // other ASCII
                 sbuf.append(hex[ch]);
             } else if (ch <= 0x07FF) {        // non-ASCII <= 0x7FF

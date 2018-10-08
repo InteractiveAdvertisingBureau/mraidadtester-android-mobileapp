@@ -24,9 +24,9 @@ import android.widget.TextView;
 
 import com.android.iab.R;
 import com.android.iab.font.SetFont;
+import com.android.iab.utility.ApiList;
 import com.android.iab.utility.HelperMessage;
 import com.android.iab.utility.HelperMethods;
-import com.android.iab.utility.ApiList;
 
 /**
  * This activity is used to display Term & Condition on WebView Page
@@ -37,7 +37,7 @@ public class TermAndCondition extends Activity implements View.OnClickListener {
      *
      * @param header_text                        This is a TextView which is used to press Back Button as well as Display Header Title
      * @param webView                            This is a WebView which is used to Display Term & Condition Page
-     * */
+     */
     private TextView header_text;
     private WebView webView;
 
@@ -64,14 +64,14 @@ public class TermAndCondition extends Activity implements View.OnClickListener {
 
     /**
      * Methoed is used to Set Header Title
-     * */
+     */
     private void setHeaderTitle() {
         header_text.setText(getResources().getString(R.string.lebel_term_condition));
     }
 
     /**
      * Methoed is display Term & Condition Content on WebView
-     * */
+     */
     private void displayTermAndCoditionData() {
         dialog = new ProgressDialog(this);
         dialog.setMessage("Loading...");

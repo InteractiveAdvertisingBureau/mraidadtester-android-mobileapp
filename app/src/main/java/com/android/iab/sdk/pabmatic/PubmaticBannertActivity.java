@@ -54,7 +54,7 @@ public class PubmaticBannertActivity extends Activity {
         mAdView.loadRequest(request);
 
         // Set log level (Optional)
-		PubMaticSDK.setLogLevel(PMLogger.PMLogLevel.Debug);
+        PubMaticSDK.setLogLevel(PMLogger.PMLogLevel.Debug);
 
         header_text = (TextView) findViewById(R.id.header_text);
 
@@ -144,7 +144,7 @@ public class PubmaticBannertActivity extends Activity {
     protected void onDestroy() {
         try {
             if (mAdView != null) {
-				mAdView.destroy();
+                mAdView.destroy();
             }
         } catch (Exception e) {
             e.printStackTrace();

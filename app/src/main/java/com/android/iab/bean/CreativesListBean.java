@@ -19,6 +19,13 @@ public class CreativesListBean implements Serializable {
     private String creativeName;
     private String addTag;
     private String isDeleted;
+    private String sdkId; //  use for sdk unique Id
+    private String sdkName;   // use for sdk name
+    private String sdkversion; //use for sdk version
+    private String addType;
+    public CreativesListBean() {
+
+    }
 
     public String getIsDeleted() {
         return isDeleted;
@@ -27,16 +34,6 @@ public class CreativesListBean implements Serializable {
     public void setIsDeleted(String isDeleted) {
         this.isDeleted = isDeleted;
     }
-
-    public CreativesListBean() {
-
-    }
-
-
-    private String sdkId; //  use for sdk unique Id
-    private String sdkName;   // use for sdk name
-    private String sdkversion; //use for sdk version
-    private String addType;
 
     public String getSdkName() {
         return sdkName;
@@ -66,6 +63,10 @@ public class CreativesListBean implements Serializable {
         return addTag;
     }
 
+    public void setAddTag(String addTag) {
+
+        this.addTag = addTag;
+    }
 
     public String getSdkId() {
         return sdkId;
@@ -75,15 +76,13 @@ public class CreativesListBean implements Serializable {
         this.sdkId = sdkId;
     }
 
-
-    public void setAddTag(String addTag) {
-
-        this.addTag = addTag;
-    }
-
     public String getId() {
 
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getCreativeName() {
@@ -92,10 +91,6 @@ public class CreativesListBean implements Serializable {
 
     public void setCreativeName(String creativeName) {
         this.creativeName = creativeName;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
 

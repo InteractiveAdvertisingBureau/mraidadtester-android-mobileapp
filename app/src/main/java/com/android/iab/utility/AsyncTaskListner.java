@@ -12,5 +12,5 @@
 package com.android.iab.utility;
 
 public interface AsyncTaskListner {
-    public void onTaskComplete(String result, String apiName,int gettingResponse);
+    public void onTaskComplete(String result, String apiName, int gettingResponse);
 }

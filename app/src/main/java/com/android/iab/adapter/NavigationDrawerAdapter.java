@@ -26,9 +26,11 @@ import com.android.iab.utility.GlobalInstance;
 import java.util.Collections;
 import java.util.List;
 
-/**This Class is an Adapter which is used to display List of Creative
- * */
+/**
+ * This Class is an Adapter which is used to display List of Creative
+ */
 public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDrawerAdapter.MyNavViewHolder> {
+    public boolean isEdit;
     /**
      * Fields which are used in this Class
      *
@@ -38,7 +40,6 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
     List<NavDrawerItem> creativeItems = Collections.emptyList();
     private LayoutInflater inflater;
     private Context context;
-    public boolean isEdit;
 
     public NavigationDrawerAdapter(Context context, List<NavDrawerItem> data, boolean isEdit) {
         this.context = context;
@@ -76,6 +77,10 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
         return creativeItems.size();
     }
 
+    public void setNotifyDataSetChanged(List<NavDrawerItem> navDrawerItems) {
+        this.creativeItems = navDrawerItems;
+        notifyDataSetChanged();
+    }
 
     class MyNavViewHolder extends RecyclerView.ViewHolder {
         TextView title;
@@ -86,10 +91,5 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
             title = (TextView) itemView.findViewById(R.id.title);
             delete_iconImageView = (ImageView) itemView.findViewById(R.id.delete_iconImageView);
         }
-    }
-
-    public void setNotifyDataSetChanged(List<NavDrawerItem> navDrawerItems) {
-               this.creativeItems = navDrawerItems;
-        notifyDataSetChanged();
     }
 }

@@ -28,7 +28,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-
 import com.android.iab.R;
 import com.android.iab.adapter.AdTypeAdapter;
 import com.android.iab.adapter.SdkListAdapter;
@@ -38,7 +37,6 @@ import com.android.iab.bean.SDKBean;
 import com.android.iab.database.DataSource;
 import com.android.iab.font.SetFont;
 import com.android.iab.sdk.adform.AdInlineActivity;
-
 import com.android.iab.sdk.adform.AdOverlayActivity;
 import com.android.iab.sdk.admarvel.AdMarvelBannerAdsActivity;
 import com.android.iab.sdk.admarvel.AdMarvelInterstitialActivity;
@@ -72,10 +70,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 
-import static android.app.Activity.RESULT_OK;
-import static com.millennialmedia.internal.utils.EnvironmentUtils.getApplicationContext;
-
 public class MainActivity extends ActionBarActivity implements FragmentDrawer.FragmentDrawerListener, View.OnClickListener, OnCreativeListClickListner, AsyncTaskListner {
+    public static MainActivity mainActivity;
     /**
      * Declaration of  widget which are used in This Page Globally
      *
@@ -113,7 +109,6 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
     private ListView selectSdkListView;
     private TextView sdkNameTextView;
     private ListView bannerView;
-
     /**
      * Fields which are used in this Class
      *
@@ -154,10 +149,13 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
     private int test_creative = 1;
     private String add_tag_String;
     private String creativeName;
-    private String scriptId ;
+    private String scriptId;
     private int user_creative_type;
 
-    public static MainActivity mainActivity;
+    public MainActivity() {
+        mainActivity = this;
+    }
+
     public static MainActivity getInstance() {
         if (mainActivity == null) {
             mainActivity = new MainActivity();
@@ -165,9 +163,6 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         return mainActivity;
     }
 
-    public MainActivity() {
-        mainActivity = this;
-    }
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -211,13 +206,14 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
 
     /**
      * This Method  is used to save User's Creative
+     *
      * @param userCreativeType to check Creative Type
      */
     private void saveUserCreativeFromServer(int userCreativeType) {
         if (HelperMethods.isNetworkAvailable(this)) {
-            user_creative_type=userCreativeType;
+            user_creative_type = userCreativeType;
             String url = ApiList.BASE_URL + ApiList.API_URL_SAVE_CREATIVE;
-            String data = "apikey=" + SharePref.getUserAccessKey(getApplicationContext()) + "&name=" +  URLUTF8Encoder.encode(creativeName) + "&des=" +  URLUTF8Encoder.encode(add_tag_String) + "&sdk=" + URLUTF8Encoder.encode(sdkName)+ "&type=" +  URLUTF8Encoder.encode(selectedAddType);
+            String data = "apikey=" + SharePref.getUserAccessKey(getApplicationContext()) + "&name=" + URLUTF8Encoder.encode(creativeName) + "&des=" + URLUTF8Encoder.encode(add_tag_String) + "&sdk=" + URLUTF8Encoder.encode(sdkName) + "&type=" + URLUTF8Encoder.encode(selectedAddType);
             GetPostDataFromServer getPostDataFromServer = new GetPostDataFromServer(this);
             getPostDataFromServer.getResponse(url, data, ApiList.API_URL_SAVE_CREATIVE, false);
         } else {
@@ -328,6 +324,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                 break;
         }
     }
+
     /**
      * Method To create Dialog when user want to save Creative
      */
@@ -372,7 +369,8 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
 
     /**
      * Method to add Creative Name into CreativeList
-     * @param  creativeId To save creative into Local Database After successfully save on Server
+     *
+     * @param creativeId To save creative into Local Database After successfully save on Server
      */
     private void addCreativeIntoCreativeList(String creativeId) {
 
@@ -380,7 +378,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         dataSource.open();
         boolean isAdded = dataSource.isCreativeAddedIntoDb(creativeName);
         if (isAdded == false) {
-            Log.d("Save Creative",creativeId);
+            Log.d("Save Creative", creativeId);
             dataSource.insertCreativeIntoDb(creativeId, selectedAddType, creativeName, add_tag_String, sdkName, GlobalInstance.TYPE_MY_CREATIVE);
             getCreativeListFromDb();
             drawerFragment.refreshCreativeList();
@@ -392,7 +390,8 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
 
     /**
      * Method for Managing UI's changes on Navigation
-     * @param  selectedTab is used to show Tab Position
+     *
+     * @param selectedTab is used to show Tab Position
      */
     private void updateUI(int selectedTab) {
         switch (selectedTab) {
@@ -507,7 +506,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         selectSdkTextView.setTextColor(getResources().getColor(R.color.grey));
         selectAddTypeTextView.setTextColor(getResources().getColor(R.color.red));
         sdkNameTextView.setText(sdkName + " " + sdkversion);
-        Log.e("sdk version",sdkversion);
+        Log.e("sdk version", sdkversion);
     }
 
     /**
@@ -568,6 +567,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         adTypeAdapter = new AdTypeAdapter(this, ad_type_list);
         bannerView.setAdapter(adTypeAdapter);
     }
+
     /**
      * Method to Reset option AdType
      */
@@ -588,13 +588,15 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             startButton.setVisibility(View.VISIBLE);
         }
     }
+
     /**
      * Interface call when User select Creative from Menu
-     * @param  position This is Selected Creative Position
+     *
+     * @param position This is Selected Creative Position
      */
     public void OnCreativeListItemClickListner(int position) {
         add_tag_String = creativeListBeans.get(position).getAddTag();
-        scriptId= creativeListBeans.get(position).getId();
+        scriptId = creativeListBeans.get(position).getId();
         selectedSdk = creativeListBeans.get(position).getSdkName();
         sdkName = creativeListBeans.get(position).getSdkName();
         sdkversion = creativeListBeans.get(position).getSdkversion();
@@ -604,6 +606,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         adTypeAdapter.setSelectedAddType(selectedAddType);
         updateUI(ad_tag_position);
     }
+
     /**
      * Method  to get Creative List from Local Database
      */
@@ -618,14 +621,14 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
     /**
      * Method  to display ad after select Tag,SDK & Ad Type
      */
-    public void testCreative(){
+    public void testCreative() {
         if (isAddTypeSelected()) {
-            Intent intent=null;
-            String script= null;
+            Intent intent = null;
+            String script = null;
             try {
-               script = URLDecoder.decode(URLUTF8Encoder.encode(add_tag_editText.getText().toString().trim()), "UTF-8");
+                script = URLDecoder.decode(URLUTF8Encoder.encode(add_tag_editText.getText().toString().trim()), "UTF-8");
 
-                        } catch (UnsupportedEncodingException e) {
+            } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
             if (sdkName.equals(GlobalInstance.SDK_TYPE_AD_MARVEL)) {
@@ -645,20 +648,17 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                     intent = new Intent(MainActivity.this, PubmaticBannertActivity.class);
                 intent.putExtra(IntentKey.SCRIPT, script);
                 startActivityForResult(intent, test_creative);
-            }
-
-            else if (sdkName.equals(GlobalInstance.SDK_TYPE_MILLENNIAL)) {
-                int scriptId=HelperMethods.isScriptAlreadyStored(MainActivity.this,add_tag_editText.getText().toString().trim());
-                if(scriptId!=0) {
+            } else if (sdkName.equals(GlobalInstance.SDK_TYPE_MILLENNIAL)) {
+                int scriptId = HelperMethods.isScriptAlreadyStored(MainActivity.this, add_tag_editText.getText().toString().trim());
+                if (scriptId != 0) {
                     if (selectedAddType.equals(GlobalInstance.AD_TYPE_INTERSTITIAL))
                         intent = new Intent(MainActivity.this, InterstitialActivity.class);
                     else
                         intent = new Intent(MainActivity.this, InlineActivity.class);
-                    intent.putExtra(IntentKey.SCRIPT_ID, ""+scriptId);
+                    intent.putExtra(IntentKey.SCRIPT_ID, "" + scriptId);
                     startActivityForResult(intent, test_creative);
-                }
-                else {
-                    creativeName=HelperMethods.getCreativeName(MainActivity.this);
+                } else {
+                    creativeName = HelperMethods.getCreativeName(MainActivity.this);
                     saveUserCreativeFromServer(GlobalInstance.USER_CREATIVE_AUTO);
                     // HelperMethods.openAlert(getResources().getString(R.string.app_name), "Not Saved", MainActivity.this);
                 }
@@ -671,40 +671,36 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                     intent = new Intent(MainActivity.this, BannerAdsActivity.class);
                 intent.putExtra(IntentKey.SCRIPT, script);
                 startActivityForResult(intent, test_creative);
-            }else if(sdkName.equals(GlobalInstance.SDK_TYPE_ADFORM))
-            {
+            } else if (sdkName.equals(GlobalInstance.SDK_TYPE_ADFORM)) {
                 if (selectedAddType.equals(GlobalInstance.AD_TYPE_INTERSTITIAL))
                     intent = new Intent(MainActivity.this, AdOverlayActivity.class);
                 else
                     intent = new Intent(MainActivity.this, AdInlineActivity.class);
                 intent.putExtra(IntentKey.SCRIPT, script);
                 startActivityForResult(intent, test_creative);
-            }
-            else if(sdkName.equals(GlobalInstance.SDK_TYPE_OPENX))
-            {
-                int scriptId=HelperMethods.isScriptAlreadyStored(MainActivity.this,add_tag_editText.getText().toString().trim());
+            } else if (sdkName.equals(GlobalInstance.SDK_TYPE_OPENX)) {
+                int scriptId = HelperMethods.isScriptAlreadyStored(MainActivity.this, add_tag_editText.getText().toString().trim());
                 if (selectedAddType.equals(GlobalInstance.AD_TYPE_INTERSTITIAL))
                     intent = new Intent(MainActivity.this, OpenXInterstitial.class);
                 else
                     intent = new Intent(MainActivity.this, OpenXBannerActivity.class);
-                intent.putExtra(IntentKey.SCRIPT_ID, ""+scriptId);
+                intent.putExtra(IntentKey.SCRIPT_ID, "" + scriptId);
                 startActivityForResult(intent, test_creative);
-            }else if(sdkName.equals(GlobalInstance.SDK_TYPE_SMART_AD_SERVER))
-            {
-                int scriptId=HelperMethods.isScriptAlreadyStored(MainActivity.this,add_tag_editText.getText().toString().trim());
-                if(scriptId!=0) {
+            } else if (sdkName.equals(GlobalInstance.SDK_TYPE_SMART_AD_SERVER)) {
+                int scriptId = HelperMethods.isScriptAlreadyStored(MainActivity.this, add_tag_editText.getText().toString().trim());
+                if (scriptId != 0) {
                     if (selectedAddType.equals(GlobalInstance.AD_TYPE_INTERSTITIAL))
                         intent = new Intent(MainActivity.this, SASInterstitial.class);
                     else
                         intent = new Intent(MainActivity.this, SASBanner.class);
-                    intent.putExtra(IntentKey.SCRIPT_ID, ""+scriptId);
+                    intent.putExtra(IntentKey.SCRIPT_ID, "" + scriptId);
                     startActivityForResult(intent, test_creative);
-                }else {
-                    creativeName=HelperMethods.getCreativeName(MainActivity.this);
+                } else {
+                    creativeName = HelperMethods.getCreativeName(MainActivity.this);
                     saveUserCreativeFromServer(GlobalInstance.USER_CREATIVE_AUTO);
                 }
+            }
         }
-    }
     }
 
 
@@ -712,9 +708,9 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
      * Interface Callback: callback method for track API response
      * used for getting & extracting response from the JSON
      *
-     * @param result  Response String getting By Server
-     * @param apiName Identify Which API is used in this Request
-     * @param  serverRequest check Request Response Status
+     * @param result        Response String getting By Server
+     * @param apiName       Identify Which API is used in this Request
+     * @param serverRequest check Request Response Status
      */
     @Override
     public void onTaskComplete(String result, String apiName, int serverRequest) {
@@ -740,9 +736,9 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                             r_id = creativeJsonObject.getString("r_id");
                             p_BannerType = creativeJsonObject.getString("p_BannerType");
                             p_CreativeName = creativeJsonObject.getString("p_CreativeName");
-                            String  response_data = creativeJsonObject.getString("p_Des");
+                            String response_data = creativeJsonObject.getString("p_Des");
                             //p_Des = response_data.replace("\\", "");
-                            p_Des=response_data;
+                            p_Des = response_data;
                             p_SdkName = creativeJsonObject.getString("p_SdkName");
                             dataSource.insertCreativeIntoDb(id, p_BannerType, p_CreativeName, p_Des, p_SdkName, r_id);
                         }
@@ -774,10 +770,10 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                     if (status.equalsIgnoreCase("true")) {
                         String creative_id = jsonObject_response.getString("response");
                         addCreativeIntoCreativeList(creative_id);
-                        if(user_creative_type==GlobalInstance.USER_CREATIVE_MANUAL)
-                        HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.CREATIVE_ADDED, this);
-                        else{
-                            scriptId=creative_id;
+                        if (user_creative_type == GlobalInstance.USER_CREATIVE_MANUAL)
+                            HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.CREATIVE_ADDED, this);
+                        else {
+                            scriptId = creative_id;
                             testCreative();
                         }
 

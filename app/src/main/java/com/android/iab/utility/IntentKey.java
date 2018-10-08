@@ -14,7 +14,7 @@ package com.android.iab.utility;
 public class IntentKey {
     /**
      * @param SCRIPT                        This is a String which is used as a Intent Key passing one Activity to Another
-      */
+     */
     public static String SCRIPT = "add_tag";
     public static String SCRIPT_ID = "add_tag_id";
     public static String IS_LOAD_DEFAULT_CREATIVE = "is_load_default_creative";
