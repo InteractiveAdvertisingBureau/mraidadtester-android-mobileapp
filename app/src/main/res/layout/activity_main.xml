@@ -16,13 +16,13 @@
         <include
             android:id="@+id/toolbar"
             layout="@layout/toolbar"
-            ></include>
+            />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2px"
             android:layout_below="@id/toolbar"
-            android:background="@color/text_color_grey_two"></View>
+            android:background="@color/text_color_grey_two"/>
 
         <LinearLayout
             android:id="@+id/home_nav_headings"
@@ -69,7 +69,7 @@
             android:layout_height="2px"
             android:layout_below="@id/home_nav_headings"
             android:background="@color/text_color_grey_one"
-            android:orientation="horizontal"></LinearLayout>
+            android:orientation="horizontal"/>
 
         <LinearLayout
             android:id="@+id/FrameLayout"
@@ -77,21 +77,21 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/bottom_menu_seprator"
             android:layout_below="@+id/home_nav_seprator"
-            android:orientation="horizontal"> 
+            android:orientation="horizontal">
 
             <include
                 android:id="@+id/tabLayout1"
-                layout="@layout/fragment_ad_tag"></include>
+                layout="@layout/fragment_ad_tag"/>
              
 
             <include
                 android:id="@+id/tabLayout2"
-                layout="@layout/fragment_sdk"></include>
+                layout="@layout/fragment_sdk"/>
              
 
             <include
                 android:id="@+id/tabLayout3"
-                layout="@layout/fragment_ad_type"></include>
+                layout="@layout/fragment_ad_type"/>
 
 
         </LinearLayout>
@@ -102,7 +102,7 @@
             android:layout_height="2px"
             android:layout_above="@+id/bottom_nav_menu"
             android:background="@color/text_color_grey_two"
-            android:orientation="horizontal"></LinearLayout>
+            android:orientation="horizontal"/>
 
         <RelativeLayout
             android:id="@+id/bottom_nav_menu"

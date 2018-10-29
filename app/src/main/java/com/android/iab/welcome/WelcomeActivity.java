@@ -108,7 +108,7 @@ public class WelcomeActivity extends Activity implements AsyncTaskListner {
      */
     private void getDefaultCreativeFromServer() {
         if (HelperMethods.isNetworkAvailable(this)) {
-            String url = ApiList.BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getDefaultAccessKey();
+            String url = ApiList.IAB_BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getDefaultAccessKey();
             GetDataFromServer getDataFromServer = new GetDataFromServer(WelcomeActivity.this);
             getDataFromServer.getResponse(url, ApiList.API_URL_GET_ALL_CREATIVE);
         } else {
@@ -125,7 +125,7 @@ public class WelcomeActivity extends Activity implements AsyncTaskListner {
 
     private void getAllCreativeFromServer() {
         if (HelperMethods.isNetworkAvailable(this)) {
-            String url = ApiList.BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getDefaultAccessKey();
+            String url = ApiList.IAB_BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getDefaultAccessKey();
             GetDataFromServer getDataFromServer = new GetDataFromServer(WelcomeActivity.this);
             getDataFromServer.getResponse(url, ApiList.API_URL_GET_ALL_CREATIVE);
         } else {

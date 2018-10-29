@@ -262,7 +262,7 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
      */
     private void deleteUserCreativeFromServer(int position) {
         if (HelperMethods.isNetworkAvailable(getActivity())) {
-            String url = ApiList.BASE_URL + ApiList.API_URL_DELETE_CREATIVE + SharePref.getUserAccessKey(getActivity().getApplicationContext()) + "/" + creativesListBeans.get(position).getId();
+            String url = ApiList.IAB_BASE_URL + ApiList.API_URL_DELETE_CREATIVE + SharePref.getUserAccessKey(getActivity().getApplicationContext()) + "/" + creativesListBeans.get(position).getId();
             GetDataFromServer getDataFromServer = new GetDataFromServer(getActivity(), FragmentDrawer.this);
             getDataFromServer.getResponse(url, ApiList.API_URL_DELETE_CREATIVE);
             deletedPosition = position;
@@ -276,7 +276,7 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener, As
      */
     private void getUserCreativeFromServer() {
         if (HelperMethods.isNetworkAvailable(getActivity())) {
-            String url = ApiList.BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getUserAccessKey(getActivity().getApplicationContext());
+            String url = ApiList.IAB_BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getUserAccessKey(getActivity().getApplicationContext());
             GetDataFromServer getDataFromServer = new GetDataFromServer(getActivity(), FragmentDrawer.this);
             getDataFromServer.getResponse(url, ApiList.API_URL_GET_ALL_CREATIVE);
             if (getDataFromServer.dialog.isShowing())

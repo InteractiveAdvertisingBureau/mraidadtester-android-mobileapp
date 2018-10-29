@@ -196,7 +196,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
      */
     private void getAllCreativeFromServer() {
         if (HelperMethods.isNetworkAvailable(this)) {
-            String url = ApiList.BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getUserAccessKey(getApplicationContext());
+            String url = ApiList.IAB_BASE_URL + ApiList.API_URL_GET_ALL_CREATIVE + SharePref.getUserAccessKey(getApplicationContext());
             GetDataFromServer getDataFromServer = new GetDataFromServer(MainActivity.this);
             getDataFromServer.getResponse(url, ApiList.API_URL_GET_ALL_CREATIVE);
         } else {
@@ -212,7 +212,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
     private void saveUserCreativeFromServer(int userCreativeType) {
         if (HelperMethods.isNetworkAvailable(this)) {
             user_creative_type = userCreativeType;
-            String url = ApiList.BASE_URL + ApiList.API_URL_SAVE_CREATIVE;
+            String url = ApiList.IAB_BASE_URL + ApiList.API_URL_SAVE_CREATIVE;
             String data = "apikey=" + SharePref.getUserAccessKey(getApplicationContext()) + "&name=" + URLUTF8Encoder.encode(creativeName) + "&des=" + URLUTF8Encoder.encode(add_tag_String) + "&sdk=" + URLUTF8Encoder.encode(sdkName) + "&type=" + URLUTF8Encoder.encode(selectedAddType);
             GetPostDataFromServer getPostDataFromServer = new GetPostDataFromServer(this);
             getPostDataFromServer.getResponse(url, data, ApiList.API_URL_SAVE_CREATIVE, false);

@@ -65,6 +65,10 @@ android {
         unitTests.returnDefaultValues = true
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -73,7 +77,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.+'
     compile 'com.android.support:recyclerview-v7:21.0.2'
     compile 'com.google.android.gms:play-services-ads:9.0.2'
-
     compile files('libs/admarvel-android-sdk-core.jar')
     compile files('libs/gson-2.2.2.jar')
     compile files('libs/commons-collections4-4.0.jar')
@@ -90,10 +93,10 @@ dependencies {
     testCompile 'com.squareup.assertj:assertj-android:1.1.0'
     /*  testCompile 'org.robolectric:robolectric:3.0'
 
-                // NOTE: Do not place your application dependencies here; they belong
-                // in the individual module build.gradle files
-                testCompile 'junit:junit:4.12'
-                testCompile 'junit:junit:4.12'*/
+                    // NOTE: Do not place your application dependencies here; they belong
+                    // in the individual module build.gradle files
+                    testCompile 'junit:junit:4.12'
+                    testCompile 'junit:junit:4.12'*/
     // Robolectric
     testCompile 'junit:junit:4.12'
     testCompile 'org.robolectric:shadows-support-v4:3.0-rc2'
@@ -102,7 +105,7 @@ dependencies {
     // compile project(':inmobi_adapter-release')
     compile(name: 'advertising-sdk-2.12.0', ext: 'aar')
     compile(name: 'AndroidSdk-4.7.0', ext: 'aar')
-    compile(name:'SmartAdServer-Android-SDK-6.9',ext:'aar')
+    compile(name: 'SmartAdServer-Android-SDK-6.9', ext: 'aar')
     compile('com.crashlytics.sdk.android:crashlytics:2.6.2@aar') {
         transitive = true;
     }
