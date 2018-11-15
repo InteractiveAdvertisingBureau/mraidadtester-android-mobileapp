@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:/home/claritus/.gradle/caches/transforms-1/files-1.1/common-sdk-debug.aar/985913d5512f811614278bbc520f1be6:unspecified@jar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/common-sdk-debug.aar/985913d5512f811614278bbc520f1be6/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/common-sdk-debug.aar/985913d5512f811614278bbc520f1be6/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
