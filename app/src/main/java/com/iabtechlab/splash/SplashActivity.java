@@ -13,6 +13,7 @@ package com.iabtechlab.splash;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -23,7 +24,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.Window;
 
 import com.iabtechlab.R;
-import com.iabtechlab.utility.HelperMethods;
+
 import com.iabtechlab.utility.IntentKey;
 import com.iabtechlab.welcome.WelcomeActivity;
 
@@ -32,6 +33,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Home SplashActivity for loading layouts resources
@@ -45,14 +48,31 @@ public class SplashActivity extends Activity {
      */
     private static int SPLASH_TIME_OUT = 2000;  //Timer to display splash screen
     private Handler splashHandler = new Handler();
+    private static final int MULTIPLE_PERMISSIONS = 1;
+    String[] permissions = {
+            Manifest.permission.READ_CALENDAR,
+            Manifest.permission.WRITE_CALENDAR,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.NFC,
+            Manifest.permission.READ_PHONE_STATE,
+            Manifest.permission.RECORD_AUDIO,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.BLUETOOTH
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.splash_screen);
-        checkPermission();
+        if (checkPermissions()) {
+            //  permissions  granted.
+            moveToNextScreen();
+        }
+
     }
+
 
     @Override
     protected void onResume() {
@@ -60,7 +80,7 @@ public class SplashActivity extends Activity {
         // checkPermission();
     }
 
-    private void checkPermission() {
+    /*private void checkPermission1() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
             // Permission is not granted
@@ -70,7 +90,7 @@ public class SplashActivity extends Activity {
                 // this thread waiting for the user's response! After the user
                 // sees the explanation, try again to request the permission.
                 HelperMethods.showToast_L("Write Permission is needed to perform the application work efficiently", this);
-            } /*else {
+            } *//*else {
                 if (!SharePref.getWritePermission(getApplicationContext())) {
                     new AlertDialog.Builder(this).setMessage("You need to enable Write permissions to use this feature").setPositiveButton("Go to settings", new DialogInterface.OnClickListener() {
                         @Override
@@ -89,7 +109,7 @@ public class SplashActivity extends Activity {
                         }
                     }).show();
                 }
-            }*/
+            }*//*
             // No explanation needed; request the permission
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
@@ -103,20 +123,33 @@ public class SplashActivity extends Activity {
 
             moveToNextScreen();
         }
+    }*/
+
+    private boolean checkPermissions() {
+        int result;
+        List<String> listPermissionsNeeded = new ArrayList<>();
+        for (String p : permissions) {
+            result = ContextCompat.checkSelfPermission(this, p);
+            if (result != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(p);
+            }
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]), MULTIPLE_PERMISSIONS);
+            return false;
+        }
+        return true;
     }
 
     private void moveToNextScreen() {
-        splashHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                checkDataBase();
-                // Start your app main activity
-                Intent i = new Intent(SplashActivity.this, WelcomeActivity.class);
-                i.putExtra(IntentKey.IS_LOAD_DEFAULT_CREATIVE, true);
-                startActivity(i);
-                // close this activity
-                finish();
-            }
+        splashHandler.postDelayed(() -> {
+            checkDataBase();
+            // Start your app main activity
+            Intent i = new Intent(SplashActivity.this, WelcomeActivity.class);
+            i.putExtra(IntentKey.IS_LOAD_DEFAULT_CREATIVE, true);
+            startActivity(i);
+            // close this activity
+            finish();
         }, SPLASH_TIME_OUT);
     }
 
@@ -173,7 +206,7 @@ public class SplashActivity extends Activity {
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
         switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL:
+            case MULTIPLE_PERMISSIONS:
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
