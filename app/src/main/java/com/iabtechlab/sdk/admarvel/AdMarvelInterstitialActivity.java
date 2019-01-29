@@ -16,10 +16,7 @@ import com.admarvel.android.ads.AdMarvelInterstitialAds.AdMarvelInterstitialAdLi
 import com.admarvel.android.ads.AdMarvelUtils;
 import com.admarvel.android.ads.AdMarvelUtils.ErrorReason;
 import com.admarvel.android.ads.AdMarvelUtils.SDKAdNetwork;
-import com.admarvel.android.ads.AdMarvelVideoActivity;
 import com.iabtechlab.R;
-import com.iabtechlab.utility.HelperMessage;
-import com.iabtechlab.utility.HelperMethods;
 import com.iabtechlab.utility.IntentKey;
 
 import java.util.HashMap;
@@ -35,12 +32,8 @@ public class AdMarvelInterstitialActivity extends Activity implements
     private String _partnerId = "1dd21b33bd603c95";
     private AdMarvelInterstitialAds adMarvelInterstitialAds;
     private AdMarvelActivity adMarvelActivity = null;
-    private AdMarvelVideoActivity adMarvelVideoActivity = null;
-    private SDKAdNetwork sdkAdNetwork;
-    private String pubId;
-    private AdMarvelAd adMarvelAd;
-    private Timer requestIntervalTimer;
 
+    private Timer requestIntervalTimer;
 
     private TextView header_text;
     private Runnable TimerRunnable = new Runnable() {
@@ -95,31 +88,18 @@ public class AdMarvelInterstitialActivity extends Activity implements
         AdMarvelUtils.initialize(this, publisherIds);
 
         // Enabling logs (optional)
-        AdMarvelUtils.enableLogging(true);
+        // AdMarvelUtils.enableLogging(true);
 
         if (Build.VERSION.SDK_INT >= 19) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
 
-
         adMarvelInterstitialAds = new AdMarvelInterstitialAds(
                 getApplicationContext(), 0, 0x726D6D, 0x00FF00,
                 0x000000);
 
-        AdMarvelUtils.isNetworkAvailable(null);
-        AdMarvelUtils.setPreferenceValueBoolean(null, "", "", false);
-        AdMarvelUtils.setPreferenceValueInt(null, "", "", 0);
-        AdMarvelUtils.setPreferenceValueLong(null, "", "", 0);
-        AdMarvelUtils.setPreferenceValueString(null, "", "", "");
-        AdMarvelUtils.reportAdMarvelAdHistory(null);
-        AdMarvelUtils.reportAdMarvelAdHistory(0, null);
-        AdMarvelUtils.isTabletDevice(null);
-
-        setResult();
 
         getAd();
-        AdmarvelInterface admarvelInterface = new AdmarvelInterface(this);
-
 
     }
 
@@ -127,22 +107,16 @@ public class AdMarvelInterstitialActivity extends Activity implements
 
         Map<String, Object> targetParams = new HashMap<String, Object>();
 
-        targetParams.put("GEOLOCATION",
-                "42.253387,-83.6874026");
-        targetParams.put("test", "bt_inapp");
-        targetParams.put("case", "30");
+
         targetParams.put("AD_HTML", getIntent().getStringExtra(IntentKey.SCRIPT));
-
-
-        AdMarvelInterstitialAds
+        adMarvelInterstitialAds
                 .setListener(AdMarvelInterstitialActivity.this);
-        AdMarvelInterstitialAds.setEnableClickRedirect(true);
-        AdMarvelInterstitialActivity.this.adMarvelInterstitialAds
-                .requestNewInterstitialAd(
-                        AdMarvelInterstitialActivity.this,
-                        targetParams, _partnerId,
-                        _siteId,
-                        AdMarvelInterstitialActivity.this);
+
+
+        adMarvelInterstitialAds.requestNewInterstitialAd(AdMarvelInterstitialActivity.this, targetParams, _partnerId, _siteId);
+
+        adMarvelInterstitialAds.setEnableClickRedirect(true);
+        setResult();
 
     }
 
@@ -151,93 +125,55 @@ public class AdMarvelInterstitialActivity extends Activity implements
         super.onDestroy();
     }
 
-    @Override
-    public void onRequestInterstitialAd() {
-        Log.e("admarvel", "onRequestInterstitialAd");
-
-    }
-
-    @Override
-    public void onReceiveInterstitialAd(SDKAdNetwork sdkAdNetwork,
-                                        String publisherid, AdMarvelAd adMarvelAd) {
-        AdMarvelInterstitialAds
-                .setListener(null);
-
-        Log.e("admarvel", "onReceiveInterstitialAd");
-        this.sdkAdNetwork = sdkAdNetwork;
-        this.pubId = publisherid;
-        this.adMarvelAd = adMarvelAd;
-
-        // this.displayIntBtn.setEnabled( true );
-
-        displayAdd();
-    }
-
-    private void displayAdd() {
-        boolean isDisplaySuccesss = adMarvelInterstitialAds.displayInterstitial(
-                AdMarvelInterstitialActivity.this,
-                sdkAdNetwork, pubId, adMarvelAd);
-
-        Log.e("admarvel", "isDisplaySuccesss : " + isDisplaySuccesss);
-
-    }
-
     private void setResult() {
         setResult(Activity.RESULT_OK);
     }
 
-
     @Override
-    public void onFailedToReceiveInterstitialAd(SDKAdNetwork sdkAdNetwork,
-                                                String publisherid, int errorCode, ErrorReason errorReason) {
-        AdMarvelInterstitialAds
-                .setListener(null);
-        Log.e("admarvel", "onFailedToReceiveInterstitialAd; errorCode: "
-                + errorCode + " errorReason: " + errorReason.toString());
-        HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.MESSAGE_AD_LOAD_FAILED, AdMarvelInterstitialActivity.this);
+    public void onRequestInterstitialAd(AdMarvelInterstitialAds adMarvelInterstitialAds) {
 
     }
 
     @Override
-    public void onCloseInterstitialAd() {
-        Log.e("admarvel", "onCloseInterstitialAd");
+    public void onReceiveInterstitialAd(SDKAdNetwork sdkAdNetwork, AdMarvelInterstitialAds adMarvelInterstitialAds, AdMarvelAd adMarvelAd) {
+        if (adMarvelInterstitialAds.isInterstitialAdAvailable()) {
+            boolean isDisplayed = adMarvelInterstitialAds.displayInterstitial(this, sdkAdNetwork, adMarvelAd);
+        }
+
+    }
+
+    @Override
+    public void onFailedToReceiveInterstitialAd(SDKAdNetwork sdkAdNetwork, AdMarvelInterstitialAds adMarvelInterstitialAds, int i, ErrorReason errorReason) {
+        Log.e("admarvel", "onFailedToReceiveInterstitialAd");
+    }
+
+    @Override
+    public void onCloseInterstitialAd(AdMarvelInterstitialAds adMarvelInterstitialAds) {
+
         if (this.adMarvelActivity != null) {
             this.adMarvelActivity.finish();
-            this.adMarvelActivity = null;
-        } else if (this.adMarvelVideoActivity != null) {
-            this.adMarvelVideoActivity.finish();
-            this.adMarvelVideoActivity = null;
         }
+    }
+
+    @Override
+    public void onAdmarvelActivityLaunched(AdMarvelActivity adMarvelActivity, AdMarvelInterstitialAds adMarvelInterstitialAds) {
+
+        this.adMarvelActivity = adMarvelActivity;
+    }
+
+    @Override
+    public void onClickInterstitialAd(String s, AdMarvelInterstitialAds adMarvelInterstitialAds) {
 
     }
 
     @Override
-    public void onAdmarvelActivityLaunched(AdMarvelActivity a) {
-        Log.e("admarvel", "onAdmarvelActivityLaunched");
-        this.adMarvelActivity = a;
+    public void onInterstitialDisplayed(AdMarvelInterstitialAds adMarvelInterstitialAds) {
 
     }
 
     @Override
-    public void onAdMarvelVideoActivityLaunched(AdMarvelVideoActivity a) {
-        Log.e("admarvel", "onAdmarvelVideoActivityLaunched");
-        this.adMarvelVideoActivity = a;
-    }
-
-    @Override
-    public void onClickInterstitialAd(String clickUrl) {
-        if (clickUrl != null) {
-            Log.e("admarvel", "InterstitialClickUrl: " + clickUrl);
-        }
-
+    public void onInterstitialAdUnloaded(AdMarvelInterstitialAds adMarvelInterstitialAds) {
 
     }
-
-    @Override
-    public void onInterstitialDisplayed() {
-        Log.e("admarvel", "onInterstitialDisplayed");
-
-    }
-
 
 }

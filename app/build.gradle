@@ -24,14 +24,23 @@ android {
             storePassword 'pass@123'
         }
     }*/
+    signingConfigs {
+        Release {
+            keyAlias 'iab'
+            keyPassword 'pass@123'
+            storeFile file('/home/claritus/Desktop/Beanstalk/iab-github/mraidadtester-android-mobileapp/app/iab.jks')
+            storePassword 'pass@123'
+        }
+    }
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId 'com.iabtechlab'
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName '1.0.1'
+        signingConfig signingConfigs.Release
     }
     buildTypes {
         release {
@@ -91,21 +100,4 @@ dependencies {
     }
     // Unit testing dependencies
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
-   /* testImplementation 'junit:junit:4.12'
-    // Set this dependency if you want to use Mockito
-    testImplementation 'org.mockito:mockito-core:1.10.19'
-    // Set this dependency if you want to use Hamcrest matching
-    testImplementation 'org.hamcrest:hamcrest-library:1.1+'
-    testImplementation 'com.squareup.assertj:assertj-android:1.1.0'
-    *//*  testCompile 'org.robolectric:robolectric:3.0'
-
-                                // NOTE: Do not place your application dependencies here; they belong
-                                // in the individual module build.gradle files
-                                testCompile 'junit:junit:4.12'
-                                testCompile 'junit:junit:4.12'*//*
-    // Robolectric
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.robolectric:shadows-support-v4:3.0-rc2'
-    testImplementation 'org.robolectric:robolectric:3.0-rc2'*/
-
 }
