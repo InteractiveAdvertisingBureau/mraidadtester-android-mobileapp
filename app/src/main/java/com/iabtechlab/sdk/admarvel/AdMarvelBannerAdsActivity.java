@@ -14,7 +14,7 @@ import com.admarvel.android.ads.AdMarvelUtils.ErrorReason;
 import com.admarvel.android.ads.AdMarvelUtils.SDKAdNetwork;
 import com.admarvel.android.ads.AdMarvelView;
 import com.admarvel.android.ads.AdMarvelView.AdMarvelViewListener;
-import com.admarvel.android.util.Logging;
+
 import com.iabtechlab.R;
 import com.iabtechlab.utility.HelperMessage;
 import com.iabtechlab.utility.HelperMethods;
@@ -28,14 +28,8 @@ import java.util.TimerTask;
 public class AdMarvelBannerAdsActivity extends Activity implements
         OnCheckedChangeListener {
 
-    private static final String KEYWORDS = "KEYWORDS";
-    private static final String FANTASY = "fantasy";
-    private static final String POSTAL_CODE = "POSTAL_CODE";
-    private static final String POSTAL_CODE_VAL = "64106";
-    private static final String AGE = "AGE";
-    private static final String AGE_VAL = "12";
+
     private final int REQUEST_INTERVAL = 20000;
-    private String TAG = "AdMarvelBannerAdsDemoActivity";
     private String _siteId = "125546";// "38722";//"35961";
     private String _partnerId = "1dd21b33bd603c95";
     private Timer requestIntervalTimer;
@@ -111,61 +105,53 @@ public class AdMarvelBannerAdsActivity extends Activity implements
             getAd();
 
         } catch (Exception e) {
-            Logging.log(e.getStackTrace().toString());
+           Log.e("Exception" ,""+e.getMessage());
         }
 
 
         setResult();
 
         adMarvelView.setListener(new AdMarvelViewListener() {
+            @Override
             public void onReceiveAd(AdMarvelView adMarvelView) {
-                Logging.log("onReceiveAd");
-                // adMarvelView.focus();
-                // loadingLayout.setVisibility( View.INVISIBLE );
-                // ll. addView ( adMarvelView );
                 adMarvelView.setVisibility(View.VISIBLE);
-
             }
 
-
-            public void onFailedToReceiveAd(AdMarvelView adMarvelView,
-                                            int errorCode, ErrorReason errorReason) {
-                Logging.log("onFailedToReceiveAd");
-                // loadingLayout.setVisibility(View.INVISIBLE );
-
-                Log.e("errorReason", errorReason.toString());
+            @Override
+            public void onFailedToReceiveAd(AdMarvelView adMarvelView, int i, ErrorReason errorReason) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         HelperMethods.openAlert(getResources().getString(R.string.app_name), HelperMessage.MESSAGE_AD_LOAD_FAILED, AdMarvelBannerAdsActivity.this);
                     }
                 });
+            }
+
+            @Override
+            public void onClickAd(AdMarvelView adMarvelView, String s) {
 
             }
 
-            public void onClickAd(AdMarvelView adMarvelView, String clickUrl) {
-                Logging.log("onClickAd: " + clickUrl);
-
-            }
-
+            @Override
             public void onRequestAd(AdMarvelView adMarvelView) {
-                Logging.log("onRequestAd");
-
                 LinearLayout.LayoutParams rlp = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         100);
                 adMarvelView.setLayoutParams(rlp);
+            }
+
+            @Override
+            public void onExpand(AdMarvelView adMarvelView) {
 
             }
 
-            public void onExpand() {
-                Logging.log("onExpand");
+            @Override
+            public void onClose(AdMarvelView adMarvelView) {
 
             }
 
-            public void onClose() {
-                Log.e(TAG, "onClose");
-
+            @Override
+            public void onAdUnloaded(AdMarvelView adMarvelView) {
 
             }
         });
@@ -180,29 +166,14 @@ public class AdMarvelBannerAdsActivity extends Activity implements
 
         try {
             Map<String, Object> targetParams = new HashMap<String, Object>();
-		 /*   targetParams.put( KEYWORDS , FANTASY );
-		    targetParams.put( POSTAL_CODE , POSTAL_CODE_VAL );
-		    targetParams.put( AGE , AGE_VAL );
-		    targetParams.put( "case" , "21" );
-		    targetParams.put( "case" , "105" );
-		*/
             targetParams.put("AD_HTML", getIntent().getStringExtra(IntentKey.SCRIPT));
-
-
             adMarvelView.setDisableAnimation(false);
-
             adMarvelView.requestNewAd(targetParams, _partnerId,
                     _siteId, AdMarvelBannerAdsActivity.this);
-		    
-		   
-		    
-		/*    adMarvelView.requestNewAd( targetParams , "1dd21b33bd603c95" ,
-				    "125546" , AdMarvelBannerAdsDemoActivity.this );
-		    */
 
 
         } catch (Exception e) {
-            Logging.log(e.getStackTrace().toString());
+            Log.e("errorReason", e.toString());
         }
 
     }
@@ -214,7 +185,6 @@ public class AdMarvelBannerAdsActivity extends Activity implements
 
     @Override
     protected void onResume() {
-        // TODO Auto-generated method stub
         super.onResume();
 
         try {
@@ -222,13 +192,12 @@ public class AdMarvelBannerAdsActivity extends Activity implements
             adMarvelView.resume(this);
 
         } catch (Exception e) {
-            Logging.log(e.getStackTrace().toString());
+            Log.e("errorReason", e.toString());
         }
     }
 
     @Override
     protected void onPause() {
-        // TODO Auto-generated method stub
         super.onPause();
 
         try {
@@ -237,7 +206,7 @@ public class AdMarvelBannerAdsActivity extends Activity implements
             adMarvelView.pause(this);
 
         } catch (Exception e) {
-            Logging.log(e.getStackTrace().toString());
+            Log.e("errorReason", e.toString());
         }
     }
 

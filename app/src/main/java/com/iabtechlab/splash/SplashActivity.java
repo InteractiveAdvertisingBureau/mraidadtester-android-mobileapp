@@ -57,7 +57,7 @@ public class SplashActivity extends Activity {
             Manifest.permission.NFC,
             Manifest.permission.READ_PHONE_STATE,
             Manifest.permission.RECORD_AUDIO,
-            Manifest.permission.ACCESS_FINE_LOCATION,
+//            Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.BLUETOOTH
     };
 
