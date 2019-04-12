@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: :advertising-sdk-2.12.0:@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/advertising-sdk-2.12.0.aar/7cac23e2e8f07bd600e73d9960fadd3a/jars/libs/headerbidding.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/advertising-sdk-2.12.0.aar/7cac23e2e8f07bd600e73d9960fadd3a/jars/libs/awaitility-1.6.3.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/advertising-sdk-2.12.0.aar/7cac23e2e8f07bd600e73d9960fadd3a/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/advertising-sdk-2.12.0.aar/7cac23e2e8f07bd600e73d9960fadd3a/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

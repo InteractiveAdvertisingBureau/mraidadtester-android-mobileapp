@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: :SmartAdServer-Android-SDK-6.9:@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/SmartAdServer-Android-SDK-6.9.aar/a90067ea74ff359c27b5665e97a9c2c3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/SmartAdServer-Android-SDK-6.9.aar/a90067ea74ff359c27b5665e97a9c2c3/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
